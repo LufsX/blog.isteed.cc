@@ -1,0 +1,720 @@
+<!DOCTYPE html>
+
+<html lang="zh-CN">
+    <head>
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
+    <!--
+        hexo-theme-suka © SukkaW
+        GitHub: https://github.com/SukkaW/hexo-theme-suka
+    -->
+
+    <!-- ### Resource Hint ### -->
+
+    <!-- ## DNS Prefetch ## -->
+    <meta http-equiv="x-dns-prefetch-control" content="on">
+
+<!-- busuanzi -->
+
+    <link rel="dns-prefetch" href="//busuanzi.ibruce.info">
+
+
+<!-- comment -->
+
+
+
+
+
+
+    <link rel="dns-prefetch" href="//cdn1.lncld.net">
+
+
+<!-- analytics -->
+
+
+    <link rel="dns-prefetch" href="//www.google-analytics.com">
+
+
+
+
+
+
+    <!-- ## Preload ## -->
+    
+    <!-- Busuanzi -->
+    
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/busuanzi@2.3.0/bsz.pure.mini.js" as="script">
+
+
+
+
+
+
+
+    <!-- ### Meta & Title & Info ### -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, maximum-scale=5, viewport-fit=cover">
+    <meta name="renderer" content="webkit">
+
+    <!-- Title -->
+    <title>Pixel 2 在 Android 10 破解电信 | Lufs&#39;s Blog</title>
+
+    <!-- Favicons -->
+    <link rel="apple-touch-icon" sizes="180x180" href="/img/apple-touch-icon.png"><link rel="icon" typt="image&#x2F;png" sizes="32x32" href="/img/favicon-32x32.png"><link rel="icon" typt="image&#x2F;png" sizes="16x16" href="/img/favicon-16x16.png"><meta name="theme-color" content="rgba(129,199,212,0.2)">
+
+    <!-- ### Import File ### -->
+    <link rel="stylesheet" href="/lib/spectre/spectre.min.css"><style>
+    body {
+        background-color: rgba(129,199,212,0.2);
+    }
+
+    a, a:visited {
+        color: rgba(203,64,66,0.8);
+    }
+
+    a:active, a:focus, a:hover {
+        color: rgba(203,64,66,0.8);
+        opacity: .75;
+    }
+
+    #post-content a,
+    #post-content a:hover,
+    #post-content a:focus,
+    #post-content a:visited {
+        color: rgba(203,64,66,0.8);
+        opacity: 1;
+    }
+
+    
+
+    .post-entry .card-body a {
+        color: rgba(203,64,66,1);
+    }
+
+    .avatar {
+        background: rgba(203,64,66,1);
+    }
+
+    .navbar-link,
+    .navbar-link:visited,
+    .timeline .timeline-item .timeline-icon.icon-lg {
+        color: rgba(203,64,66,1);
+    }
+
+    .navbar-link:hover {
+        color: rgba(203,64,66,1);
+        opacity: .8;
+    }
+
+    #search-input .btn,
+    #disqus_click_btn,
+    #disqus-switch-to-direct,
+    #disqus-loadmore-button {
+        background: rgba(203,64,66,1);
+        border-color: rgba(203,64,66,1);
+        color: #fff;
+    }
+
+    #post-toc a.post-toc-link,
+    #post-toc a.post-toc-link:visited,
+    .share-menu.menu .menu-item>a {
+        color: rgba(203,64,66,1);
+    }
+
+    .share-menu.menu .menu-item>a:hover,
+    .share-menu.menu .menu-item>a:focus,
+    .share-menu.menu .menu-item>a:visited {
+        color: #50596c;
+        background: rgba(129,199,212,0.2);
+        opacity: .85;
+    }
+</style><link rel="stylesheet" href="/css/style.min.css">
+
+
+
+
+
+
+
+
+    <!-- Prettify Theme -->
+    
+    <link rel="preload" href="/css/highlight/github.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'"><noscript><link rel="stylesheet" href="/css/highlight/github.min.css"></noscript>
+
+
+
+
+
+<script>
+/*! loadCSS. [c]2017 Filament Group, Inc. MIT License */
+!function(t){"use strict";t.loadCSS||(t.loadCSS=function(){});var e=loadCSS.relpreload={};if(e.support=function(){var e;try{e=t.document.createElement("link").relList.supports("preload")}catch(t){e=!1}return function(){return e}}(),e.bindMediaToggle=function(t){var e=t.media||"all";function a(){t.addEventListener?t.removeEventListener("load",a):t.attachEvent&&t.detachEvent("onload",a),t.setAttribute("onload",null),t.media=e}t.addEventListener?t.addEventListener("load",a):t.attachEvent&&t.attachEvent("onload",a),setTimeout(function(){t.rel="stylesheet",t.media="only x"}),setTimeout(a,3e3)},e.poly=function(){if(!e.support())for(var a=t.document.getElementsByTagName("link"),n=0;n<a.length;n++){var o=a[n];"preload"!==o.rel||"style"!==o.getAttribute("as")||o.getAttribute("data-loadcss")||(o.setAttribute("data-loadcss",!0),e.bindMediaToggle(o))}},!e.support()){e.poly();var a=t.setInterval(e.poly,500);t.addEventListener?t.addEventListener("load",function(){e.poly(),t.clearInterval(a)}):t.attachEvent&&t.attachEvent("onload",function(){e.poly(),t.clearInterval(a)})}"undefined"!=typeof exports?exports.loadCSS=loadCSS:t.loadCSS=loadCSS}("undefined"!=typeof global?global:this);
+</script>
+
+    <!-- ### Site Verification ### -->
+    
+
+
+    <meta name="mobile-web-app-capable" content="yes"><meta name="application-name" content="Lufs's Blog"><meta name="msapplication-starturl" content="https://isteed.cc"><meta name="msapplication-navbutton-color" content="rgba(129,199,212,0.2)"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="Lufs's Blog"><meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"><link rel="manifest" href="/manifest.json">
+
+    <!-- ### The Open Graph & Twitter Card Protocol ### -->
+    <meta property="og:title" content="Pixel 2 在 Android 10 破解电信 | Lufs&#39;s Blog"><meta property="og:site_name" content="Lufs&#39;s Blog"><meta property="og:type" content="article"><meta property="og:url" content="https://isteed.cc/posts/4291184207/"><meta property="og:locale" content="zh-CN"><meta name="description" content="Pixel 2 在 Android 10 破解电信过程记录： - Lufs - Lufs&#39;s Blog"><meta name="keywords" content="Pixel2, Android10, 电信"><meta property="og:image" content="https://i.loli.net/2019/11/29/KRS53ciYanAtemB.png"><meta property="og:image" content="https://i.loli.net/2019/11/29/nJVl9uqEpaPv31r.png"><meta property="og:image" content="https://i.loli.net/2019/11/29/ZTDMHzpbVILEUWr.png"><meta property="og:image" content="https://i.loli.net/2019/12/01/Imv653YrhNZUctP.png"><meta property="og:image" content="https://i.loli.net/2019/12/01/HcOmIjSM19VnxNw.png"><meta property="og:image" content="https://i.loli.net/2019/12/01/yuY25FqmPKVQbJx.png"><meta property="og:image" content="https://i.loli.net/2019/12/01/EJokjgRf5Dl7S4B.png"><meta property="og:image" content="https://i.loli.net/2019/11/30/ZQx6rTNioV4E8hA.png"><meta property="article:published_time" content="2019-11-29T15:17:45.000Z"><meta property="article:modified_time" content="2020-01-20T08:38:14.171Z"><meta property="og:updated_time" content="2020-01-20T08:38:14.171Z"><meta property="article:author" content="Lufs"><meta property="article:tag" content="Pixel2, Android10, 电信"><meta name="twitter:card" content="summary">
+
+    
+
+    <!-- ### Canonical link ### -->
+    <link rel="canonical" href="https://isteed.cc/posts/4291184207/">
+
+    <meta name="generator" content="Hexo 4.2.0">
+
+    <!-- ### Analytics ### -->
+    
+    <!-- Google Analytics -->
+<script>
+    window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+    ga('create', 'UA-139861604-1', 'auto');
+    ga('send', 'pageview');
+</script>
+<script async src="https://www.google-analytics.com/analytics.js"></script>
+
+
+
+
+
+
+
+
+
+    <!-- ### Structured Data ### -->
+    
+
+
+
+<script type="application/ld+json">
+{
+    "@context": "http://schema.org",
+    "url": "https://isteed.cc/posts/4291184207/",
+    "@type": "BlogPosting",
+    "logo": "https://isteed.cc/img/apple-touch-icon.png",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://isteed.cc/posts/4291184207/"
+    },
+    "headline": "Pixel 2 在 Android 10 破解电信 | Lufs&#39;s Blog",
+    
+    "image": {
+        "@type": "ImageObject",
+        "url": "https://isteed.cc/img/apple-touch-icon.png"
+    },
+    
+    "datePublished": "2019-11-29T15:17:45.000Z",
+    "dateModified": "2020-01-20T08:38:14.171Z",
+    "author": {
+        "@type": "Person",
+        "name": "Lufs",
+        "image": {
+            "@type": "ImageObject",
+            "url": "https://isteed.cc/img/avatar.png"
+        },
+        "description": "Life feeds on negative entropy"
+    },
+    "publisher": {
+        "@type": "Organization",
+        "name": "Lufs&#39;s Blog",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "https://isteed.cc/img/apple-touch-icon.png"
+        }
+    },
+    
+    "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://isteed.cc/search?s={search_term_string}",
+        "query-input": "required name=search_term_string"
+    },
+    
+    "keywords": "Pixel2, Android10, 电信",
+    "description": "Pixel 2 在 Android 10 破解电信过程记录： - Lufs - Lufs&#39;s Blog"
+}
+</script>
+
+
+
+    <!-- ### Custom Head ### --><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+    
+</head>
+
+    <body>
+            
+
+            <!-- hexo-inject:begin --><!-- hexo-inject:end --><!-- ### Main content ### -->
+            <!-- ## Header ##-->
+<header>
+    <h1 class="header-title text-center"><a href="/">Lufs&#39;s Blog</a></h1>
+
+    <p class="text-center header-slogan">
+        
+            
+                Life feeds on negative entropy
+            
+        
+    </p>
+
+    <nav class="navbar-section text-center">
+    
+        <a href="/" class="navbar-link">首页</a>
+    
+    
+        <a href="/archives/" class="navbar-link">归档</a>
+    
+    
+        <a href="/search" class="navbar-link">搜索</a>
+    
+    
+        <a href="/about/" class="navbar-link">关于</a>
+    
+        <a href="/welfare/" class="navbar-link">福利</a>
+    
+    
+        <div class="dropdown dropdown-right">
+    <a class="navbar-link dropdown-toggle" tabindex="0">分享</a>
+    <ul class="menu share-menu">
+
+        <!-- Share Weibo -->
+        
+        <li class="menu-item">
+            <a href="http://service.weibo.com/share/share.php?appkey=&title=Lufs's Blog&url=https://isteed.cc&pic=https://isteed.cc/img/apple-touch-icon.png&searchPic=false&style=simple" target="_blank" rel="external noopener noreferrer nofollow">分享到微博</a>
+        </li>
+        
+
+        <!-- Share Twitter -->
+        
+        <li class="menu-item">
+            <a href="https://twitter.com/intent/tweet?text=Lufs's Blog&url=https://isteed.cc&via=Lufs" target="_blank" rel="external noopener noreferrer nofollow">分享到 Twitter</a>
+        </li>
+        
+
+        <!-- Share Facebook -->
+        
+        <li class="menu-item">
+            <a href="https://www.facebook.com/sharer/sharer.php?u=https://isteed.cc" target="_blank" rel="external noopener noreferrer nofollow">分享到 Facebook</a>
+        </li>
+        
+
+        <!-- Share Google+ -->
+        
+        <li class="menu-item">
+            <a href="https://plus.google.com/share?url=https://isteed.cc" target="_blank" rel="external noopener noreferrer nofollow">分享到 Google+</a>
+        </li>
+        
+
+        <!-- Share LinkedIn -->
+        
+        <li class="menu-item">
+            <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://isteed.cc&title=404 Not Found：该页无法显示" target="_blank" rel="external noopener noreferrer nofollow">分享到 LinkedIn</a>
+        </li>
+        
+
+        <!-- Share QQ -->
+        
+        <li class="menu-item">
+            <a href="http://connect.qq.com/widget/shareqq/index.html?site=Lufs's Blog&title=404 Not Found：该页无法显示&summary=Life feeds on negative entropy&pics=https://isteed.cc/img/apple-touch-icon.png&url=https://isteed.cc" target="_blank" rel="external noopener noreferrer nofollow"> 分享到 QQ</a>
+        </li>
+        
+
+        <!-- Share Telegram -->
+        
+        <li class="menu-item">
+            <a href="https://t.me/share/url?url=https://isteed.cc&text=404 Not Found：该页无法显示" target="_blank" rel="external noopener noreferrer nofollow">分享到 Telegram</a>
+        </li>
+        
+
+        <!-- QRCode -->
+        
+        <li class="menu-item">
+            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAHQAAAB0CAAAAABx8Un7AAABJ0lEQVR42u3ayw6CQAyFYd7/pXVLtJdTYA6z+NmoYOYjsem0xePzwnGAgoJeQo/i+L1+/vy3YLMOqBcNf/QACRc6XavWAfWjUcBEQRIFjbwO6BZoh49uHnQLNEsUUeIA3QstE3URTKN1QG1oV5ipr49Wg6CX0bbpaTbrJV0b6C1ULaqzBDDaIEAtaAYqzVR2LrtJUA/aDTeUJlhNGKAetCqU04AQN3DQd9Bu8BiB1bly0AVqQdsvJu+vNFagXnSSIKpNvywGQC3oJFCy5mocSKBLUbUZVrDbgw7QpeiTRRuoF1UHkkohNqoGQZeiXQA9sdmD+tHJg/hJQwy6H6okDHnwBboNOmmiRg0U6FK0eoCuDK+UP7qB+tA7hZnSRIF6UecBCgo6Or404dHilLzvLgAAAABJRU5ErkJggg==" alr="QRCode">
+        </li>
+        
+
+    </ul>
+</div>
+    
+    
+</nav>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css" integrity="sha384-zB1R0rpPzHqg7Kpt0Aljp8JPLqbXI3bhnPWROx27a9N0Ll6ZP/+DiW/UqRcLbRjq" crossorigin="anonymous">
+
+    <!-- The loading of KaTeX is deferred to speed up page rendering -->
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.js" integrity="sha384-y23I5Q6l+B6vatafAwxRu/0oK/79VlbSz7Q9aiSZUvyWYIYsd+qj+o24G5ZU2zJz" crossorigin="anonymous"></script>
+
+    <!-- To automatically render math in text elements, include the auto-render extension: -->
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/auto-render.min.js" integrity="sha384-kWPLUVMOks5AQFrykwIup5lo0m3iMkkHrD0uJ4H5cjeGihAutqP0yW0J6dpFiVkI" crossorigin="anonymous"
+        onload="renderMathInElement(document.body);"></script>
+</header>
+
+            
+    <!-- ## Post ## -->
+    <div class="post-container">
+    <div id="post-card" class="card">
+        
+        <div class="card-item-container">
+            <div class="card-inner-cell">
+                <!-- # Post Header Info # -->
+                <div class="card-header">
+                    
+    <h1 class="card-title h3 mb-2">Pixel 2 在 Android 10 破解电信</h1>
+
+
+
+
+<div class="post-header-info">
+    <p class="post-header-info-left text-gray">
+        <img class="author-thumb lazyload" data-src="/img/avatar.png" src="/img/suka-lazyload.gif" alt="Lufs's Avatar">
+        <span>2019-11-29</span>
+        
+            <span class="suka-devide-dot"></span>
+            <a class="category-link" href="/categories/Android/">Android</a>
+        
+        
+            <!-- Busuanzi Post Views -->
+<span id="busuanzi_container_page_pv" hidden>
+    <span class="suka-devide-dot"></span>
+    <span></span>
+    <span id="busuanzi_value_page_pv"></span>
+    <span>Views</span>
+</span>
+        
+        
+    </p>
+    <div class="post-header-info-right">
+        
+            <div class="dropdown dropdown-right">
+<a class="dropdown-toggle" tabindex="0">分享本文</a>
+<ul class="menu share-menu">
+    <!-- Share Weibo -->
+    
+    <li class="menu-item">
+        <a href="http://service.weibo.com/share/share.php?appkey=&title=Pixel 2 在 Android 10 破解电信&url=https://isteed.cc/posts/4291184207/&pic=https://isteed.cc/img/apple-touch-icon.png&searchPic=false&style=simple" target="_blank" rel="external noopener noreferrer nofollow">分享到微博</a>
+    </li>
+    
+
+    <!-- Share Twitter -->
+    
+    <li class="menu-item">
+        <a href="https://twitter.com/intent/tweet?text=Pixel 2 在 Android 10 破解电信&url=https://isteed.cc/posts/4291184207/&via=Lufs" target="_blank" rel="external noopener noreferrer nofollow">分享到 Twitter</a>
+    </li>
+    
+
+    <!-- Share Facebook -->
+    
+    <li class="menu-item">
+        <a href="https://www.facebook.com/sharer/sharer.php?u=https://isteed.cc/posts/4291184207/" target="_blank" rel="external noopener noreferrer nofollow">分享到 Facebook</a>
+    </li>
+    
+
+    <!-- Share Google+ -->
+    
+    <li class="menu-item">
+        <a href="https://plus.google.com/share?url=https://isteed.cc/posts/4291184207/" target="_blank" rel="external noopener noreferrer nofollow">分享到 Google+</a>
+    </li>
+    
+
+    <!-- Share LinkedIn -->
+    
+    <li class="menu-item">
+        <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://isteed.cc/posts/4291184207/&title=Lufs's Blog" target="_blank" rel="external noopener noreferrer nofollow">分享到 LinkedIn</a>
+    </li>
+    
+
+    <!-- Share QQ -->
+    
+    <li class="menu-item">
+        <a href="http://connect.qq.com/widget/shareqq/index.html?site=Lufs's Blog&title=Lufs's Blog&summary=Life feeds on negative entropy&pics=https://isteed.cc/img/apple-touch-icon.png&url=https://isteed.cc/posts/4291184207/" target="_blank" rel="external noopener noreferrer nofollow"> 分享到 QQ</a>
+    </li>
+    
+
+    <!-- Share Telegram -->
+    
+    <li class="menu-item">
+        <a href="https://t.me/share/url?url=https://isteed.cc/posts/4291184207/&text=Lufs's Blog" target="_blank" rel="external noopener noreferrer nofollow">分享到 Telegram</a>
+    </li>
+    
+
+    <!-- QRCode -->
+    
+    <li class="menu-item">
+        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIQAAACECAAAAAB0L9x7AAABhUlEQVR42u3a0Y7CMAxE0f7/T7NPK8Fq7RmnpUzQ7QsCSnqQrNhOcjwCrgMECBBbII7m+v3+72t1z8sDxLggshH/Bs3zzdUgAiHHBRGNWAnIDqPGBbEvogtA514Q34l4/r76rAOC2BNRJZoq+NxJ7pIsCuJ2xLTQdV/fWm2DeBvCalzFRFRNZpd25SBuQ7gJy2mAKmw56YGIRaiBp02zUwSByEW4hWsXoKcbYhBxCGfxowoyFZztHwIRi3AW0Lv3XaFrNT8gohDOj9Vi2CVZFEQUopuIziyWyOIXRCRiksBU4etuxoHYB6EaG7XZ4iyYyMAEEYNQD3Mb526stiEGEYNwbnYXzt3FFBDZiOlBDDfwnCQHIhMxecB0AVYeAgARiXCL1Uky64ropc1ZELciJhv2K43zqCsHEYNY2WRzDgDJJgpENGJyALBriFWQg/gORDWQOuShChsQeyKcQGsP+V0xWYH4CMJJYN1vnOQmDwCCiEGcDb4JYrnaBnEb4pMXCBAgohE/FRxpydgtuLQAAAAASUVORK5CYII=" alt="QRCode">
+    </li>
+    
+
+</ul>
+</div>
+        
+    </div>
+</div>
+                </div>
+                <div class="card-body">
+                    
+                        
+                        
+                            <div id="post-toc"><ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#准备"><span class="post-toc-number">1.</span> <span class="post-toc-text"> 准备</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#手机端准备"><span class="post-toc-number">1.1.</span> <span class="post-toc-text"> 手机端准备</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#电脑端准备"><span class="post-toc-number">1.2.</span> <span class="post-toc-text"> 电脑端准备</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#破解电信"><span class="post-toc-number">2.</span> <span class="post-toc-text"> 破解电信…</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#注意"><span class="post-toc-number">2.1.</span> <span class="post-toc-text"> 注意</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#原帖链接"><span class="post-toc-number">3.</span> <span class="post-toc-text"> 原帖链接</span></a></li></ol></div>
+                        
+                    
+                    <article id="post-content">
+                        <p>Pixel 2 在 Android 10 破解电信过程记录：</p>
+<a id="more"></a>
+<p>需要资源：<br />
+<a href="http://t.cn/Aigo5YZd" target="_blank" rel="noopener">点击以下载所需文件（蓝奏云）</a></p>
+<hr />
+<p><a href="https://pan.isteed.cc/Pixel2/crack_ct/" target="_blank" rel="noopener">点击以下载所需文件（OneDrive）</a></p>
+<p><strong>注意⚠</strong>：本资源内为电信配置文件</p>
+<h1 id="准备"><a class="markdownIt-Anchor" href="#准备"></a> 准备</h1>
+<h2 id="手机端准备"><a class="markdownIt-Anchor" href="#手机端准备"></a> 手机端准备</h2>
+<p>在 TWRP 内刷入 <code>Magisk-v19.0_Taimen_Diag.zip</code> 与 <code>Pixel_2_Diag_Port.zip</code><br />
+<img src="https://i.loli.net/2019/11/29/KRS53ciYanAtemB.png" alt="" /><br />
+<code>Magisk-v19.0_Taimen_Diag.zip</code> Pixel 2/2XL 都可用，安装 <code>Pixel_2_Diag_Port.zip</code> 模块后重启以确保其生效</p>
+<h2 id="电脑端准备"><a class="markdownIt-Anchor" href="#电脑端准备"></a> 电脑端准备</h2>
+<p><s>卸载各类某某安全管家以确保顺利安装</s><br />
+下载 <code>mbn.zip</code> 、<code>Qualcomm_Diag_QD_Loader_2016_driver.exe</code> 、 <code>QPST_2.7.474.zip</code><br />
+解压 <code>mbn.zip</code> 得到<code>hvolte_o.mbn</code> 和 <code>volte_op.mbn</code> 备用（文件为电信运营商的 VoLTE 配置文件）<br />
+解压 <code>QPST_2.7.474.zip</code> 并安装<br />
+<img src="https://i.loli.net/2019/11/29/nJVl9uqEpaPv31r.png" alt="" /><br />
+安装 <code>Qualcomm_Diag_QD_Loader_2016_driver.exe</code> 驱动<br />
+<img src="https://i.loli.net/2019/11/29/ZTDMHzpbVILEUWr.png" alt="" /></p>
+<h1 id="破解电信"><a class="markdownIt-Anchor" href="#破解电信"></a> 破解电信…</h1>
+<p>1.将手机通过数据线链接上电脑（请勿使用无法传输数据的劣质数据线）</p>
+<p>2.电脑打开 PDC Tool 并在下拉菜单中选择设备<br />
+<img src="https://i.loli.net/2019/12/01/Imv653YrhNZUctP.png" alt="" /></p>
+<p>3.点击 load 按钮选择下载的 <code>xxx.mbn</code><br />
+mbn 文件任选其一，其中 <code>volte_op.mbn</code> 可显示<strong>中国电信</strong><br />
+<img src="https://i.loli.net/2019/12/01/HcOmIjSM19VnxNw.png" alt="" /></p>
+<p>4.找到加载出的运营商配置文件后，右键选择并指配到 <code>sub_0</code></p>
+<blockquote>
+<p>注1：文中是<strong>选择</strong> <code>CT</code> <strong>结尾</strong>的配置文件<br />
+注2：<code>ct</code> 为中国电信，<code>cmcc</code> 为中国移动，<code>cu</code> 为中国联通<br />
+注3：其他运营商都可通过此方法享受 VoLTE （需要对应配置文件，过程与本教程无异）</p>
+</blockquote>
+<p><img src="https://i.loli.net/2019/12/01/yuY25FqmPKVQbJx.png" alt="" /></p>
+<p>5.点击 <code>active</code> 应用<br />
+<img src="https://i.loli.net/2019/12/01/EJokjgRf5Dl7S4B.png" alt="" /></p>
+<p>6.刷入 <code>VoEnabler-v1.4.zip</code> –<em>开启 VoLTE 的 Magisk 模块</em></p>
+<p>7.Enjoy !<br />
+重启有效，升级有效！<br />
+<img src="https://i.loli.net/2019/11/30/ZQx6rTNioV4E8hA.png" alt="" /></p>
+<h2 id="注意"><a class="markdownIt-Anchor" href="#注意"></a> 注意</h2>
+<p><strong>疑难杂症</strong>之一：开启 VoLTE 后连接 Wi-Fi ，在短时间内系统将会关机重启（如已应用系统主题样式，将会在关机前恢复默认样式），并在重启后显示“系统已损坏，无法启动”等信息</p>
+<p><strong>解决办法</strong>之一：关闭 <code>Wi-Fi 通话</code></p>
+<hr />
+<p>换其他运营商的卡后需要<strong>加载指定运营商配置文件</strong>才能使用<br />
+建议破解完成后将<strong>模块禁用</strong>并升级回<strong>官方 Magisk</strong></p>
+<h1 id="原帖链接"><a class="markdownIt-Anchor" href="#原帖链接"></a> 原帖链接</h1>
+<p><a href="http://bbs.gfan.com/android-9623353-1-1.html" target="_blank" rel="noopener">机锋</a><br />
+<a href="https://forum.xda-developers.com/pixel-2/how-to/guide-enable-volte-unsupported-carriers-t3892659" target="_blank" rel="noopener">XDA</a><br />
+<a href="https://forum.xda-developers.com/pixel-2-xl/how-to/guide-qxdm-port-activation-pixel-2-xl-t3884967" target="_blank" rel="noopener">XDA</a></p>
+
+                    </article>
+                    
+    <blockquote class="post-license">
+        <p>
+            <strong>本文作者&nbsp;:&nbsp;Lufs</strong>
+            <br>
+            <strong>
+            
+                本文采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载和引用时请注意遵守协议！
+            </strong>
+            <br>
+            <strong>本文链接&nbsp;:&nbsp;</strong><a href="https://isteed.cc/posts/4291184207/">https://isteed.cc/posts/4291184207/</a>
+        </p>
+    </blockquote>
+
+
+
+    <blockquote id="date-expire-notification" class="post-expired-notify">本文最后更新于 <span id="date-expire-num"></span> 天前，文中所描述的信息可能已发生改变</blockquote>
+    <script>
+    (function() {
+        var dateUpdate = Date.parse("2020-01-20");
+        var nowDate = new Date();
+        var a = nowDate.getTime();
+        var b = a - dateUpdate;
+        var daysUpdateExpire = Math.floor(b/(24*3600*1000));
+        if (daysUpdateExpire >= 120) {
+            document.getElementById('date-expire-num').innerHTML = daysUpdateExpire;
+        } else {
+            document.getElementById('date-expire-notification').style.display = 'none';
+        }
+    })();
+    </script>
+
+
+<p class="post-footer-info mb-0 pt-0">本文发表于&nbsp;<time datetime="2019-11-29T15:17:45.000Z" itemprop="datePublished">2019-11-29</time>
+
+    , 最后修改于&nbsp;<time datetime="2020-01-20T08:38:14.171Z" itemprop="dateModified">2020-01-20</time>
+
+</p>
+<p class="post-footer-info mb-0 pt-2">
+
+<span class="post-categories-list mt-2">
+
+<a class="post-categories-list-item" href='/categories/Android/'>Android</a>
+
+</span>
+
+
+
+<span class="post-tags-list mt-2">
+
+<a class="post-tags-list-item" href="/tags/Pixel2/" rel="tag">#&nbsp;Pixel2</a>
+
+<a class="post-tags-list-item" href="/tags/Android10/" rel="tag">#&nbsp;Android10</a>
+
+<a class="post-tags-list-item" href="/tags/%E7%94%B5%E4%BF%A1/" rel="tag">#&nbsp;电信</a>
+
+</span>
+
+
+</p>
+
+                </div>
+                <div class="post-nav px-2 bg-gray">
+<ul class="pagination">
+    <!-- Prev Nav -->
+    
+        <li class="page-item page-prev">
+            <a href="/posts/4186098973/" rel="prev">
+                <div class="page-item-title"><i class="icon icon-back" aria-hidden="true"></i></div>
+                <div class="page-item-subtitle">2019年度总结</div>
+            </a>
+        </li>
+    
+
+    <!-- Next Nav -->
+    
+        <li class="page-item page-next">
+            <a href="/posts/1268759160/" rel="next">
+                <div class="page-item-title"><i class="icon icon-forward" aria-hidden="true"></i></div>
+                <div class="page-item-subtitle">关于高中化学的一些云云</div>
+            </a>
+        </li>
+    
+</ul>
+</div>
+
+                
+                    <!-- # Comment # -->
+                    
+                        <div class="card-footer post-comment">
+                            <div id="vcomments"></div>
+
+<script src="https://cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/valine@latest/dist/Valine.min.js"></script>
+<script>
+    var GUEST_INFO = ['nick','mail','link'];
+    var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+        return GUEST_INFO.indexOf(item) > -1
+    });
+    var notify = '' === 'true';
+    var verify = '' === 'true';
+    new Valine({
+        el: '#vcomments',
+        notify: notify,
+        verify: verify,
+        appId: "uRtfXJ6bEnHNEQR656TSn9qw-gzGzoHsz",
+        appKey: "FAxSeWSYEHmxHco63szWO4Xp",
+        placeholder: "无需注册，只要填了有效邮箱，有回复时就会发到你邮箱啦！ヾﾉ≧∀≦)o",
+        meta: guest_info,
+        pageSize:'20',
+        avatar:'identicon',
+        lang:'zh-cn',
+        guest_info: guest_info,
+        visitor: false
+    });
+</script>
+
+                        </div>
+                    
+                
+            </div>
+        </div>
+    </div>
+</div>
+
+            <!-- ### Footer ### -->
+            <footer class="text-center">
+    <!-- footer copyright -->
+    
+        <p class="footer-copyright mb-0">Copyright&nbsp;©&nbsp;<span id="copyright-year"></span>
+            <a class="footer-copyright-a" href="https://isteed.cc">Lufs's Blog</a>
+        </p>
+
+    <!-- footer custom text -->
+    <p class="footer-text mb-0">
+    
+    </p>
+    <!-- footer develop info -->
+    <p class="footer-develop mb-0">
+        
+    <!-- Busuanzi User Views -->
+    <span id="busuanzi_container_site_uv" hidden>
+        <span></span>
+        <span id="busuanzi_value_site_uv"></span>
+        <span>Viewers</span>
+        
+            <span>|</span>
+        
+    </span>
+
+
+
+
+        
+        Powered by&nbsp;<!--
+         --><a href="https://hexo.io" target="_blank" class="footer-develop-a" rel="external nofollow noopener noreferrer">Hexo</a><span class="footer-develop-divider"></span>Theme&nbsp;-&nbsp;<!--
+         --><a href="https://github.com/SukkaW/hexo-theme-suka" target="_blank" class="footer-develop-a" rel="external noopener">Suka</a>
+    </p>
+</footer>
+
+
+        <!-- ### Import File ### -->
+        <!-- ### Footer JS Import ### -->
+
+<script>
+
+    
+window.lazyLoadOptions = {
+    elements_selector: ".lazyload",
+    threshold: 50
+};
+
+(function() {
+    var copyrightNow = new Date().getFullYear();
+    var copyrightContent = document.getElementById('copyright-year');
+    var copyrightSince = 2018;
+    if (copyrightSince === copyrightNow) {
+        copyrightContent.textContent = copyrightNow;
+    } else {
+        copyrightContent.textContent = copyrightSince + ' - ' + copyrightNow;
+    }
+})();
+console.log('\n %c Suka Theme (hexo-theme-suka) | © SukkaW | Verision 1.3.3 %c https://github.com/SukkaW/hexo-theme-suka \n', 'color: #fff; background: #444; padding:5px 0;', 'background: #bbb; padding:5px 0;');
+
+</script>
+
+<script src="/lib/vanilla-lazyload/lazyload.min.js" async></script>
+    <script src="https://cdn.jsdelivr.net/npm/busuanzi@2.3.0/bsz.pure.mini.js" async></script>
+
+
+<!-- Offset -->
+
+
+
+
+<!-- Comment -->
+
+    
+        
+    
+
+
+<!-- ### Custom Footer ### --><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+
+    </body>
+
+</html>

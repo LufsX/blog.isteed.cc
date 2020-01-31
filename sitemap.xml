@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://isteed.cc/ss/index.html</loc>
+    
+    <lastmod>2020-01-31T12:20:20.203Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://isteed.cc/posts/1723295962/</loc>
     
     <lastmod>2020-01-31T08:55:54.044Z</lastmod>
@@ -138,13 +145,6 @@
     <loc>https://isteed.cc/search/index.html</loc>
     
     <lastmod>2020-01-20T15:01:49.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://isteed.cc/ss/index.html</loc>
-    
-    <lastmod>2019-12-22T09:03:22.000Z</lastmod>
     
   </url>
   

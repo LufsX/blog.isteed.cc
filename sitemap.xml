@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://isteed.cc/welfare/index.html</loc>
+    
+    <lastmod>2020-03-12T01:50:12.881Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://isteed.cc/posts/4291184207/</loc>
     
     <lastmod>2020-03-11T00:22:35.497Z</lastmod>
@@ -19,13 +26,6 @@
     <loc>https://isteed.cc/manifest.json</loc>
     
     <lastmod>2020-02-29T10:17:52.070Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://isteed.cc/welfare/index.html</loc>
-    
-    <lastmod>2020-02-29T10:10:32.745Z</lastmod>
     
   </url>
   

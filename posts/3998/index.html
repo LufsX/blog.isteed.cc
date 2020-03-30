@@ -160,7 +160,7 @@
     <link rel="alternate" type="application/atom+xml" href="/atom.xml"><meta name="mobile-web-app-capable" content="yes"><meta name="application-name" content="Lufs's Blog"><meta name="msapplication-starturl" content="https://isteed.cc"><meta name="msapplication-navbutton-color" content="rgba(241,249,250,1)"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="Lufs's Blog"><meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"><link rel="manifest" href="/manifest.json"><link rel="search" type="application/opensearchdescription+xml" href="/source/opensearch.xml" title="Lufs's Blog">
 
     <!-- ### The Open Graph & Twitter Card Protocol ### -->
-    <meta property="og:title" content="优化心得 | Lufs&#39;s Blog"><meta property="og:site_name" content="Lufs&#39;s Blog"><meta property="og:type" content="article"><meta property="og:url" content="https://isteed.cc/posts/3998/"><meta property="og:locale" content="zh-CN"><meta name="description" content="调度 本人在格力手机上是使用的yc调度（覆盖各大主流处理器  支持如下SOC Snapdragon 835, 820&#x2F;821, 810&#x2F;808, 801&#x2F;800&#x2F;805, 660, 636, 652&#x2F;650, 625&#x2F;626 Exynos 8895, 8890, 7420 Kirin 970, 960, 950&#x2F;955 Helio X20&#x2F;X25, X10 Atom z3560&#x2F;z3580 Sna - Lufs - Lufs&#39;s Blog"><meta name="keywords" content="教程, 格力手机2, 玩机, Lufs, Lufs Blog, hexo, Android, blog, 水怪"><meta property="article:published_time" content="2018-11-10T19:59:04.000Z"><meta property="article:modified_time" content="2018-11-10T19:59:04.000Z"><meta property="og:updated_time" content="2018-11-10T19:59:04.000Z"><meta property="article:author" content="Lufs"><meta property="article:tag" content="教程, 格力手机2, 玩机, Lufs, Lufs Blog, hexo, Android, blog, 水怪"><meta name="twitter:card" content="summary">
+    <meta property="og:title" content="优化心得 | Lufs&#39;s Blog"><meta property="og:site_name" content="Lufs&#39;s Blog"><meta property="og:type" content="article"><meta property="og:url" content="https://isteed.cc/posts/3998/"><meta property="og:locale" content="zh-CN"><meta name="description" content="调度 本人在格力手机上是使用的 yc 调度（覆盖各大主流处理器  支持如下 SOC Snapdragon 835, 820&#x2F;821, 810&#x2F;808, 801&#x2F;800&#x2F;805, 660, 636, 652&#x2F;650, 625&#x2F;626 Exynos 8895, 8890, 7420 Kirin 970, 960, 950&#x2F;955 Helio X20&#x2F;X25, X10 Atom z3560&#x2F;z3580  - Lufs - Lufs&#39;s Blog"><meta name="keywords" content="教程, 格力手机2, 玩机, Lufs, Lufs Blog, hexo, Android, blog, 水怪"><meta property="article:published_time" content="2018-11-10T19:59:04.000Z"><meta property="article:modified_time" content="2020-03-30T03:03:04.858Z"><meta property="og:updated_time" content="2020-03-30T03:03:04.858Z"><meta property="article:author" content="Lufs"><meta property="article:tag" content="教程, 格力手机2, 玩机, Lufs, Lufs Blog, hexo, Android, blog, 水怪"><meta name="twitter:card" content="summary">
 
     
 
@@ -173,11 +173,11 @@
     
     <!-- Google Analytics -->
 <script>
-    window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
-    ga('create', 'UA-139861604-1', 'auto');
-    ga('send', 'pageview');
+    window.ga_tid = "UA-139861604-1"; // {String} The trackerID of your site.
+    window.ga_api = "https://cfga.lufs.workers.dev"; // {String} The route of your cloudflare workers you just registered before.
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/cfga@1.0.1" async>
 </script>
-<script async src="https://www.google-analytics.com/analytics.js"></script>
 
 
 
@@ -210,7 +210,7 @@
     },
     
     "datePublished": "2018-11-10T19:59:04.000Z",
-    "dateModified": "2018-11-10T19:59:04.000Z",
+    "dateModified": "2020-03-30T03:03:04.858Z",
     "author": {
         "@type": "Person",
         "name": "Lufs",
@@ -236,7 +236,7 @@
     },
     
     "keywords": "教程, 格力手机2, 玩机, Lufs, Lufs Blog, hexo, Android, blog, 水怪",
-    "description": "调度 本人在格力手机上是使用的yc调度（覆盖各大主流处理器  支持如下SOC Snapdragon 835, 820/821, 810/808, 801/800/805, 660, 636, 652/650, 625/626 Exynos 8895, 8890, 7420 Kirin 970, 960, 950/955 Helio X20/X25, X10 Atom z3560/z3580 Sna - Lufs - Lufs&#39;s Blog"
+    "description": "调度 本人在格力手机上是使用的 yc 调度（覆盖各大主流处理器  支持如下 SOC Snapdragon 835, 820/821, 810/808, 801/800/805, 660, 636, 652/650, 625/626 Exynos 8895, 8890, 7420 Kirin 970, 960, 950/955 Helio X20/X25, X10 Atom z3560/z3580  - Lufs - Lufs&#39;s Blog"
 }
 </script>
 
@@ -378,32 +378,32 @@
                     
                     <article id="post-content">
                         <h1 id="调度"><a class="markdownIt-Anchor" href="#调度"></a> 调度</h1>
-<p>本人在格力手机上是使用的yc调度（覆盖各大主流处理器</p>
+<p>本人在格力手机上是使用的 yc 调度（覆盖各大主流处理器</p>
 <blockquote>
-<p>支持如下SOC<br />
+<p>支持如下 SOC<br />
 Snapdragon 835, 820/821, 810/808, 801/800/805, 660, 636, 652/650, 625/626<br />
 Exynos 8895, 8890, 7420<br />
 Kirin 970, 960, 950/955<br />
 Helio X20/X25, X10<br />
 Atom z3560/z3580<br />
 Snapdragon 845(非程序生成)<br />
-摘自GitHub</p>
+摘自 GitHub</p>
 </blockquote>
-<p>并且WIPE项目已经开源在GitHub</p>
+<p>并且 WIPE 项目已经开源在GitHub</p>
 <hr />
 <h2 id="个人使用方法"><a class="markdownIt-Anchor" href="#个人使用方法"></a> 个人使用方法</h2>
-<p>下载powercfg.apk文件, 改名为<code>powercfg</code>, 移动到<code>system/xbin</code><br />
-如需开机应用, 在<code>/system/etc/init.qcom.post_boot.sh</code> , 以文本方式打开, 在文件结尾添加句<br />
+<p>下载 powercfg.apk 文件, 改名为 <code>powercfg</code>, 移动到 <code>system/xbin</code><br />
+如需开机应用, 在 <code>/system/etc/init.qcom.post_boot.sh</code> , 以文本方式打开, 在文件结尾添加句<br />
 <code>sh /system/xbin/powercfg xxxx</code><br />
 如果没有此文件, 新建个同名文件即可</p>
-<p>powercfg xxxx为执行某调度<br />
+<p>powercfg xxxx 为执行某调度<br />
 具体命令见下</p>
 <blockquote>
-<p>powercfg balance切换到均衡<br />
-powercfg powersave切换到卡顿<br />
-powercfg performance切换到费电<br />
-powercfg fast切换到低延迟<br />
-powercfg debug输出脚本和参数信息<br />
+<p>powercfg balance 切换到均衡<br />
+powercfg powersave 切换到省电<br />
+powercfg performance 切换到性能<br />
+powercfg fast 切换到低延迟<br />
+powercfg debug 输出脚本和参数信息<br />
 注：如后面不带任何参数, 默认执行均衡调度</p>
 </blockquote>
 <p>也可以在各类终端应用中以root用户执行以上命令<br />
@@ -426,16 +426,16 @@ powercfg debug输出脚本和参数信息<br />
 也可以使用设置内的浅度休眠<br />
 这里应用应用内的说明</p>
 <blockquote>
-<p>浅度休眠是特别为 Android 6.0+全新打造的休眠机制,具备更佳的兼容性和流畅性。在浅度休眠中,应用将不再被杀死并保留离开时的上下文,以提升多任务切换的流畅性。同时,所有的后台行为在休眠期间依然被严格限制。浅度休眠的应用将会被小时计的周期性短暂唤醒,并在收到高优先级的 Google 云推送时立即短暂唤醒(需要应用开发者支持高优先级推送)。它们还将在充电期间保持唤醒。每个应用可单独设置不同的休眠模式,不建议内存较少的设备将浅度休眠设置为默认休眠模式。</p>
+<p>浅度休眠是特别为 Android 6.0+ 全新打造的休眠机制,具备更佳的兼容性和流畅性。在浅度休眠中,应用将不再被杀死并保留离开时的上下文,以提升多任务切换的流畅性。同时,所有的后台行为在休眠期间依然被严格限制。浅度休眠的应用将会被小时计的周期性短暂唤醒,并在收到高优先级的 Google 云推送时立即短暂唤醒(需要应用开发者支持高优先级推送)。它们还将在充电期间保持唤醒。每个应用可单独设置不同的休眠模式,不建议内存较少的设备将浅度休眠设置为默认休眠模式。</p>
 </blockquote>
 <p>再者, 可以使用各类第三方平台的纯净软件<br />
 例如微博第三方客服端：SHARE<br />
-第三方直播平台软件：Z直播<br />
+第三方直播平台软件：Z 直播<br />
 第三方百度云下载软件：CloudAccelerator</p>
 <p>另外, 在一些软件里, 有<code>后台纯净</code>的设置项<br />
 推荐有这个设置项就开启<br />
 打造“良好的应用生态”</p>
-<p>目前加入Android 绿色应用公约的应用有</p>
+<p>目前加入 Android 绿色应用公约的应用有</p>
 <blockquote>
 <p>即刻<br />
 知乎<br />
@@ -473,7 +473,7 @@ FV文件管理<br />
 官网：<a href="https://green-android.org" target="_blank" rel="noopener">https://green-android.org</a><br />
 注：包括但不限于以上应用（即有应用未列出</p>
 <h1 id="root"><a class="markdownIt-Anchor" href="#root"></a> Root</h1>
-<p>root我个人推荐magisk<br />
+<p>root 我个人推荐 Magisk<br />
 更新快, 模块多, 独有功能也多</p>
 <p>**Magisk hide **<br />
 可以对应用隐藏root, 防止应用检测root<br />
@@ -483,8 +483,8 @@ FV文件管理<br />
 宁静之雨公众号有各类<strong>字体</strong>的magisk模块<br />
 可以随时开启, 关闭, 换字体更方便<br />
 配合magisk manager（俗称MM管理器）<br />
-可以在twrp→高级→终端→输入<code>./data/media/mm</code>  即可食用</p>
-<p>你甚至可以利用开机执行xxx  <s>前提是你写的出来</s><br />
+可以在twrp→高级→终端→输入 <code>./data/media/mm</code> 即可食用</p>
+<p>你甚至可以利用开机执行 xxx  <s>前提是你写的出来</s><br />
 总之, 这个东西远比你想的强大（我也会偶尔做做模块玩</p>
 <h1 id="系统增益"><a class="markdownIt-Anchor" href="#系统增益"></a> 系统增益</h1>
 <p>可以使用<strong>镧系统工具箱</strong>开启高通骁龙的 <strong>Hi-DAC 模式</strong><br />
@@ -533,18 +533,18 @@ Dir：优惠说明<br />
 <p>这里只做应用推荐</p>
 <hr />
 <p>从今天起正式宣布自用包停止更新<br />
-最后更新时间为2018.10.21<br />
-由于手机被寄走, 无法继续更新<br />
-故写此教程<br />
-此教程仅为<strong>个人见解</strong></p>
+最后更新时间为 2018.10.21<br />
+由于手机被寄走, 无法继续更新</p>
 <hr />
-<p>2018.11.24 开始制作官改<br />
-lineage停止<strong>更新</strong></p>
+<p>自 2018.11.24 开始制作官改<br />
+lineage 停止<strong>更新</strong></p>
 <hr />
 <p>完~~~</p>
 <hr />
 <p>死不要脸的发波码<br />
-打开支付宝首页搜索“7751402” 立即领红包</p>
+打开支付宝首页搜索“<code>7751402</code>”立即领红包</p>
+<hr />
+<p>2020.03.30 重新修改，但文中信息均已<strong>过时</strong>，<strong>请谨慎使用</strong></p>
 
                     </article>
                     
@@ -566,7 +566,7 @@ lineage停止<strong>更新</strong></p>
     <blockquote id="date-expire-notification" class="post-expired-notify">本文最后更新于 <span id="date-expire-num"></span> 天前，文中所描述的信息可能已发生改变</blockquote>
     <script>
     (function() {
-        var dateUpdate = Date.parse("2018-11-11");
+        var dateUpdate = Date.parse("2020-03-30");
         var nowDate = new Date();
         var a = nowDate.getTime();
         var b = a - dateUpdate;
@@ -581,6 +581,8 @@ lineage停止<strong>更新</strong></p>
 
 
 <p class="post-footer-info mb-0 pt-0">本文发表于&nbsp;<time datetime="2018-11-10T19:59:04.000Z" itemprop="datePublished">2018-11-11</time>
+
+    , 最后修改于&nbsp;<time datetime="2020-03-30T03:03:04.858Z" itemprop="dateModified">2020-03-30</time>
 
 </p>
 <p class="post-footer-info mb-0 pt-2">

@@ -173,11 +173,11 @@
     
     <!-- Google Analytics -->
 <script>
-    window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
-    ga('create', 'UA-139861604-1', 'auto');
-    ga('send', 'pageview');
+    window.ga_tid = "UA-139861604-1"; // {String} The trackerID of your site.
+    window.ga_api = "https://cfga.lufs.workers.dev"; // {String} The route of your cloudflare workers you just registered before.
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/cfga@1.0.1" async>
 </script>
-<script async src="https://www.google-analytics.com/analytics.js"></script>
 
 
 

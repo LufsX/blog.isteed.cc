@@ -160,7 +160,7 @@
     <link rel="alternate" type="application/atom+xml" href="/atom.xml"><meta name="mobile-web-app-capable" content="yes"><meta name="application-name" content="Lufs's Blog"><meta name="msapplication-starturl" content="https://isteed.cc"><meta name="msapplication-navbutton-color" content="rgba(241,249,250,1)"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="Lufs's Blog"><meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"><link rel="manifest" href="/manifest.json"><link rel="search" type="application/opensearchdescription+xml" href="/source/opensearch.xml" title="Lufs's Blog">
 
     <!-- ### The Open Graph & Twitter Card Protocol ### -->
-    <meta property="og:title" content="手机端使用Neoterm度盘高速下载 | Lufs&#39;s Blog"><meta property="og:site_name" content="Lufs&#39;s Blog"><meta property="og:type" content="article"><meta property="og:url" content="https://isteed.cc/posts/1550410184/"><meta property="og:locale" content="zh-CN"><meta name="description" content="介绍 Baidu-PCS-Go是一款支持PC&#x2F;移动设备的仿 Linux shell 文件处理命令的百度网盘命令行客户端. - Lufs - Lufs&#39;s Blog"><meta name="keywords" content="教程, Lufs, Lufs Blog, hexo, Android, blog, 水怪"><meta property="article:published_time" content="2019-02-17T13:59:44.000Z"><meta property="article:modified_time" content="2019-02-17T13:59:44.000Z"><meta property="og:updated_time" content="2019-02-17T13:59:44.000Z"><meta property="article:author" content="Lufs"><meta property="article:tag" content="教程, Lufs, Lufs Blog, hexo, Android, blog, 水怪"><meta name="twitter:card" content="summary">
+    <meta property="og:title" content="手机端使用Neoterm度盘高速下载 | Lufs&#39;s Blog"><meta property="og:site_name" content="Lufs&#39;s Blog"><meta property="og:type" content="article"><meta property="og:url" content="https://isteed.cc/posts/1550410184/"><meta property="og:locale" content="zh-CN"><meta name="description" content="⚠️注意：文中方法早已失效！  介绍 Baidu-PCS-Go 是一款支持 PC&#x2F;移动设备 的仿 Linux shell 文件处理命令的百度网盘命令行客户端. - Lufs - Lufs&#39;s Blog"><meta name="keywords" content="教程, Lufs, Lufs Blog, hexo, Android, blog, 水怪"><meta property="article:published_time" content="2019-02-17T13:59:44.000Z"><meta property="article:modified_time" content="2020-03-30T03:03:04.858Z"><meta property="og:updated_time" content="2020-03-30T03:03:04.858Z"><meta property="article:author" content="Lufs"><meta property="article:tag" content="教程, Lufs, Lufs Blog, hexo, Android, blog, 水怪"><meta name="twitter:card" content="summary">
 
     
 
@@ -173,11 +173,11 @@
     
     <!-- Google Analytics -->
 <script>
-    window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
-    ga('create', 'UA-139861604-1', 'auto');
-    ga('send', 'pageview');
+    window.ga_tid = "UA-139861604-1"; // {String} The trackerID of your site.
+    window.ga_api = "https://cfga.lufs.workers.dev"; // {String} The route of your cloudflare workers you just registered before.
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/cfga@1.0.1" async>
 </script>
-<script async src="https://www.google-analytics.com/analytics.js"></script>
 
 
 
@@ -210,7 +210,7 @@
     },
     
     "datePublished": "2019-02-17T13:59:44.000Z",
-    "dateModified": "2019-02-17T13:59:44.000Z",
+    "dateModified": "2020-03-30T03:03:04.858Z",
     "author": {
         "@type": "Person",
         "name": "Lufs",
@@ -236,7 +236,7 @@
     },
     
     "keywords": "教程, Lufs, Lufs Blog, hexo, Android, blog, 水怪",
-    "description": "介绍 Baidu-PCS-Go是一款支持PC/移动设备的仿 Linux shell 文件处理命令的百度网盘命令行客户端. - Lufs - Lufs&#39;s Blog"
+    "description": "⚠️注意：文中方法早已失效！  介绍 Baidu-PCS-Go 是一款支持 PC/移动设备 的仿 Linux shell 文件处理命令的百度网盘命令行客户端. - Lufs - Lufs&#39;s Blog"
 }
 </script>
 
@@ -373,12 +373,13 @@
                     
                         
                         
-                            <div id="post-toc"><ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#介绍"><span class="post-toc-number">1.</span> <span class="post-toc-text"> 介绍</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#准备"><span class="post-toc-number">2.</span> <span class="post-toc-text"> 准备</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#教程"><span class="post-toc-number">3.</span> <span class="post-toc-text"> 教程</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#neoterm端准备工作"><span class="post-toc-number">3.1.</span> <span class="post-toc-text"> Neoterm端准备工作</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#获取最新版baidupcs-go"><span class="post-toc-number">3.2.</span> <span class="post-toc-text"> 获取最新版BaiduPCS-Go</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#必要的设置过程"><span class="post-toc-number">3.3.</span> <span class="post-toc-text"> 必要的设置&amp;过程</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#一些设置必看"><span class="post-toc-number">3.4.</span> <span class="post-toc-text"> 一些设置（必看！！！）</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#使用必看"><span class="post-toc-number">3.5.</span> <span class="post-toc-text"> 使用（必看！！！）</span></a></li></ol></li></ol></div>
+                            <div id="post-toc"><ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#介绍"><span class="post-toc-number">1.</span> <span class="post-toc-text"> 介绍</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#准备"><span class="post-toc-number">2.</span> <span class="post-toc-text"> 准备</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#教程"><span class="post-toc-number">3.</span> <span class="post-toc-text"> 教程</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#neoterm端准备工作"><span class="post-toc-number">3.1.</span> <span class="post-toc-text"> Neoterm端准备工作</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#获取最新版-baidupcs-go"><span class="post-toc-number">3.2.</span> <span class="post-toc-text"> 获取最新版 BaiduPCS-Go</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#必要的设置过程"><span class="post-toc-number">3.3.</span> <span class="post-toc-text"> 必要的设置&amp;过程</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#一些设置必看"><span class="post-toc-number">3.4.</span> <span class="post-toc-text"> 一些设置（必看！！！）</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#使用必看"><span class="post-toc-number">3.5.</span> <span class="post-toc-text"> 使用（必看！！！）</span></a></li></ol></li></ol></div>
                         
                     
                     <article id="post-content">
-                        <h1 id="介绍"><a class="markdownIt-Anchor" href="#介绍"></a> 介绍</h1>
-<p>Baidu-PCS-Go是一款支持PC/移动设备的仿 Linux shell 文件处理命令的百度网盘命令行客户端.</p>
+                        <p>⚠️注意：<strong>文中方法早已失效！</strong></p>
+<h1 id="介绍"><a class="markdownIt-Anchor" href="#介绍"></a> 介绍</h1>
+<p>Baidu-PCS-Go 是一款支持 PC/移动设备 的仿 Linux shell 文件处理命令的百度网盘命令行客户端.</p>
 <a id="more"></a>
 <h1 id="准备"><a class="markdownIt-Anchor" href="#准备"></a> 准备</h1>
 <p>需要的东西</p>
@@ -386,7 +387,7 @@
 <li>一部手机</li>
 <li>一定的基础知识</li>
 <li>Neoterm | <a href="https://www.coolapk.com/apk/io.neoterm" target="_blank" rel="noopener">下载链接</a><br />
-理论上其他终端也行，只是我觉得Neoterm好看一点</li>
+理论上其他终端也行，只是我觉得 Neoterm 好看一点</li>
 </ul>
 <p>如果<strong>准备好了</strong><br />
 那么<br />
@@ -394,30 +395,30 @@
 开始吧</p>
 <h1 id="教程"><a class="markdownIt-Anchor" href="#教程"></a> 教程</h1>
 <h2 id="neoterm端准备工作"><a class="markdownIt-Anchor" href="#neoterm端准备工作"></a> Neoterm端准备工作</h2>
-<p>下载并安装Neoterm<br />
+<p>下载并安装 Neoterm<br />
 开始<br />
 等待进度条跑完，会有点慢，慢慢等</p>
 <hr />
-<p>然后需要下载wget和zip，具体方法是<br />
-执行<code>apt install zip wget -y</code></p>
-<h2 id="获取最新版baidupcs-go"><a class="markdownIt-Anchor" href="#获取最新版baidupcs-go"></a> 获取最新版BaiduPCS-Go</h2>
+<p>然后需要下载 wget 和 zip，具体命令是</p>
+<p><code>apt install zip wget -y</code></p>
+<h2 id="获取最新版-baidupcs-go"><a class="markdownIt-Anchor" href="#获取最新版-baidupcs-go"></a> 获取最新版 BaiduPCS-Go</h2>
 <p>打开<a href="https://github.com/iikira/BaiduPCS-Go/releases" target="_blank" rel="noopener">官方开源地址</a>   <a href="https://github.com/iikira/BaiduPCS-Go/releases" target="_blank" rel="noopener">https://github.com/iikira/BaiduPCS-Go/releases</a><br />
-找到你手机的对应版本，例如我的安卓机为arm64，那就选择<code>BaiduPCS-Go-v3.5.6-android-21-arm64.zip</code></p>
+找到你手机的对应版本，例如我的安卓机为 arm64，那就选择<code>BaiduPCS-Go-v3.5.6-android-21-arm64.zip</code></p>
 <hr />
-<p>Neoterm终端执行</p>
+<p>Neoterm 终端执行</p>
 <figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget -O <span class="number">1</span>.zip https:<span class="regexp">//gi</span>thub.com<span class="regexp">/iikira/</span>BaiduPCS-Go<span class="regexp">/releases/</span>download<span class="regexp">/v3.5.6/</span>BaiduPCS-Go-v3.<span class="number">5.6</span>-android-<span class="number">21</span>-arm64.zip</span><br></pre></td></tr></table></figure>
 <p>意思是下载<code>https://github.com/iikira/BaiduPCS-Go/releases/download/v3.5.6/BaiduPCS-Go-v3.5.6-android-21-arm64.zip</code>的文件并重命名为<code>1.zip</code></p>
 <hr />
 <p>接着执行</p>
 <figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">unzip 1.<span class="keyword">zip</span> &amp;&amp; <span class="keyword">rm</span> 1.<span class="keyword">zip</span></span><br></pre></td></tr></table></figure>
-<p>意思是解压1.zip并删除1.zip</p>
+<p>即解压 1.zip 并删除1 .zip</p>
 <hr />
 <p>需要进行一波重命名操作<br />
 执行</p>
 <figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mv BaiduPCS-Go-v3<span class="number">.5</span><span class="number">.6</span>-android<span class="number">-21</span>-arm64 baidu</span><br></pre></td></tr></table></figure>
 <p>注意，<code>BaiduPCS-Go-v3.5.6-android-21-arm64</code>需要根据你下载的文件名字而定<br />
-例如下载的是BaiduPCS-Go-v3.5.6-android-21-arm64.zip<br />
-那么就是BaiduPCS-Go-v3.5.6-android-21-arm64<br />
+例如下载的是 BaiduPCS-Go-v3.5.6-android-21-arm64.zip<br />
+那么就是 BaiduPCS-Go-v3.5.6-android-21-arm64<br />
 此项意思为重命名解压文件夹为<code>baidu</code></p>
 <hr />
 <p>接着，执行</p>
@@ -425,38 +426,38 @@
 <p>即可运行起来</p>
 <h2 id="必要的设置过程"><a class="markdownIt-Anchor" href="#必要的设置过程"></a> 必要的设置&amp;过程</h2>
 <p>既然运行起来了那肯定是要登录咯<br />
-执行<code>login</code>即可<br />
+执行 <code>login</code> 即可<br />
 输入账号密码即可<br />
 注意：输入密码时密码是不可见状态<br />
 注意：如需输入验证码请复制验证码链接，在浏览器打开<br />
-注意：如登录失败，再次输入<code>login</code>即可重新登录</p>
+注意：如登录失败，再次输入 <code>login</code> 即可重新登录</p>
 <hr />
 <p>登录后，执行</p>
 <figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">config <span class="keyword">set</span> <span class="comment">--appid 265486</span></span><br></pre></td></tr></table></figure>
-<p>执行后关闭Neoterm或执行<code>exit</code><br />
+<p>执行后关闭Neoterm或执行 <code>exit</code><br />
 接着在一个登录了此账号的浏览器打开此<a href="http://pcs.baidu.com/rest/2.0/pcs/file?app_id=265486&amp;method=list&amp;path=%2F" target="_blank" rel="noopener">链接</a></p>
-<p>然后在度盘里的<code>我的应用数据</code>下就会出现<code>baidu_shurufa</code>的文件夹<br />
+<p>然后在度盘里的<code>我的应用数据</code>下就会出现 <code>baidu_shurufa</code> 的文件夹<br />
 如果没有，请自行创建</p>
 <h2 id="一些设置必看"><a class="markdownIt-Anchor" href="#一些设置必看"></a> 一些设置（必看！！！）</h2>
 <p>设置下载文件的保存位置<br />
-例如下载的文件保存到<code>/sdcard/Download/BaiduNetdisk</code>下<br />
+例如下载的文件保存到 <code>/sdcard/Download/BaiduNetdisk</code> 下<br />
 执行</p>
 <figure class="highlight gams"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">config <span class="keyword">set</span> --savedir <span class="comment">'/sdcard/Download/BaiduNetdisk/'</span></span><br></pre></td></tr></table></figure>
 <hr />
-<p>设置下载线程，官方默认100线程，可以设置50～500<br />
-例如设置400下载线程<br />
+<p>设置下载线程，官方默认 100 线程，可以设置 50～500<br />
+例如设置 400 下载线程<br />
 执行</p>
 <figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">config <span class="keyword">set</span> <span class="comment">--max_parallel 400</span></span><br></pre></td></tr></table></figure>
 <hr />
 <p>设置同时下载线程<br />
-例如设置为5<br />
+例如设置为 5<br />
 执行</p>
 <figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">config <span class="keyword">set</span> <span class="comment">--max_download_load 5</span></span><br></pre></td></tr></table></figure>
 <h2 id="使用必看"><a class="markdownIt-Anchor" href="#使用必看"></a> 使用（必看！！！）</h2>
-<p>进入终端输入<code>cd /baidu/ &amp;&amp; ./BaiduPCS-Go</code>即可运行<br />
-将想下载的文件移动到<code>/我的应用数据/baidu_shurufa/</code><br />
-接着执行<code>cd /app/baidu_shurufa/</code><br />
-然后输入<code>d 将下载的文件名字</code>即可下载</p>
+<p>进入终端输入 <code>cd /baidu/ &amp;&amp; ./BaiduPCS-Go</code> 即可运行<br />
+将想下载的文件移动到 <code>/我的应用数据/baidu_shurufa/</code><br />
+接着执行 <code>cd /app/baidu_shurufa/</code><br />
+然后输入 <code>d 将下载的文件名字</code> 即可下载</p>
 <hr />
 <p>一些命令&amp;操作技巧<br />
 <code>help</code>  帮助<br />
@@ -465,10 +466,12 @@
 <code>d 你要下载的文件</code>  下载某文件<br />
 <code>locate 你要获取直链的文件</code>  获取某文件直链<br />
 <code>logout</code>  退出登录<br />
-停止下载按住<code>ctrl</code>并输入<code>c</code>即可<br />
+停止下载按住 <code>ctrl</code> 并键入 <code>c</code> 即可<br />
 多任务下载直接多开窗口即可</p>
-<p>有问题直接评论区问就行了<br />
-建议遍历评论区问题后再提问</p>
+<p><s>有问题直接评论区问就行了</s><br />
+<s>建议遍历评论区问题后再提问</s></p>
+<hr />
+<p>2020.03.30 修正语法，但文中方法<strong>早已不可用</strong></p>
 
                     </article>
                     
@@ -490,7 +493,7 @@
     <blockquote id="date-expire-notification" class="post-expired-notify">本文最后更新于 <span id="date-expire-num"></span> 天前，文中所描述的信息可能已发生改变</blockquote>
     <script>
     (function() {
-        var dateUpdate = Date.parse("2019-02-17");
+        var dateUpdate = Date.parse("2020-03-30");
         var nowDate = new Date();
         var a = nowDate.getTime();
         var b = a - dateUpdate;
@@ -505,6 +508,8 @@
 
 
 <p class="post-footer-info mb-0 pt-0">本文发表于&nbsp;<time datetime="2019-02-17T13:59:44.000Z" itemprop="datePublished">2019-02-17</time>
+
+    , 最后修改于&nbsp;<time datetime="2020-03-30T03:03:04.858Z" itemprop="dateModified">2020-03-30</time>
 
 </p>
 <p class="post-footer-info mb-0 pt-2">

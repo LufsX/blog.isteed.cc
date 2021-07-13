@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no"
+    />
+    <title>Uptime Status</title>
+    <link
+      rel="shortcut icon"
+      href="https://cdn.jsdelivr.net/gh/lufsx/res@0.1.1/favicon/favicon.ico"
+      type="image/x-icon"
+    />
+    <script>
+      window.ga_tid = "UA-139861604-1";
+      window.ga_api = "https://cfga.lufs.workers.dev/";
+    </script>
+    <script async>
+      !(function (t, e, n) {
+        var a = t.screen,
+          r = encodeURIComponent,
+          o = Math.max,
+          i = t.performance,
+          d = i && i.timing,
+          c = function (t) {
+            return isNaN(t) || t == 1 / 0 || t < 0 ? void 0 : t;
+          };
+        function g() {
+          var i = [
+            "ga=" + t.ga_tid,
+            "dt=" + r(e.title),
+            "de=" + r(e.characterSet || e.charset),
+            "dr=" + r(e.referrer),
+            "ul=" + (n.language || n.browserLanguage || n.userLanguage),
+            "sd=" + a.colorDepth + "-bit",
+            "sr=" + a.width + "x" + a.height,
+            "vp=" +
+              o(e.documentElement.clientWidth, t.innerWidth || 0) +
+              "x" +
+              o(e.documentElement.clientHeight, t.innerHeight || 0),
+            "plt=" + c(d.loadEventStart - d.navigationStart || 0),
+            "dns=" + c(d.domainLookupEnd - d.domainLookupStart || 0),
+            "pdt=" + c(d.responseEnd - d.responseStart || 0),
+            "rrt=" + c(d.redirectEnd - d.redirectStart || 0),
+            "tcp=" + c(d.connectEnd - d.connectStart || 0),
+            "srt=" + c(d.responseStart - d.requestStart || 0),
+            "dit=" + c(d.domInteractive - d.domLoading || 0),
+            "clt=" + c(d.domContentLoadedEventStart - d.navigationStart || 0),
+            "z=" + Date.now(),
+          ];
+          (t.__ga_img = new Image()),
+            (t.__ga_img.src = t.ga_api + "?" + i.join("&"));
+        }
+        "complete" === e.readyState ? g() : t.addEventListener("load", g);
+      })(window, document, navigator);
+    </script>
+    <script src="./config.js"></script>
+    <link href="./static/css/main.9d11a12e.css" rel="stylesheet" />
+  </head>
+  <body>
+    <div id="app"></div>
+    <script src="./static/js/main.b23dcefe.js"></script>
+  </body>
+</html>

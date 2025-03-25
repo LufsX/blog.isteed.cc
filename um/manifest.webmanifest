@@ -1,0 +1,1 @@
+{"name":"音乐解锁 (Unlock Music)","short_name":"音乐解锁","start_url":"./","display":"standalone","background_color":"#ffffff","lang":"zh-cmn-Hans-CN","scope":"./","description":"在现代浏览器解锁已购的加密音乐！","theme_color":"#ffffff","icons":[{"src":"pwa-192x192.png","sizes":"192x192","type":"image/png","purpose":"maskable"},{"src":"pwa-512x512.png","sizes":"512x512","type":"image/png"}]}

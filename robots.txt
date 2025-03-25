@@ -1,0 +1,5 @@
+User-agent: Baiduspider
+Disallow: /clash/
+
+User-agent: 360Spider
+Disallow: /clash/

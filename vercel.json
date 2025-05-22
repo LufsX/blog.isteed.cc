@@ -1,0 +1,35 @@
+{
+  "version": 2,
+  "routes": [
+    { "handle": "filesystem" },
+    {
+      "src": "/ss",
+      "status": 301,
+      "headers": { "Location": "/clash/" }
+    },
+    {
+      "src": "/ss/",
+      "status": 301,
+      "headers": { "Location": "/clash/" }
+    },
+    {
+      "src": "/musicunlock",
+      "status": 301,
+      "headers": { "Location": "/um/" }
+    },
+    {
+      "src": "/musicunlock/",
+      "status": 301,
+      "headers": { "Location": "/um/" }
+    },
+    {
+      "src": "/posts/(.*)",
+      "status": 301,
+      "headers": { "Location": "/post/$1" }
+    },
+    { "src": "/(.*)", "status": 404, "dest": "/404.html" }
+  ],
+  "github": {
+    "silent": true
+  }
+}

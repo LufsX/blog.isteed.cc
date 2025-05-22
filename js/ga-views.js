@@ -1,0 +1,1 @@
+(async()=>{var t=document.getElementById("post-meta-views");if(null!==t){var e=document.location.toString().split("//"),n=e[1].indexOf("/"),i=e[1].substring(n);-1!=i.indexOf("?")&&(i=i.split("?")[0]);const d=(await fetch(`${window.post_views_api}?page=${i}`).then((t=>t.json())))[0].hit;var o=document.getElementById("pv-counter");void 0!==d&&(o.innerHTML=`${d}`,t.hidden=!1)}})();

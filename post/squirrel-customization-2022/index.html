@@ -1,0 +1,654 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="description" content="Rime 系列输入法在各个平台都有其对应的实现。我们可以对其进行配置，便会获得一个极其舒适且行云流水的基于个人偏好的输入体验。"><link rel="canonical" href="https://blog.isteed.cc/post/squirrel-customization-2022/"><link rel="icon" href="https://cdn.isteed.cc/favicon/favicon.ico"><link rel="alternate" type="application/rss+xml" title="Lufs's Blog" href="/rss2.xml"><link rel="alternate" type="application/atom+xml" title="Lufs's Blog" href="/atom.xml"><meta property="og:title" content="好用好看好玩的输入法 —— 鼠须管配置使用 · Lufs's Blog"><meta property="og:description" content="Rime 系列输入法在各个平台都有其对应的实现。我们可以对其进行配置，便会获得一个极其舒适且行云流水的基于个人偏好的输入体验。"><meta property="og:url" content="https://blog.isteed.cc/post/squirrel-customization-2022/"><meta property="og:image" content="https://cdn.isteed.cc/img/rime-2022/thumbnail.webp"><meta property="og:type" content="website"><meta name="twitter:card" content="summary_large_image"><meta name="google-site-verification" content="wk686q2aTrts7GR0yVJ7UrALaAodD62StMuSuH7dMOU"><meta name="color-scheme" content="light dark"><title>好用好看好玩的输入法 —— 鼠须管配置使用 · Lufs&#39;s Blog</title><meta name="astro-view-transitions-enabled" content="true"><meta name="astro-view-transitions-fallback" content="animate"><script type="module" src="/_astro/ClientRouter.astro_astro_type_script_index_0_lang.CKq7OsbX.js"></script><script>
+      (() => {
+        const key = 'lufs-theme';
+        const root = document.documentElement;
+        const system = window.matchMedia('(prefers-color-scheme: dark)');
+        const normalize = (value) =>
+          value === 'light' || value === 'dark' ? value : 'system';
+        let preference = 'system';
+        try {
+          preference = normalize(localStorage.getItem(key));
+        } catch {
+          // Storage may be unavailable in private or restricted contexts.
+        }
+        const apply = () => {
+          root.dataset.theme = preference === 'system'
+            ? (system.matches ? 'dark' : 'light')
+            : preference;
+          root.style.colorScheme = root.dataset.theme;
+          root.dataset.preference = preference;
+          const button = document.getElementById('theme-toggle');
+          const names = { system: '系统', light: '浅色', dark: '深色' };
+          const next = { system: 'light', light: 'dark', dark: 'system' };
+          if (button) {
+            button.setAttribute('aria-label', `当前：${names[preference]}；切换为${names[next[preference]]}`);
+            button.title = `当前：${names[preference]}；点击切换`;
+          }
+        };
+        apply();
+        system.addEventListener('change', apply);
+        document.addEventListener('astro:before-swap', (event) => {
+          const nextRoot = event.newDocument.documentElement;
+          nextRoot.dataset.theme = root.dataset.theme;
+          nextRoot.dataset.preference = preference;
+          nextRoot.style.colorScheme = root.style.colorScheme;
+        });
+        document.addEventListener('astro:after-swap', apply);
+        window.addEventListener('storage', (event) => {
+          if (event.key === key || event.key === null) {
+            preference = normalize(event.newValue);
+            apply();
+          }
+        });
+        document.addEventListener('DOMContentLoaded', () => {
+          const button = document.getElementById('theme-toggle');
+          apply();
+          button?.addEventListener('click', () => {
+            preference = { system: 'light', light: 'dark', dark: 'system' }[preference];
+            apply();
+            try { localStorage.setItem(key, preference); } catch {}
+          });
+        }, { once: true });
+      })();
+    </script><link rel="stylesheet" href="/_astro/Base._a07vYZy.css"><link rel="stylesheet" href="/_astro/ArticleEnhancements.D6DQ8Qoe.css"><style>[data-astro-transition-scope="astro-gyrtbwwo-1"] { view-transition-name: astro-gyrtbwwo-1; }@layer astro { ::view-transition-old(astro-gyrtbwwo-1) { animation: none; opacity: 0; mix-blend-mode: normal; }::view-transition-new(astro-gyrtbwwo-1) { animation: none; mix-blend-mode: normal; }::view-transition-group(astro-gyrtbwwo-1) { animation: none } }[data-astro-transition-fallback="old"] [data-astro-transition-scope="astro-gyrtbwwo-1"],
+			[data-astro-transition-fallback="old"][data-astro-transition-scope="astro-gyrtbwwo-1"] { animation: none; mix-blend-mode: normal; }[data-astro-transition-fallback="new"] [data-astro-transition-scope="astro-gyrtbwwo-1"],
+			[data-astro-transition-fallback="new"][data-astro-transition-scope="astro-gyrtbwwo-1"] { animation: none; mix-blend-mode: normal; }</style><style>[data-astro-transition-scope="astro-iywf7oe7-2"] { view-transition-name: page-content; }@layer astro { ::view-transition-old(page-content) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }::view-transition-new(page-content) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; }[data-astro-transition=back]::view-transition-old(page-content) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }[data-astro-transition=back]::view-transition-new(page-content) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; } }[data-astro-transition-fallback="old"] [data-astro-transition-scope="astro-iywf7oe7-2"],
+			[data-astro-transition-fallback="old"][data-astro-transition-scope="astro-iywf7oe7-2"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }[data-astro-transition-fallback="new"] [data-astro-transition-scope="astro-iywf7oe7-2"],
+			[data-astro-transition-fallback="new"][data-astro-transition-scope="astro-iywf7oe7-2"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; }[data-astro-transition=back][data-astro-transition-fallback="old"] [data-astro-transition-scope="astro-iywf7oe7-2"],
+			[data-astro-transition=back][data-astro-transition-fallback="old"][data-astro-transition-scope="astro-iywf7oe7-2"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }[data-astro-transition=back][data-astro-transition-fallback="new"] [data-astro-transition-scope="astro-iywf7oe7-2"],
+			[data-astro-transition=back][data-astro-transition-fallback="new"][data-astro-transition-scope="astro-iywf7oe7-2"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; }</style><style>[data-astro-transition-scope="astro-v4xhcqov-3"] { view-transition-name: astro-v4xhcqov-3; }@layer astro { ::view-transition-old(astro-v4xhcqov-3) { animation: none; opacity: 0; mix-blend-mode: normal; }::view-transition-new(astro-v4xhcqov-3) { animation: none; mix-blend-mode: normal; }::view-transition-group(astro-v4xhcqov-3) { animation: none } }[data-astro-transition-fallback="old"] [data-astro-transition-scope="astro-v4xhcqov-3"],
+			[data-astro-transition-fallback="old"][data-astro-transition-scope="astro-v4xhcqov-3"] { animation: none; mix-blend-mode: normal; }[data-astro-transition-fallback="new"] [data-astro-transition-scope="astro-v4xhcqov-3"],
+			[data-astro-transition-fallback="new"][data-astro-transition-scope="astro-v4xhcqov-3"] { animation: none; mix-blend-mode: normal; }</style></head><body id="top"><header data-astro-transition-persist="site-header" data-astro-transition-scope="astro-gyrtbwwo-1" class="site-header shell"><div class="brand-wrap"><a class="brand" href="/" aria-label="Lufs's Blog，返回顶部；在顶部时返回首页" aria-describedby="brand-slogan">Lufs&#39;s Blog</a><span id="brand-slogan" class="brand-tooltip" role="tooltip">Life feeds on negative entropy.</span></div><nav class="site-nav desktop-nav" data-fluid-hover="x" aria-label="主导航"><a data-fluid-hover-item href="/">首页</a><a data-fluid-hover-item href="/archives/">归档</a><a data-fluid-hover-item href="/tags/">标签</a><a data-fluid-hover-item href="/search/">搜索</a><a data-fluid-hover-item href="/about/">关于</a><a data-fluid-hover-item href="/welfare/">福利</a><a data-fluid-hover-item href="/friends/">友链</a></nav><div class="mobile-navigation"><button id="menu-toggle" class="menu-toggle" type="button" aria-label="打开导航菜单" aria-expanded="false" aria-controls="mobile-navigation-panel"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path class="menu-line-top" d="M5 6h14"></path><path class="menu-line-middle" d="M5 12h14"></path><path class="menu-line-bottom" d="M5 18h14"></path></svg></button><div id="mobile-navigation-panel" class="mobile-navigation-panel" data-open="false" aria-hidden="true" inert><nav class="mobile-navigation-scroll" data-fluid-hover="y" aria-label="移动端导航"><a data-fluid-hover-item href="/">首页</a><a data-fluid-hover-item href="/archives/">归档</a><a data-fluid-hover-item href="/tags/">标签</a><a data-fluid-hover-item href="/search/">搜索</a><a data-fluid-hover-item href="/about/">关于</a><a data-fluid-hover-item href="/welfare/">福利</a><a data-fluid-hover-item href="/friends/">友链</a></nav></div></div><button id="theme-toggle" class="theme-toggle" type="button" aria-label="切换主题：系统、浅色、深色"><svg class="theme-icon icon-system" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="3" y="4" width="18" height="13" rx="2"></rect><path d="M8 21h8m-4-4v4"></path></svg><svg class="theme-icon icon-light" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2m0 16v2M2 12h2m16 0h2M5 5l1.5 1.5m11 11L19 19M5 19l1.5-1.5m11-11L19 5"></path></svg><svg class="theme-icon icon-dark" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M20.5 14A9 9 0 0 1 10 3.5 9 9 0 1 0 20.5 14Z"></path></svg></button></header><script type="module" src="/_astro/Base.astro_astro_type_script_index_0_lang.C04sE12B.js"></script><main data-astro-transition-scope="astro-iywf7oe7-2" id="main-content" class="shell site-main" tabindex="-1"><header class="article-header max-w-3xl pb-6 pt-4 md:pb-8 md:pt-6"><p class="eyebrow mb-2"><a href="/categories/%E5%88%86%E4%BA%AB/">分享</a><span aria-hidden="true"> · </span><time datetime="2022-01-29">2022-01-29</time></p><h1 class="article-title">好用好看好玩的输入法 —— 鼠须管配置使用</h1><img class="article-cover is-image-loading" src="https://cdn.isteed.cc/img/rime-2022/thumbnail.webp" alt="好用好看好玩的输入法 —— 鼠须管配置使用：文章头图" loading="lazy" decoding="async" width="1440" height="720"></header><div class="article-layout"><article id="article" class="article-content prose"><p>Rime 系列输入法在各个平台都有其对应的实现。我们可以对其进行配置，便会获得一个极其舒适且行云流水的基于个人偏好的输入体验。</p>
+
+<p>TL;DR（太长不看系列）</p>
+<p>嫌麻烦的话可以直接使用我的配置文件，具体介绍会放在另外一篇博文 —— <a href="https://blog.isteed.cc/post/rime-2022/">我的 Rime 配置 2022</a></p>
+<ul>
+<li><a href="#%E7%BC%98%E8%B5%B7">缘起</a></li>
+<li><a href="#%E5%88%9D%E8%AF%86">初识</a></li>
+<li><a href="#%E5%AE%89%E8%A3%85">安装</a></li>
+<li><a href="#%E5%88%87%E6%8D%A2">切换</a></li>
+<li><a href="#%E5%AE%9A%E5%88%B6">定制</a>
+<ul>
+<li><a href="#%E5%85%A8%E5%B1%80%E8%AE%BE%E7%BD%AE">全局设置</a></li>
+<li><a href="#%E8%BE%93%E5%85%A5%E6%96%B9%E6%A1%88">输入方案</a></li>
+<li><a href="#%E8%AF%8D%E5%BA%93">词库</a></li>
+<li><a href="#%E9%BC%A0%E9%A1%BB%E7%AE%A1%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6">鼠须管配置文件</a></li>
+</ul>
+</li>
+<li><a href="#%E6%8A%80%E5%B7%A7">技巧</a></li>
+<li><a href="#%E5%85%B6%E5%AE%83">其它</a></li>
+</ul>
+<h1 id="缘起">缘起</h1>
+<p>个人在 2017 年开始使用「小鹤双拼」，当我开始使用 macOS 时，一路辗转波折，试遍了几乎所有的「大厂」输入法，却都不尽人意……甚至还有愈发严重的隐私问题</p>
+<p>终于，在 macOS 10.14.2 中，系统自带的输入法支持了小鹤双拼</p>
+<p>使用几天后，欣喜消减，macOS 系统自带输入法丢失词频，加上似乎不太稳定的调频，以及内存泄漏的问题，导致输入体验极其差劲，我便开始寻求新的替代品</p>
+<h1 id="初识">初识</h1>
+<p>第一次接触到「鼠须管」是 macOS 自带输入法支持小鹤双拼之前，但因为其极其复杂的配置过程，搞不懂抑或是用不惯的其他人的配置，被哪眼花缭乱的配置文件「劝退」</p>
+<p>但之后，我又被「落格输入法」高昂的售价劝退，本着穷折腾的精神，硬啃着文档，「借鉴」着别人的配置，折腾着属于我自己的「鼠须管」</p>
+<p>事后「落格输入法」不再高昂，便第一时间入手了，但我发现「落格输入法」已经不如自己配置的「鼠须管」好用，不能完全的归于自己的掌控之中</p>
+<p>所以，本文将会介绍些我个人的定制过程及使用技巧，当然也包含个人<strong>正在使用的配置</strong>：<a href="https://github.com/LufsX/rime">LufsX/rime</a>（欢迎 Star 呀 <s>疯狂暗示</s>）</p>
+<h1 id="安装">安装</h1>
+<p>详见 <a href="/post/rime-2022/#%E5%AE%89%E8%A3%85">我的 Rime 配置 2022 —— 鼠须管、小狼毫与小企鹅输入法</a></p>
+<h1 id="定制">定制</h1>
+<p>定制推荐使用 <a href="https://code.visualstudio.com/download">Visual Studio Code</a>，顺带一提，可以使用快捷键 <code>⌘</code> + <code>/</code> 取消注释</p>
+<p>当然，其它的任何文本编辑器都可以使用，主要是看个人的喜好～</p>
+<p>另外就是 Windows 下的定制与下文的定制是一样的，只是部分配置的位置不同而已</p>
+<h2 id="全局设置">全局设置</h2>
+<p>定制文件位于 <code>用户设定文件夹/default.custom.yaml</code></p>
+<h3 id="输入法方案">输入法方案</h3>
+<p>不需要的可以注释，需要额外添加的也可以通过此添加</p>
+<p>命名规则是 <code>lufs_flypy.schema.yaml</code> =&gt; <code>lufs_flypy</code></p>
+<pre><code class="hljs language-yaml"><span class="hljs-attr">schema_list:</span>
+  <span class="hljs-bullet">-</span> <span class="hljs-attr">schema:</span> <span class="hljs-string">lufs_flypy</span> <span class="hljs-comment"># 小鹤双拼</span>
+  <span class="hljs-bullet">-</span> <span class="hljs-attr">schema:</span> <span class="hljs-string">lufs_pinyin</span> <span class="hljs-comment"># 朙月拼音</span>
+</code></pre>
+<h3 id="记忆选择">记忆选择</h3>
+<p>这是 <code>F2</code> 调出的选项菜单中的记忆保持选项，用于记忆输入方案中的 <code>switches</code> 开关</p>
+<pre><code class="hljs language-yaml"><span class="hljs-attr">switcher:</span>
+  <span class="hljs-attr">save_options:</span>
+    <span class="hljs-bullet">-</span> <span class="hljs-string">ascii_mode</span>
+    <span class="hljs-bullet">-</span> <span class="hljs-string">full_shape</span>
+    <span class="hljs-bullet">-</span> <span class="hljs-string">ascii_punct</span>
+    <span class="hljs-bullet">-</span> <span class="hljs-string">traditionalization</span>
+    <span class="hljs-bullet">-</span> <span class="hljs-string">emoji_suggestion</span>
+</code></pre>
+<h3 id="候选项数">候选项数</h3>
+<p>可依据自己需求更改，这里是结合个人日常输入习惯——手指按数字键 1 - 4 比较方便，所以确定候项数为 4</p>
+<pre><code class="hljs language-yaml"><span class="hljs-attr">menu:</span>
+  <span class="hljs-attr">page_size:</span> <span class="hljs-number">4</span> <span class="hljs-comment"># 候选项数</span>
+</code></pre>
+<h3 id="切换按键">切换按键</h3>
+<p>先说说个人使用习惯吧，个人是使用 <code>CapsLock</code> 切换中英文输入，可以实现中文使用「鼠须管」输入，西文则是使用系统自带输入法</p>
+<p>如果不习惯 <code>CapsLock</code> 切换，可以按照 <a href="https://gist.github.com/lotem/2981316"><br />
+lotem/default.custom.yaml</a> 样例进行定制，这里就不过多展开了</p>
+<p>（如果输入太多错误的字符，可以使用 <code>ESC</code> 一键清除）</p>
+<pre><code class="hljs language-yaml"><span class="hljs-attr">ascii_composer/switch_key:</span>
+  <span class="hljs-attr">Shift_L:</span> <span class="hljs-string">noop</span>
+  <span class="hljs-attr">Shift_R:</span> <span class="hljs-string">commit_code</span> <span class="hljs-comment"># macOS 上此项无效，Windows 可用右 Shift 切换中英输入</span>
+  <span class="hljs-attr">Control_L:</span> <span class="hljs-string">noop</span>
+  <span class="hljs-attr">Control_R:</span> <span class="hljs-string">noop</span> <span class="hljs-comment"># macOS 上此项无效，Windows 上可自行定义</span>
+  <span class="hljs-attr">Caps_Lock:</span> <span class="hljs-string">commit_code</span>
+  <span class="hljs-attr">Eisu_toggle:</span> <span class="hljs-string">clear</span>
+</code></pre>
+<h3 id="Lua选词扩展">Lua 选词扩展</h3>
+<p>这是源自 <a href="https://github.com/BlindingDark/rime-lua-select-character">BlindingDark/rime-lua-select-character</a> 的扩展，作用是打不好打的单字时，可以通过词组形式打出来，再使用默认快捷键 <code>[</code> 或 <code>]</code> 选择词组中第一个或最后一个字上屏</p>
+<p>如需使用 <code>[</code> 与 <code>]</code> 翻页，或是不想使用 <code>[</code> 或 <code>]</code> 选词，可修改为其它按键，如 <code>,</code> =&gt; <code>comma</code> 与 <code>.</code> =&gt; <code>period</code></p>
+<pre><code class="hljs language-yaml"><span class="hljs-attr">key_binder/select_first_character:</span> <span class="hljs-string">"bracketleft"</span> <span class="hljs-comment"># lua 选词快捷键，选第一个字</span>
+<span class="hljs-attr">key_binder/select_last_character:</span> <span class="hljs-string">"bracketright"</span> <span class="hljs-comment"># lua 选词快捷键，选最后一个字</span>
+</code></pre>
+<h3 id="按键绑定">按键绑定</h3>
+<p>这里可以设置什么键可以用来干什么，比如本配置中</p>
+<ul>
+<li><code>Tab</code> =&gt; 向下翻页</li>
+<li><code>Shift</code> + <code>Tab</code> =&gt; 向上翻页</li>
+<li><code>=</code> =&gt; 向下翻页</li>
+<li><code>-</code> =&gt; 向上翻页</li>
+<li><code>;</code> =&gt; 二选</li>
+<li><code>'</code> =&gt; 三选</li>
+</ul>
+<p>不过 <code>[</code> 或 <code>]</code> 无法翻页，需要 <a href="#lua-%E9%80%89%E8%AF%8D%E6%89%A9%E5%B1%95">Lua 选词扩展</a> 进行修改才能使用</p>
+<pre><code class="hljs language-yaml"><span class="hljs-attr">key_binder/bindings:</span> <span class="hljs-comment"># 设置哪些键可以翻页，需要哪个取消注释即可</span>
+  <span class="hljs-bullet">-</span> { <span class="hljs-attr">accept:</span> <span class="hljs-string">"Control+k"</span>, <span class="hljs-attr">send:</span> <span class="hljs-string">"Shift+Delete"</span>, <span class="hljs-attr">when:</span> <span class="hljs-string">composing</span> }
+  <span class="hljs-bullet">-</span> { <span class="hljs-attr">accept:</span> <span class="hljs-string">Tab</span>, <span class="hljs-attr">send:</span> <span class="hljs-string">Page_Down</span>, <span class="hljs-attr">when:</span> <span class="hljs-string">composing</span> } <span class="hljs-comment"># Tab 向下翻页</span>
+  <span class="hljs-bullet">-</span> { <span class="hljs-attr">accept:</span> <span class="hljs-string">Shift+Tab</span>, <span class="hljs-attr">send:</span> <span class="hljs-string">Page_Up</span>, <span class="hljs-attr">when:</span> <span class="hljs-string">composing</span> } <span class="hljs-comment"># Shift + Tab 向上翻页</span>
+  <span class="hljs-bullet">-</span> { <span class="hljs-attr">accept:</span> <span class="hljs-string">semicolon</span>, <span class="hljs-attr">when:</span> <span class="hljs-string">has_menu</span>, <span class="hljs-attr">send:</span> <span class="hljs-number">2</span> } <span class="hljs-comment"># 输入时「;」二选</span>
+  <span class="hljs-bullet">-</span> { <span class="hljs-attr">accept:</span> <span class="hljs-string">apostrophe</span>, <span class="hljs-attr">when:</span> <span class="hljs-string">has_menu</span>, <span class="hljs-attr">send:</span> <span class="hljs-number">3</span> } <span class="hljs-comment"># 输入时「'」三选</span>
+  <span class="hljs-bullet">-</span> { <span class="hljs-attr">accept:</span> <span class="hljs-string">equal</span>, <span class="hljs-attr">send:</span> <span class="hljs-string">Page_Down</span>, <span class="hljs-attr">when:</span> <span class="hljs-string">composing</span> }
+  <span class="hljs-bullet">-</span> { <span class="hljs-attr">accept:</span> <span class="hljs-string">minus</span>, <span class="hljs-attr">send:</span> <span class="hljs-string">Page_Up</span>, <span class="hljs-attr">when:</span> <span class="hljs-string">composing</span> }
+
+  <span class="hljs-comment"># 失效设置，可通过关闭/更改 lua 选词快捷键恢复</span>
+  <span class="hljs-bullet">-</span> { <span class="hljs-attr">accept:</span> <span class="hljs-string">bracketleft</span>, <span class="hljs-attr">send:</span> <span class="hljs-string">Page_Up</span>, <span class="hljs-attr">when:</span> <span class="hljs-string">composing</span> } <span class="hljs-comment"># 左括号向上翻页</span>
+  <span class="hljs-bullet">-</span> { <span class="hljs-attr">accept:</span> <span class="hljs-string">bracketright</span>, <span class="hljs-attr">send:</span> <span class="hljs-string">Page_Down</span>, <span class="hljs-attr">when:</span> <span class="hljs-string">composing</span> } <span class="hljs-comment"># 右括号向下翻页</span>
+</code></pre>
+<h2 id="输入方案">输入方案</h2>
+<p>个人主要使用的是小鹤双拼，那么我就以小鹤双拼输入方案作为例子，其文件位于 <code>用户设定文件夹/lufs_flypy.schema.yaml</code></p>
+<p>如需修改全拼方案，则将对应文件变为 <code>用户设定文件夹/lufs_pinyin.schema.yaml</code></p>
+<p>除了文中所介绍的，其它的设置一般都<strong>不推荐</strong>修改</p>
+<h3 id="选择菜单">选择菜单</h3>
+<p>一般来说不需要做出很大的更改，这部分用于控制输入法的一些行为</p>
+<pre><code class="hljs language-yaml"><span class="hljs-attr">switches:</span>
+  <span class="hljs-bullet">-</span> <span class="hljs-attr">name:</span> <span class="hljs-string">ascii_mode</span>
+    <span class="hljs-attr">reset:</span> <span class="hljs-number">0</span>
+    <span class="hljs-attr">states:</span> [<span class="hljs-string">中文</span>, <span class="hljs-string">西文</span>]
+  <span class="hljs-bullet">-</span> <span class="hljs-attr">name:</span> <span class="hljs-string">full_shape</span>
+    <span class="hljs-attr">states:</span> [<span class="hljs-string">半角</span>, <span class="hljs-string">全角</span>]
+  <span class="hljs-bullet">-</span> <span class="hljs-attr">name:</span> <span class="hljs-string">ascii_punct</span>
+    <span class="hljs-attr">states:</span> [<span class="hljs-string">。，</span>, <span class="hljs-string">．，</span>]
+  <span class="hljs-bullet">-</span> <span class="hljs-attr">name:</span> <span class="hljs-string">traditionalization</span>
+    <span class="hljs-comment"># reset: 0 # 默认状态: 0 简体 1 繁体</span>
+    <span class="hljs-attr">states:</span> [<span class="hljs-string">简</span>, <span class="hljs-string">繁</span>]
+  <span class="hljs-bullet">-</span> <span class="hljs-attr">name:</span> <span class="hljs-string">emoji_suggestion</span>
+    <span class="hljs-comment"># reset: 1 # 默认状态: 0 关闭 1 开启</span>
+    <span class="hljs-attr">states:</span> [<span class="hljs-string">"🈚️️"</span>, <span class="hljs-string">"🈶️"</span>]
+</code></pre>
+<p><code>name</code> 字段是输入方案中其它设置字段的名称（即 <code>option_name</code>）</p>
+<p><code>reset</code> 字段用于恢复默认设置</p>
+<p><code>states</code> 字段用于定义 <code>F2</code> 菜单中的显示状态</p>
+<h3 id="输入引擎">输入引擎</h3>
+<p>一般来说不需做任何更改，但这儿可以关闭 <a href="#lua-%E9%80%89%E8%AF%8D%E6%89%A9%E5%B1%95">Lua 选词扩展</a>，删去对应注释的行或将该行注释即可</p>
+<pre><code class="hljs language-yaml"><span class="hljs-attr">engine:</span>
+  <span class="hljs-attr">processors:</span>
+    <span class="hljs-comment"># - ascii_composer # Windows 用户请解除此行注释，否则将会无法切换到英文输入</span>
+    <span class="hljs-bullet">-</span> <span class="hljs-string">recognizer</span>
+    <span class="hljs-bullet">-</span> <span class="hljs-string">lua_processor@select_character_processor</span> <span class="hljs-comment"># lua 选词扩展，如需关闭请注释</span>
+    <span class="hljs-bullet">-</span> <span class="hljs-string">key_binder</span>
+<span class="hljs-string">......</span>
+<span class="hljs-attr">translators:</span>
+  <span class="hljs-bullet">-</span> <span class="hljs-string">punct_translator</span>
+  <span class="hljs-bullet">-</span> <span class="hljs-string">lua_translator@date_translator</span> <span class="hljs-comment"># 动态日期时间输入</span>
+  <span class="hljs-bullet">-</span> <span class="hljs-string">table_translator@custom_phrase</span> <span class="hljs-comment"># 用户自定义词典</span>
+  <span class="hljs-bullet">-</span> <span class="hljs-string">script_translator</span>
+<span class="hljs-attr">filters:</span>
+  <span class="hljs-bullet">-</span> <span class="hljs-string">simplifier@emoji_suggestion</span>
+  <span class="hljs-comment"># - lua_filter@long_phrase_first # 最长词组和单字在先</span>
+  <span class="hljs-comment"># - lua_filter@single_char_first # 单字优先</span>
+  <span class="hljs-comment"># - lua_filter@single_char_only # 只显示单字</span>
+</code></pre>
+<p><code>processors</code> 段是控制输入引擎，比如 英文输入引擎、反查、按键绑定 等涉及到输入引擎的「开关」，引入新的引擎需要在这儿添加激活</p>
+<p><code>translators</code> 段是控制「翻译器」的，通过匹配输入替换输出来实现部分功能，比如 符号转换、动态日期时间输入、用户自定义词典 都需要在这儿激活</p>
+<p><code>filters</code> 段是控制过滤器的，过滤器如其名，用于过滤/重排候选词的，<code>simplifier@emoji_suggestion</code> 项用于过滤繁体注释，不过这个并不影响本方案的设置，而重排操作的具体效果可见下或见 <a href="https://github.com/LufsX/rime/wiki/%E5%80%99%E9%80%89%E6%8E%92%E5%BA%8F">GitHub 仓库 Wiki</a>（注：需在 <code>rime.lua</code> 文件中定义过滤器，若不定义，调用时在函数名前加 <code>*</code> 即可）</p>
+<ol>
+<li>
+<p>长词优先(默认)<br />
+<img src="https://cdn.isteed.cc/img/rime-2022/sort-lf.webp" alt="sort-lf" class="is-image-loading" loading="lazy" decoding="async" width="690" height="212" /></p>
+</li>
+<li>
+<p>最长词和单字优先<br />
+<img src="https://cdn.isteed.cc/img/rime-2022/sort-lsf.webp" alt="sort-lsf" class="is-image-loading" loading="lazy" decoding="async" width="690" height="212" /></p>
+</li>
+<li>
+<p>单字优先</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">候选第一页</th>
+<th style="text-align:center">候选第二页</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><img src="https://cdn.isteed.cc/img/rime-2022/sort-sf-1.webp" alt="sort-sf-1" class="is-image-loading" loading="lazy" decoding="async" width="690" height="212" /></td>
+<td style="text-align:center"><img src="https://cdn.isteed.cc/img/rime-2022/sort-sf-2.webp" alt="sort-sf-2" class="is-image-loading" loading="lazy" decoding="async" width="690" height="212" /></td>
+</tr>
+</tbody>
+</table>
+</li>
+<li>
+<p>只有单字</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">候选第一页</th>
+<th style="text-align:center">候选第二页</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><img src="https://cdn.isteed.cc/img/rime-2022/sort-so-1.webp" alt="sort-so-1" class="is-image-loading" loading="lazy" decoding="async" width="690" height="212" /></td>
+<td style="text-align:center"><img src="https://cdn.isteed.cc/img/rime-2022/sort-so-2.webp" alt="sort-so-2" class="is-image-loading" loading="lazy" decoding="async" width="690" height="212" /></td>
+</tr>
+</tbody>
+</table>
+</li>
+</ol>
+<h3 id="模糊音">模糊音</h3>
+<p>在此区域修改注释即可（不注释 = 打开；注释 = 关闭）</p>
+<pre><code class="hljs language-yaml"><span class="hljs-attr">speller:</span>
+  <span class="hljs-attr">alphabet:</span> <span class="hljs-string">zyxwvutsrqponmlkjihgfedcba/</span>
+  <span class="hljs-attr">delimiter:</span> <span class="hljs-string">"'"</span>
+  <span class="hljs-attr">algebra:</span>
+    <span class="hljs-bullet">-</span> <span class="hljs-string">erase/^xx$/</span>
+    <span class="hljs-bullet">-</span> <span class="hljs-string">erase/^hm$/</span>
+    <span class="hljs-bullet">-</span> <span class="hljs-string">erase/^m$/</span>
+    <span class="hljs-bullet">-</span> <span class="hljs-string">erase/^n$/</span>
+    <span class="hljs-bullet">-</span> <span class="hljs-string">erase/^ng$/</span>
+
+    <span class="hljs-comment"># 模糊音区域</span>
+    <span class="hljs-comment"># 依据个人情况修改注释～</span>
+    <span class="hljs-comment"># 注释格式：键盘的输入码 -&gt; 转化后的输入码</span>
+
+    <span class="hljs-comment"># 声母部分</span>
+    <span class="hljs-comment"># - derive/^([z])h/$1/ # z -&gt; zh</span>
+    <span class="hljs-comment"># - derive/^([z])([^h])/$1h$2/ # zh -&gt; z</span>
+    <span class="hljs-comment"># - derive/^([c])h/$1/ # c -&gt; ch</span>
+    <span class="hljs-comment"># - derive/^([c])([^h])/$1h$2/ # ch -&gt; c</span>
+    <span class="hljs-comment"># - derive/^([s])h/$1/ # s -&gt; sh</span>
+    <span class="hljs-comment"># - derive/^([s])([^h])/$1h$2/ # sh -&gt; s</span>
+    <span class="hljs-comment"># - derive/^l/n/ # n -&gt; l</span>
+    <span class="hljs-comment"># - derive/^n/l/ # l -&gt; n</span>
+    <span class="hljs-comment"># - derive/^r/l/ # l -&gt; r</span>
+    <span class="hljs-comment"># - derive/^r/y/ # y -&gt; r</span>
+    <span class="hljs-comment"># - derive/^hu$/fu/ # fu -&gt; hu</span>
+    <span class="hljs-comment"># - derive/^fu$/hu/ # hu -&gt; fu</span>
+
+    <span class="hljs-comment"># 韵母部分</span>
+    <span class="hljs-bullet">-</span> <span class="hljs-string">derive/([^iu])([a])n$/$1$2ng/</span> <span class="hljs-comment"># ang -&gt; an</span>
+    <span class="hljs-bullet">-</span> <span class="hljs-string">derive/([^iu])([a])ng$/$1$2n/</span> <span class="hljs-comment"># an -&gt; ang</span>
+    <span class="hljs-bullet">-</span> <span class="hljs-string">derive/([e])n$/$1ng/</span> <span class="hljs-comment"># eng -&gt; en</span>
+    <span class="hljs-bullet">-</span> <span class="hljs-string">derive/([e])ng$/$1n/</span> <span class="hljs-comment"># en -&gt; eng</span>
+    <span class="hljs-comment"># - derive/([i])n$/$1ng/ # ing -&gt; in</span>
+    <span class="hljs-comment"># - derive/([i])ng$/$1n/ # in -&gt; ing</span>
+    <span class="hljs-comment"># - derive/([i])an$/$1ang/ # iang -&gt; ian</span>
+    <span class="hljs-comment"># - derive/([i])ang$/$1an/ # ian -&gt; iang</span>
+    <span class="hljs-comment"># 由于小鹤双拼特性，无需 uang &lt;-&gt; iang</span>
+
+    <span class="hljs-comment"># 其它模糊音</span>
+    <span class="hljs-comment"># - derive/^hui$/fei/ # fei -&gt; hui</span>
+    <span class="hljs-comment"># - derive/^fei$/hui/ # hui -&gt; fei</span>
+    <span class="hljs-comment"># - derive/^huang$/wang/ # wang -&gt; huang</span>
+    <span class="hljs-comment"># - derive/^wang$/huang/ # huang -&gt; wang</span>
+    <span class="hljs-comment"># - derive/^([bpmfw])eng$/$1ong/ # bpmfw 后接 ong -&gt; bpmfw 后接 eng</span>
+</code></pre>
+<p><code>alphabet</code> 字段用于定义需要参与拼写规则的字符<br />
+<code>delimiter</code> 字段用于定义输入的词与词之间的间隔符（仅接受第一个字符成为间隔符）<br />
+<code>algebra</code> 则为拼写规则，具体规则参见 <a href="https://github.com/rime/home/wiki/SpellingAlgebra#%E5%8E%9F%E7%90%86%E8%88%87%E5%AF%A6%E7%8F%BE">官方 wiki</a></p>
+<h3 id="码表">码表</h3>
+<p>后面部分的就是小鹤双拼的码表，要是需要使用其它双拼方案，可以直接替换码表部分，非双拼用户可忽略</p>
+<pre><code class="hljs language-yaml"><span class="hljs-comment"># 小鹤双拼码表</span>
+<span class="hljs-bullet">-</span> <span class="hljs-string">derive/^([jqxy])u$/$1v/</span>
+<span class="hljs-bullet">-</span> <span class="hljs-string">derive/^([aoe])([ioun])$/$1$1$2/</span>
+<span class="hljs-bullet">-</span> <span class="hljs-string">xform/^([aoe])(ng)?$/$1$1$2/</span>
+<span class="hljs-bullet">-</span> <span class="hljs-string">xform/iu$/Q/</span>
+<span class="hljs-bullet">-</span> <span class="hljs-string">xform/(.)ei$/$1W/</span>
+<span class="hljs-bullet">-</span> <span class="hljs-string">xform/uan$/R/</span>
+<span class="hljs-bullet">-</span> <span class="hljs-string">xform/[uv]e$/T/</span>
+<span class="hljs-bullet">-</span> <span class="hljs-string">xform/un$/Y/</span>
+<span class="hljs-bullet">-</span> <span class="hljs-string">xform/^sh/U/</span>
+<span class="hljs-bullet">-</span> <span class="hljs-string">xform/^ch/I/</span>
+<span class="hljs-bullet">-</span> <span class="hljs-string">xform/^zh/V/</span>
+<span class="hljs-bullet">-</span> <span class="hljs-string">xform/uo$/O/</span>
+<span class="hljs-bullet">-</span> <span class="hljs-string">xform/ie$/P/</span>
+<span class="hljs-bullet">-</span> <span class="hljs-string">xform/i?ong$/S/</span>
+<span class="hljs-bullet">-</span> <span class="hljs-string">xform/ing$|uai$/K/</span>
+<span class="hljs-bullet">-</span> <span class="hljs-string">xform/(.)ai$/$1D/</span>
+<span class="hljs-bullet">-</span> <span class="hljs-string">xform/(.)en$/$1F/</span>
+<span class="hljs-bullet">-</span> <span class="hljs-string">xform/(.)eng$/$1G/</span>
+<span class="hljs-bullet">-</span> <span class="hljs-string">xform/[iu]ang$/L/</span>
+<span class="hljs-bullet">-</span> <span class="hljs-string">xform/(.)ang$/$1H/</span>
+<span class="hljs-bullet">-</span> <span class="hljs-string">xform/ian$/M/</span>
+<span class="hljs-bullet">-</span> <span class="hljs-string">xform/(.)an$/$1J/</span>
+<span class="hljs-bullet">-</span> <span class="hljs-string">xform/(.)ou$/$1Z/</span>
+<span class="hljs-bullet">-</span> <span class="hljs-string">xform/[iu]a$/X/</span>
+<span class="hljs-bullet">-</span> <span class="hljs-string">xform/iao$/N/</span>
+<span class="hljs-bullet">-</span> <span class="hljs-string">xform/(.)ao$/$1C/</span>
+<span class="hljs-bullet">-</span> <span class="hljs-string">xform/ui$/V/</span>
+<span class="hljs-bullet">-</span> <span class="hljs-string">xform/in$/B/</span>
+<span class="hljs-bullet">-</span> <span class="hljs-string">xlit/QWRTYUIOPSDFGHJKLZXCVBNM/qwrtyuiopsdfghjklzxcvbnm/</span>
+</code></pre>
+<p>若需自定义，参见 <a href="https://github.com/rime/home/wiki/SpellingAlgebra#%E5%8E%9F%E7%90%86%E8%88%87%E5%AF%A6%E7%8F%BE">官方 wiki</a></p>
+<h3 id="字符映射">字符映射</h3>
+<p>这里依据个人习惯修改了部分符号，如：</p>
+<ul>
+<li><code>/</code> =&gt; <code>/</code></li>
+<li>'' =&gt; <code>、</code></li>
+<li><code>~</code> =&gt; <code>～</code></li>
+<li><code>@</code> =&gt; <code>@</code></li>
+<li><code>#</code> =&gt; <code>#</code></li>
+<li><code>-</code> =&gt; <code>-</code></li>
+<li><code>_</code> =&gt; <code>——</code></li>
+<li><code>+</code> =&gt; <code>+</code></li>
+<li><code>=</code> =&gt; <code>=</code></li>
+<li><code>[</code> =&gt; <code>「</code></li>
+<li><code>]</code> =&gt; <code>」</code></li>
+<li><code>{</code> =&gt; <code>『</code></li>
+<li><code>}</code> =&gt; <code>』</code></li>
+</ul>
+<p>你也可以添加以 <code>/</code> 开头的快捷输入，如输入 <code>/help</code> 后会显示</p>
+<p><img src="https://cdn.isteed.cc/img/rime-2022/f3.webp" alt="f3" class="is-image-loading" loading="lazy" decoding="async" width="832" height="150" /></p>
+<p>此时选中便会将显示的东西上屏</p>
+<pre><code class="hljs language-yaml"><span class="hljs-attr">punctuator:</span>
+  <span class="hljs-attr">import_preset:</span> <span class="hljs-string">symbols</span>
+  <span class="hljs-attr">symbols:</span>
+    <span class="hljs-string">"/dn"</span><span class="hljs-string">:</span> [<span class="hljs-string"></span>, <span class="hljs-string">⌘</span>, <span class="hljs-string">⌥</span>, <span class="hljs-string">⇧</span>, <span class="hljs-string">⌃</span>, <span class="hljs-string">⎋</span>, <span class="hljs-string">⇪</span>, <span class="hljs-string">⌫</span>, <span class="hljs-string">⌦</span>, <span class="hljs-string">↩︎</span>, <span class="hljs-string">⏎</span>, <span class="hljs-string">↑</span>, <span class="hljs-string">↓</span>, <span class="hljs-string">←</span>, <span class="hljs-string">→</span>, <span class="hljs-string">↖</span>, <span class="hljs-string">↘</span>, <span class="hljs-string">⇟</span>, <span class="hljs-string">⇞</span>]
+    <span class="hljs-string">"/x"</span><span class="hljs-string">:</span> [<span class="hljs-string">＊</span>, <span class="hljs-string">×</span>, <span class="hljs-string">✱</span>, <span class="hljs-string">★</span>, <span class="hljs-string">☆</span>, <span class="hljs-string">✩</span>, <span class="hljs-string">✧</span>, <span class="hljs-string">❋</span>, <span class="hljs-string">❊</span>, <span class="hljs-string">❉</span>, <span class="hljs-string">❈</span>, <span class="hljs-string">❅</span>, <span class="hljs-string">✿</span>, <span class="hljs-string">✲</span>]
+    <span class="hljs-string">"/sm"</span><span class="hljs-string">:</span> [<span class="hljs-string">"《"</span>, <span class="hljs-string">"》"</span>, <span class="hljs-string">"〈"</span>, <span class="hljs-string">"〉"</span>, <span class="hljs-string">"«"</span>, <span class="hljs-string">"»"</span>, <span class="hljs-string">"&lt;"</span>, <span class="hljs-string">"&gt;"</span>]
+    <span class="hljs-string">"/tab"</span><span class="hljs-string">:</span> <span class="hljs-string">"	"</span>
+    <span class="hljs-string">"/help"</span><span class="hljs-string">:</span> [<span class="hljs-string">符號：/fh</span>, <span class="hljs-string">單位：/dw</span>, <span class="hljs-string">標點：/bd</span>, <span class="hljs-string">數學：/sx</span>, <span class="hljs-string">拼音：/py</span>, <span class="hljs-string">星號：/xh</span>, <span class="hljs-string">方塊：/fk</span>, <span class="hljs-string">幾何：/jh</span>, <span class="hljs-string">箭頭：/jt</span>, <span class="hljs-string">電腦：/dn</span>, <span class="hljs-string">羅馬數字：/lm</span>, <span class="hljs-string">大写羅馬數字：/lmd</span>, <span class="hljs-string">拉丁：/ld</span>, <span class="hljs-string">上標：/sb</span>, <span class="hljs-string">下標：/xb</span>, <span class="hljs-string">希臘字母：/xl</span>, <span class="hljs-string">大写希臘字母：/xld</span>, <span class="hljs-string">數字：/0到/9</span>, <span class="hljs-string">分數：/fs</span>, <span class="hljs-string">いろは順：/iro</span>, <span class="hljs-string">假名：/jm或/pjm或/jmk到/jmo</span>, <span class="hljs-string">假名+圈：/jmq</span>, <span class="hljs-string">假名+半角：/jmbj</span>, <span class="hljs-string">俄語：/ey</span>, <span class="hljs-string">大写俄語：/eyd</span>, <span class="hljs-string">韓文：/hw</span>, <span class="hljs-string">韓文+圈：/hwq</span>, <span class="hljs-string">韓文+弧：/hwh</span>, <span class="hljs-string">結構：/jg</span>, <span class="hljs-string">偏旁：/pp</span>, <span class="hljs-string">康熙（部首）：/kx</span>, <span class="hljs-string">筆畫：/bh</span>, <span class="hljs-string">註音：/zy</span>, <span class="hljs-string">聲調：/sd</span>, <span class="hljs-string">漢字+圈：/hzq</span>, <span class="hljs-string">漢字+弧：/hzh</span>, <span class="hljs-string">數字+圈：/szq</span>, <span class="hljs-string">數字+弧：/szh</span>, <span class="hljs-string">數字+點：/szd</span>, <span class="hljs-string">字母+圈：/zmq</span>, <span class="hljs-string">字母+弧：/zmh</span>, <span class="hljs-string">表情：/bq</span>, <span class="hljs-string">音樂：/yy</span>, <span class="hljs-string">月份：/yf</span>, <span class="hljs-string">日期：/rq</span>, <span class="hljs-string">曜日：/yr</span>, <span class="hljs-string">時間：/sj</span>, <span class="hljs-string">天干：/tg</span>, <span class="hljs-string">地支：/dz</span>, <span class="hljs-string">干支：/gz</span>, <span class="hljs-string">節氣：/jq</span>, <span class="hljs-string">象棋：/xq</span>, <span class="hljs-string">麻將：/mj</span>, <span class="hljs-string">色子：/sz</span>, <span class="hljs-string">撲克：/pk</span>, <span class="hljs-string">八卦：/bg</span>, <span class="hljs-string">八卦名：/bgm</span>, <span class="hljs-string">六十四卦：/lssg</span>, <span class="hljs-string">六十四卦名：/lssgm</span>, <span class="hljs-string">太玄經：/txj</span>, <span class="hljs-string">天體：/tt</span>, <span class="hljs-string">星座：/xz</span>, <span class="hljs-string">星座名：/xzm</span>, <span class="hljs-string">十二宮：/seg</span>, <span class="hljs-string">蘇州碼：/szm</span>]
+  <span class="hljs-attr">full_shape:</span>
+    <span class="hljs-attr">"@":</span> <span class="hljs-string">"＠"</span>
+  <span class="hljs-attr">half_shape:</span>
+    <span class="hljs-string">"/"</span><span class="hljs-string">:</span> <span class="hljs-string">"/"</span>
+    <span class="hljs-string">'\'</span><span class="hljs-string">:</span> <span class="hljs-string">"、"</span>
+    <span class="hljs-string">"`"</span><span class="hljs-string">:</span> <span class="hljs-string">"`"</span>
+    <span class="hljs-string">"~"</span><span class="hljs-string">:</span> <span class="hljs-string">～</span>
+    <span class="hljs-attr">"@":</span> <span class="hljs-string">"@"</span>
+    <span class="hljs-string">"#"</span><span class="hljs-string">:</span> <span class="hljs-string">"#"</span>
+    <span class="hljs-string">"-"</span><span class="hljs-string">:</span> <span class="hljs-string">"-"</span>
+    <span class="hljs-attr">"_":</span> <span class="hljs-string">"——"</span>
+    <span class="hljs-string">"+"</span><span class="hljs-string">:</span> <span class="hljs-string">"+"</span>
+    <span class="hljs-string">"="</span><span class="hljs-string">:</span> <span class="hljs-string">"="</span>
+    <span class="hljs-string">"["</span><span class="hljs-string">:</span> <span class="hljs-string">"「"</span>
+    <span class="hljs-string">"]"</span><span class="hljs-string">:</span> <span class="hljs-string">"」"</span>
+    <span class="hljs-string">"{"</span><span class="hljs-string">:</span> <span class="hljs-string">"『"</span>
+    <span class="hljs-string">"}"</span><span class="hljs-string">:</span> <span class="hljs-string">"』"</span>
+</code></pre>
+<h2 id="词库">词库</h2>
+<p>词库这个东西可是重中之重啊，直接决定了一个输入法的使用体验，这里就主要介绍词库格式了</p>
+<h3 id="词库配置">词库配置</h3>
+<p>本配置中词库配置文件位于 <code>用户设定文件夹/extended.dict.yaml</code></p>
+<p><code>import_tables</code> 下便是词库文件顺序，我的小私货可以按需注释（当然，不注释也没什么影响，但万一有些人很厌恶以至于都不想看到那些词汇呢？）</p>
+<p>词库文件导入支持相对路径，比如在 <code>用户设定文件夹/dicts/genshin.dict.yaml</code> 可以用 <code>dicts/genshin</code> 调用</p>
+<pre><code class="hljs language-yaml"><span class="hljs-attr">import_tables:</span>
+  <span class="hljs-comment"># 覆盖词频</span>
+  <span class="hljs-bullet">-</span> <span class="hljs-string">dicts/simp</span> <span class="hljs-comment"># 最小拼音词典</span>
+  <span class="hljs-bullet">-</span> <span class="hljs-string">dicts/simp-ext</span> <span class="hljs-comment"># 原字表中除单字外部分</span>
+
+  <span class="hljs-bullet">-</span> <span class="hljs-string">dicts/sogou_net</span> <span class="hljs-comment"># 网络流行语</span>
+  <span class="hljs-bullet">-</span> <span class="hljs-string">dicts/thuocl_animal</span> <span class="hljs-comment"># 动物</span>
+  <span class="hljs-bullet">-</span> <span class="hljs-string">dicts/thuocl_caijing</span> <span class="hljs-comment"># 财经</span>
+  <span class="hljs-bullet">-</span> <span class="hljs-string">dicts/thuocl_food</span> <span class="hljs-comment"># 饮食</span>
+  <span class="hljs-bullet">-</span> <span class="hljs-string">dicts/thuocl_idiom</span> <span class="hljs-comment"># 成语俗语</span>
+  <span class="hljs-bullet">-</span> <span class="hljs-string">dicts/thuocl_IT</span> <span class="hljs-comment"># IT</span>
+  <span class="hljs-bullet">-</span> <span class="hljs-string">dicts/thuocl_medical</span> <span class="hljs-comment"># 医学</span>
+  <span class="hljs-bullet">-</span> <span class="hljs-string">dicts/thuocl_renmingdiming</span> <span class="hljs-comment"># 人名地名</span>
+
+  <span class="hljs-comment"># 一点点小小的私货，不需要的可以自行关闭呢</span>
+  <span class="hljs-bullet">-</span> <span class="hljs-string">dicts/moegirl</span> <span class="hljs-comment"># 萌娘百科</span>
+  <span class="hljs-bullet">-</span> <span class="hljs-string">dicts/sogou_minecraft</span> <span class="hljs-comment"># Minecraft 词条</span>
+  <span class="hljs-bullet">-</span> <span class="hljs-string">dicts/sogou_touhou</span> <span class="hljs-comment"># 东方 Project</span>
+</code></pre>
+<h3 id="词库格式">词库格式</h3>
+<p>本配置中，词库文件位于 <code>用户设定文件夹/dicts/</code> 下</p>
+<p>这里就用 <code>example.dict.yaml</code> 来举例</p>
+<p>文件开头应使用如下格式</p>
+<pre><code class="hljs language-yaml"><span class="hljs-meta">---</span>
+<span class="hljs-attr">name:</span> <span class="hljs-string">example</span>
+<span class="hljs-attr">version:</span> <span class="hljs-string">"2022-01-29"</span>
+<span class="hljs-attr">sort:</span> <span class="hljs-string">by_weight</span>
+</code></pre>
+<p>接下来的词库内容应按照格式 <code>词组</code> + <code>拼音</code>（可选） + <code>词频</code>（可选）编写，<code>词组</code>、<code>拼音</code> 和 <code>词频</code>之间使用 <code>Tab 缩进</code> 间隔开，词组中各个字的拼音之间使用 <code>空格</code> 间隔开，例子如下</p>
+<p>提示：若使用本配置，可以通过输入 <code>/tab</code> 来输入 <code>Tab 缩进</code></p>
+<pre><code class="hljs language-yaml"><span class="hljs-string">你要加入词库的词</span>	<span class="hljs-string">ni</span> <span class="hljs-string">yao</span> <span class="hljs-string">jia</span> <span class="hljs-string">ru</span> <span class="hljs-string">ci</span> <span class="hljs-string">ku</span> <span class="hljs-string">de</span> <span class="hljs-string">ci</span>
+<span class="hljs-string">这是另外个词组或一句话</span>	<span class="hljs-string">zhe</span> <span class="hljs-string">shi</span> <span class="hljs-string">ling</span> <span class="hljs-string">wai</span> <span class="hljs-string">ge</span> <span class="hljs-string">ci</span> <span class="hljs-string">zhu</span> <span class="hljs-string">hou</span> <span class="hljs-string">yi</span> <span class="hljs-string">ju</span> <span class="hljs-string">hua</span>
+<span class="hljs-string">这个词组</span>	<span class="hljs-string">zhe</span> <span class="hljs-string">ge</span> <span class="hljs-string">ci</span> <span class="hljs-string">zu</span>	<span class="hljs-number">666</span>
+<span class="hljs-string">另外一个词组</span>
+</code></pre>
+<h3 id="关于搜狗词库">关于搜狗词库</h3>
+<p>本配置中所使用的词库部分来源于<a href="https://pinyin.sogou.com/dict/">搜狗词库</a></p>
+<p>搜狗词库格式为 <code>scel</code>，可在 Windows/Linux/macOS 下使用 <a href="https://github.com/studyzy/imewlconverter">深蓝词库转化</a> 或 <a href="https://github.com/LufsX/rime/blob/master/tools/scel2dict.py">scel2dict.py</a> 转换为 Rime 格式</p>
+<p><s>虽说 macOS 也能用，不过只有命令行，而且配置过程比较麻烦，所有还是找个用 Windows 的小伙伴帮你转化下词库吧～</s></p>
+<p>基于 Python 重写的 <a href="https://github.com/LufsX/rime/blob/master/tools/scel2dict.py">scel2dict.py</a> 可在任意平台简单使用，支持直接从 URL 下载并转换词库，仅需安装 Python 依赖 <code>requests</code></p>
+<hr />
+<p>注意，转化出来的词库可能是带有词频的，由于本配置中使用了 <a href="https://github.com/thunlp/THUOCL">thunlp/THUOCL</a> 词库及词频，所以推荐使用 VS CODE 的「搜索替换」（<code>⌘</code> + <code>F</code>）功能将其全部删去</p>
+<h3 id="自定义短语">自定义短语</h3>
+<p>为了便于编辑而引入了 <code>custom phrase</code> 功能，只需编辑 <code>用户设置文件夹/custom_phrase.txt</code> 即可便利的进行自定义短语操作</p>
+<p>格式为：<code>自定义短语</code> + <code>Tab 缩进</code> + <code>输入编码</code> (+ <code>Tab 缩进</code> + <code>权重</code>)</p>
+<p>权重越大，显示越前，例子如下</p>
+<pre><code class="hljs">自定义	diy
+中州韵输入法引擎	rime	2
+https://rime.im/	rime	1
+Rime	rime	3
+</code></pre>
+<p><img src="https://cdn.isteed.cc/img/rime-2022/f5.webp" alt="f5" class="is-image-loading" loading="lazy" decoding="async" width="886" height="150" /></p>
+<h2 id="鼠须管配置文件">鼠须管配置文件</h2>
+<p>位于 <code>用户设置文件夹/squirrel.custom.yaml</code></p>
+<h3 id="程序单独设置">程序单独设置</h3>
+<p><strong>本配置中不推荐使用！</strong></p>
+<pre><code class="hljs language-yaml"><span class="hljs-attr">app_options:</span> {} <span class="hljs-comment"># 清除应用默认输入法，防止无法输入中文（通过 Caps 切换中英文）</span>
+</code></pre>
+<p>如非要用，哪我也拦不住你，单独设置格式如下</p>
+<pre><code class="hljs language-yaml"><span class="hljs-attr">app_options:</span>
+  <span class="hljs-attr">com.microsoft.VSCode:</span> <span class="hljs-comment"># 应用包名</span>
+    <span class="hljs-attr">ascii_mode:</span> <span class="hljs-literal">true</span> <span class="hljs-comment"># true 默认英文，false 默认中文</span>
+    <span class="hljs-attr">scii_punct:</span> <span class="hljs-literal">true</span> <span class="hljs-comment"># true 使用西文标点，false 使用中文标点</span>
+</code></pre>
+<h3 id="皮肤设置">皮肤设置</h3>
+<p>总设置如下，<code>color_scheme</code> 后接的是皮肤主题，可以按照后面的主题名修改来切换主题</p>
+<p><s>如果你是使用我编译的版本，则输入法具有微微的透明效果，不喜欢的话可以直接关掉 <code>translucency</code>，其它没有合 PR 的版本该设置项无影响</s></p>
+<p>官方版本已经支持设置透明度了，在我的配置里，总开关仍为 <code>translucency</code>（<code>style</code> 里的样式可以强制覆盖皮肤样式）</p>
+<pre><code class="hljs language-yaml"><span class="hljs-attr">style:</span>
+  <span class="hljs-attr">color_scheme:</span> <span class="hljs-string">ayaya</span>
+  <span class="hljs-attr">color_scheme_dark:</span> <span class="hljs-string">ayaya</span>
+  <span class="hljs-attr">translucency:</span> <span class="hljs-literal">true</span> <span class="hljs-comment"># 背景半透明总开关，不需要关掉即可</span>
+</code></pre>
+<h3 id="皮肤配置">皮肤配置</h3>
+<p>「鼠须管」的皮肤可以使用 <a href="https://apps.apple.com/app/squirrel-designer/id1530616498">Squirrel Designer</a> 或 <a href="https://gjrobert.github.io/Rime-See-Me-squirrel/">RIME 西米 - for Squirrel</a> 来可视化定制「鼠须管」外观，也可以使用内置皮肤，内置皮肤及效果如下</p>
+
+<table>
+<thead>
+<tr>
+<th style="text-align:left">皮肤名称</th>
+<th style="text-align:center">预览图</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><code>ayaya</code></td>
+<td style="text-align:center"><img src="https://cdn.isteed.cc/img/rime-2022/theme-ayaya.png" alt="ayaya" class="is-image-loading" loading="lazy" decoding="async" width="454" height="150" /></td>
+</tr>
+<tr>
+<td style="text-align:left"><code>ayaya_dark</code></td>
+<td style="text-align:center"><img src="https://cdn.isteed.cc/img/rime-2022/theme-ayaya-dark.png" alt="ayaya-dark" class="is-image-loading" loading="lazy" decoding="async" width="454" height="150" /></td>
+</tr>
+<tr>
+<td style="text-align:left"><code>reimu</code></td>
+<td style="text-align:center"><img src="https://cdn.isteed.cc/img/rime-2022/theme-reimu.png" alt="reimu" class="is-image-loading" loading="lazy" decoding="async" width="496" height="164" /></td>
+</tr>
+<tr>
+<td style="text-align:left"><code>reimu_dark</code></td>
+<td style="text-align:center"><img src="https://cdn.isteed.cc/img/rime-2022/theme-reimu-dark.png" alt="reimu-dark" class="is-image-loading" loading="lazy" decoding="async" width="496" height="164" /></td>
+</tr>
+<tr>
+<td style="text-align:left"><code>apathy</code></td>
+<td style="text-align:center"><img src="https://cdn.isteed.cc/img/rime-2022/theme-apathy.png" alt="apathy" class="is-image-loading" loading="lazy" decoding="async" width="448" height="156" /></td>
+</tr>
+<tr>
+<td style="text-align:left"><code>win10</code></td>
+<td style="text-align:center"><img src="https://cdn.isteed.cc/img/rime-2022/theme-win10.png" alt="win10" class="is-image-loading" loading="lazy" decoding="async" width="500" height="158" /></td>
+</tr>
+<tr>
+<td style="text-align:left"><code>win10-ayaya</code></td>
+<td style="text-align:center"><img src="https://cdn.isteed.cc/img/rime-2022/theme-win10-ayaya.png" alt="win10-ayaya" class="is-image-loading" loading="lazy" decoding="async" width="500" height="158" /></td>
+</tr>
+<tr>
+<td style="text-align:left"><code>macos12-light</code></td>
+<td style="text-align:center"><img src="https://cdn.isteed.cc/img/rime-2022/theme-macos12-light.png" alt="macos12-light" class="is-image-loading" loading="lazy" decoding="async" width="448" height="168" /></td>
+</tr>
+<tr>
+<td style="text-align:left"><code>macos12-dark</code></td>
+<td style="text-align:center"><img src="https://cdn.isteed.cc/img/rime-2022/theme-macos12-dark.png" alt="macos12-dark" class="is-image-loading" loading="lazy" decoding="async" width="448" height="168" /></td>
+</tr>
+<tr>
+<td style="text-align:left"><code>wechat</code></td>
+<td style="text-align:center"><img src="https://cdn.isteed.cc/img/rime-2022/theme-wechat.png" alt="wechat" class="is-image-loading" loading="lazy" decoding="async" width="470" height="154" /></td>
+</tr>
+<tr>
+<td style="text-align:left"><code>wechat_dark</code></td>
+<td style="text-align:center"><img src="https://cdn.isteed.cc/img/rime-2022/theme-wechat-dark.png" alt="wechat-dark" class="is-image-loading" loading="lazy" decoding="async" width="470" height="154" /></td>
+</tr>
+</tbody>
+</table>
+<p>如果是原始配置文件，我就拿 <code>macos_light</code> 来举例子，具体作用见配置注释</p>
+<p>单独拎出来个 <code>horizontal</code> 配置项，该项配置若为 <code>true</code> 则是水平排列，若为 <code>false</code> 则是竖直排列，依据个人喜好定制即可</p>
+<pre><code class="hljs language-yaml"><span class="hljs-attr">macos_light:</span>
+  <span class="hljs-attr">author:</span> <span class="hljs-string">"一方&lt;liuour@gmail.com&gt;"</span>
+  <span class="hljs-attr">back_color:</span> <span class="hljs-number">0xFFFFFF</span> <span class="hljs-comment"># 候选条背景色，24位色值，16进制，BGR顺序</span>
+  <span class="hljs-attr">border_color:</span> <span class="hljs-number">0xFFFFFF</span> <span class="hljs-comment"># 边框色</span>
+  <span class="hljs-attr">text_color:</span> <span class="hljs-number">0x424242</span> <span class="hljs-comment"># 拼音行文字颜色</span>
+  <span class="hljs-attr">hilited_back_color:</span> <span class="hljs-number">0xD75A00</span> <span class="hljs-comment"># 第一候选项背景背景色</span>
+  <span class="hljs-attr">hilited_candidate_text_color:</span> <span class="hljs-number">0xFFFFFF</span> <span class="hljs-comment"># 第一候选项文字颜色</span>
+  <span class="hljs-attr">hilited_candidate_label_color:</span> <span class="hljs-number">0xFFFFFF</span> <span class="hljs-comment"># 第一候选项编号颜色</span>
+  <span class="hljs-attr">hilited_comment_text_color:</span> <span class="hljs-number">0x999999</span> <span class="hljs-comment"># 注解文字高亮</span>
+  <span class="hljs-attr">hilited_text_color:</span> <span class="hljs-number">0x999999</span> <span class="hljs-comment"># 高亮拼音 (需要开启内嵌编码)</span>
+  <span class="hljs-attr">candidate_text_color:</span> <span class="hljs-number">0x3c3c3c</span> <span class="hljs-comment"># 预选项文字颜色</span>
+  <span class="hljs-attr">comment_text_color:</span> <span class="hljs-number">0x999999</span> <span class="hljs-comment"># 拼音等提示文字颜色</span>
+  <span class="hljs-attr">horizontal:</span> <span class="hljs-literal">true</span> <span class="hljs-comment"># 水平排列</span>
+  <span class="hljs-attr">inline_preedit:</span> <span class="hljs-literal">true</span> <span class="hljs-comment"># 单行显示，false双行显示</span>
+  <span class="hljs-attr">label_color:</span> <span class="hljs-number">0x999999</span> <span class="hljs-comment"># 预选栏编号颜色</span>
+  <span class="hljs-attr">candidate_format:</span> <span class="hljs-string">"%c\u2005%@"</span> <span class="hljs-comment"># 用 1/6 em 空格 U+2005 来控制编号 %c 和候选词 %@ 前后的空间</span>
+  <span class="hljs-attr">font_face:</span> <span class="hljs-string">"PingFangSC"</span> <span class="hljs-comment"># 候选词编号字体</span>
+  <span class="hljs-attr">font_point:</span> <span class="hljs-number">16</span> <span class="hljs-comment"># 候选文字大小</span>
+  <span class="hljs-attr">label_font_point:</span> <span class="hljs-number">13</span> <span class="hljs-comment"># 候选编号大小</span>
+  <span class="hljs-attr">corner_radius:</span> <span class="hljs-number">5</span> <span class="hljs-comment"># 候选条圆角</span>
+  <span class="hljs-attr">hilited_corner_radius:</span> <span class="hljs-number">5</span> <span class="hljs-comment"># 高亮圆角</span>
+  <span class="hljs-attr">border_height:</span> <span class="hljs-number">4</span> <span class="hljs-comment"># 窗口上下高度</span>
+  <span class="hljs-attr">border_width:</span> <span class="hljs-number">4</span> <span class="hljs-comment"># 窗口左右宽度</span>
+  <span class="hljs-attr">border_color_width:</span> <span class="hljs-number">0</span> <span class="hljs-comment"># 输入条边框宽度</span>
+</code></pre>
+<p>（小声说：个人前面的截图使用的字体是 <a href="https://github.com/lxgw/LxgwWenKai">lxgw/LxgwWenKai</a>，需要手动安装其中的 Regular 字体）</p>
+<h1 id="技巧">技巧</h1>
+<h2 id="动态命令">动态命令</h2>
+<p>目前支持的如下</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">输入</th>
+<th style="text-align:center">输出</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">date</td>
+<td style="text-align:center"><code>2022-01-29</code> 等格式</td>
+</tr>
+<tr>
+<td style="text-align:left">time</td>
+<td style="text-align:center"><code>02:45:55</code> 等格式</td>
+</tr>
+<tr>
+<td style="text-align:left">timestamp</td>
+<td style="text-align:center"><code>1681663848</code></td>
+</tr>
+<tr>
+<td style="text-align:left">datetime</td>
+<td style="text-align:center"><code>2022-01-29 10:00:00</code> 等格式</td>
+</tr>
+<tr>
+<td style="text-align:left">week</td>
+<td style="text-align:center"><code>周六</code> 与 <code>星期六</code></td>
+</tr>
+</tbody>
+</table>
+<h2 id="备份用户数据">备份用户数据</h2>
+<p>「鼠须管」的用户数据主是在 <code>用户设定文件夹/example.userdb/</code> 下，只要将这个文件夹备份好，就可以保留一些个人输入的词频数据及一些自造词了，养好后真的特别舒服</p>
+<p>我个人是将整个 <code>用户设定文件夹/example.userdb/</code> 备份下来了</p>
+<p>你也可以参照 <a href="https://github.com/rime/home/wiki/UserGuide#%E5%90%8C%E6%AD%A5%E7%94%A8%E6%88%B6%E8%B3%87%E6%96%99">说明书-同步用户数据</a> 所述方法，通过 <code>ㄓ</code> - <code>同步用户数据</code> 来达到备份用户数据的目的</p>
+<h2 id="删除错误词频">删除错误词频</h2>
+<p>将光标移动到需要删除词频的词上，按下 <code>Shift</code> + <code>Fn</code> + <code>Backspaces</code>（若键盘有 Delete 键，则可以用 <code>Shift</code> + <code>Delete</code>）即可</p>
+<p>注意，该操作仅会删除词频使其恢复原有排序，并不能从词库里<strong>彻底删除</strong>这个词！</p>
+<h1 id="其它">其它</h1>
+<p>更加详细的定制指南可以参照<a href="https://github.com/rime/home">官方仓库</a>的<a href="https://github.com/rime/home/wiki/UserGuide">说明书</a>与<a href="https://github.com/rime/home/wiki/CustomizationGuide">定制指南</a></p>
+<p>或是 <a href="https://github.com/LEOYoon-Tsaw">LEOYoon-Tsaw</a> 的<a href="https://github.com/LEOYoon-Tsaw/Rime_collections/blob/master/squirrel%20customization%20guide.md">鼠须管定制指南</a>与 <a href="https://github.com/LEOYoon-Tsaw/Rime_collections/blob/master/Rime_description.md">Schema.yaml 详解</a></p>
+<h1 id="碎碎念">碎碎念</h1>
+<p>这玩意居然是我免费可以用的！</p>
+<p>终于不用被大厂的帐号体系和广告绑架了，也不用担心隐私问题（不是担心隐私泄漏，就是讨厌被「人」盯着的那种感觉～）</p>
+<h1 id="参考">参考</h1>
+<ul>
+<li><a href="https://github.com/BlindingDark/rime-lua-select-character">BlindingDark/rime-lua-select-character</a></li>
+<li><a href="https://github.com/KyleBing/rime-wubi86-jidian/">KyleBing/rime-wubi86-jidian</a></li>
+<li><a href="https://github.com/LEOYoon-Tsaw/Rime_collections/blob/master/Rime_description.md">Schema.yaml 详解</a></li>
+<li><a href="https://github.com/iDvel/rime-ice">iDvel/rime-ice</a></li>
+<li><a href="https://gist.github.com/lotem/2981316">lotem/default.custom.yaml</a></li>
+<li><a href="https://gist.github.com/lotem/2320943">lotem/luna_pinyin.custom.yaml</a></li>
+<li><a href="https://github.com/placeless/squirrel_config">placeless/squirrel_config</a></li>
+<li><a href="https://github.com/rime/plum/issues/4">rime/plum</a></li>
+<li><a href="https://github.com/rime/rime-prelude">rime/rime-prelude</a></li>
+<li><a href="https://github.com/rime/squirrel">rime/squirrel</a></li>
+<li><a href="https://github.com/rime/weasel">rime/weasel</a></li>
+<li><a href="https://github.com/ssnhd/rime">ssnhd/rime</a></li>
+<li><a href="https://github.com/thunlp/THUOCL">thunlp/THUOCL</a></li>
+<li><a href="https://github.com/rime/home/wiki/CustomizationGuide">定制指南</a></li>
+<li><a href="https://pinyin.sogou.com/dict/">搜狗词库</a></li>
+<li><a href="https://github.com/rime/home/wiki/UserGuide">说明书</a></li>
+<li><a href="https://github.com/LEOYoon-Tsaw/Rime_collections/blob/master/squirrel%20customization%20guide.md">鼠须管定制指南</a></li>
+</ul>
+</article><aside class="reading-toc" aria-label="文章导航" tabindex="-1"><h2 class="reading-toc__title">文章目录</h2><nav data-fluid-hover="y" aria-label="文章章节"><a data-fluid-hover-item class="reading-toc__link" href="#缘起" style="--heading-indent:0px" data-heading="缘起">缘起</a><a data-fluid-hover-item class="reading-toc__link" href="#初识" style="--heading-indent:0px" data-heading="初识">初识</a><a data-fluid-hover-item class="reading-toc__link" href="#安装" style="--heading-indent:0px" data-heading="安装">安装</a><a data-fluid-hover-item class="reading-toc__link" href="#定制" style="--heading-indent:0px" data-heading="定制">定制</a><a data-fluid-hover-item class="reading-toc__link" href="#全局设置" style="--heading-indent:0px" data-heading="全局设置">全局设置</a><a data-fluid-hover-item class="reading-toc__link" href="#输入法方案" style="--heading-indent:12px" data-heading="输入法方案">输入法方案</a><a data-fluid-hover-item class="reading-toc__link" href="#记忆选择" style="--heading-indent:12px" data-heading="记忆选择">记忆选择</a><a data-fluid-hover-item class="reading-toc__link" href="#候选项数" style="--heading-indent:12px" data-heading="候选项数">候选项数</a><a data-fluid-hover-item class="reading-toc__link" href="#切换按键" style="--heading-indent:12px" data-heading="切换按键">切换按键</a><a data-fluid-hover-item class="reading-toc__link" href="#Lua选词扩展" style="--heading-indent:12px" data-heading="Lua选词扩展">Lua 选词扩展</a><a data-fluid-hover-item class="reading-toc__link" href="#按键绑定" style="--heading-indent:12px" data-heading="按键绑定">按键绑定</a><a data-fluid-hover-item class="reading-toc__link" href="#输入方案" style="--heading-indent:0px" data-heading="输入方案">输入方案</a><a data-fluid-hover-item class="reading-toc__link" href="#选择菜单" style="--heading-indent:12px" data-heading="选择菜单">选择菜单</a><a data-fluid-hover-item class="reading-toc__link" href="#输入引擎" style="--heading-indent:12px" data-heading="输入引擎">输入引擎</a><a data-fluid-hover-item class="reading-toc__link" href="#模糊音" style="--heading-indent:12px" data-heading="模糊音">模糊音</a><a data-fluid-hover-item class="reading-toc__link" href="#码表" style="--heading-indent:12px" data-heading="码表">码表</a><a data-fluid-hover-item class="reading-toc__link" href="#字符映射" style="--heading-indent:12px" data-heading="字符映射">字符映射</a><a data-fluid-hover-item class="reading-toc__link" href="#词库" style="--heading-indent:0px" data-heading="词库">词库</a><a data-fluid-hover-item class="reading-toc__link" href="#词库配置" style="--heading-indent:12px" data-heading="词库配置">词库配置</a><a data-fluid-hover-item class="reading-toc__link" href="#词库格式" style="--heading-indent:12px" data-heading="词库格式">词库格式</a><a data-fluid-hover-item class="reading-toc__link" href="#关于搜狗词库" style="--heading-indent:12px" data-heading="关于搜狗词库">关于搜狗词库</a><a data-fluid-hover-item class="reading-toc__link" href="#自定义短语" style="--heading-indent:12px" data-heading="自定义短语">自定义短语</a><a data-fluid-hover-item class="reading-toc__link" href="#鼠须管配置文件" style="--heading-indent:0px" data-heading="鼠须管配置文件">鼠须管配置文件</a><a data-fluid-hover-item class="reading-toc__link" href="#程序单独设置" style="--heading-indent:12px" data-heading="程序单独设置">程序单独设置</a><a data-fluid-hover-item class="reading-toc__link" href="#皮肤设置" style="--heading-indent:12px" data-heading="皮肤设置">皮肤设置</a><a data-fluid-hover-item class="reading-toc__link" href="#皮肤配置" style="--heading-indent:12px" data-heading="皮肤配置">皮肤配置</a><a data-fluid-hover-item class="reading-toc__link" href="#技巧" style="--heading-indent:0px" data-heading="技巧">技巧</a><a data-fluid-hover-item class="reading-toc__link" href="#动态命令" style="--heading-indent:0px" data-heading="动态命令">动态命令</a><a data-fluid-hover-item class="reading-toc__link" href="#备份用户数据" style="--heading-indent:0px" data-heading="备份用户数据">备份用户数据</a><a data-fluid-hover-item class="reading-toc__link" href="#删除错误词频" style="--heading-indent:0px" data-heading="删除错误词频">删除错误词频</a><a data-fluid-hover-item class="reading-toc__link" href="#其它" style="--heading-indent:0px" data-heading="其它">其它</a><a data-fluid-hover-item class="reading-toc__link" href="#碎碎念" style="--heading-indent:0px" data-heading="碎碎念">碎碎念</a><a data-fluid-hover-item class="reading-toc__link" href="#参考" style="--heading-indent:0px" data-heading="参考">参考</a></nav><section class="category-sidebar" aria-label="分类"><h2 class="category-sidebar__title"><a href="/categories/">分类</a></h2><nav data-fluid-hover="y" aria-label="文章分类"><a data-fluid-hover-item href="/categories/%E5%88%86%E4%BA%AB/"><span>分享</span><span class="category-sidebar__count">33</span></a><a data-fluid-hover-item href="/categories/%E6%97%A5%E5%B8%B8/"><span>日常</span><span class="category-sidebar__count">15</span></a><a data-fluid-hover-item href="/categories/%E6%80%BB%E7%BB%93/"><span>总结</span><span class="category-sidebar__count">6</span></a><a data-fluid-hover-item href="/categories/%E7%AC%94%E8%AE%B0/"><span>笔记</span><span class="category-sidebar__count">3</span></a><a data-fluid-hover-item href="/categories/%E5%BC%80%E7%AE%B1/"><span>开箱</span><span class="category-sidebar__count">2</span></a><a data-fluid-hover-item href="/categories/%E6%80%9D%E8%80%83/"><span>思考</span><span class="category-sidebar__count">1</span></a><a data-fluid-hover-item href="/categories/%E5%AD%A6%E4%B9%A0/"><span>学习</span><span class="category-sidebar__count">1</span></a><a data-fluid-hover-item href="/categories/%E8%B5%84%E6%BA%90/"><span>资源</span><span class="category-sidebar__count">1</span></a></nav></section></aside><script type="module">var e;function t(){e?.(),e=void 0;let t=document.querySelector(`#article`),n=document.querySelector(`.reading-toc-progress__fill`);if(!t||!n)return;let r=new AbortController,{signal:i}=r,a=matchMedia(`(max-width: 900px)`),o=document.querySelector(`.reading-toc`),s=document.querySelector(`#mobile-toc-dialog`),c=document.querySelector(`.mobile-toc__trigger`),l=s?.querySelector(`.mobile-toc__close`),u=Array.from(document.querySelectorAll(`.reading-toc__link`)),d=new Set(u.map(e=>e.dataset.heading)),f=Array.from(t.querySelectorAll(`[id]`)).filter(e=>d.has(e.id)),p=0,m=``,h=null,g,_,v;function y(e=!0){if(!g)return;_=void 0,s?.removeAttribute(`data-closing`),g(),g=void 0,c?.setAttribute(`aria-expanded`,`false`),e&&(a.matches?h?.isConnected?h:c:o)?.focus({preventScroll:!0}),h=null;let t=v;v=void 0,t?.()}function b(){s?.open&&!_&&(s.setAttribute(`data-closing`,`true`),_=setTimeout(()=>{s.open?s.close():y()},matchMedia(`(prefers-reduced-motion: reduce)`).matches?0:240))}c?.addEventListener(`click`,()=>{if(!s||s.open||!a.matches)return;h=document.activeElement instanceof HTMLElement?document.activeElement:c,s.showModal(),s.removeAttribute(`data-closing`);let e=[document.documentElement,document.body].map(e=>({el:e,value:e.style.getPropertyValue(`overflow`),priority:e.style.getPropertyPriority(`overflow`)}));e.forEach(({el:e})=>e.style.setProperty(`overflow`,`hidden`)),g=()=>e.forEach(({el:e,value:t,priority:n})=>{t?e.style.setProperty(`overflow`,t,n):e.style.removeProperty(`overflow`)}),c.setAttribute(`aria-expanded`,`true`),s.querySelectorAll(`[data-fluid-hover]`).forEach(e=>{e.dispatchEvent(new CustomEvent(`fluid:remeasure`,{detail:{instant:!0}}))})},{signal:i}),l?.addEventListener(`click`,b,{signal:i}),s?.addEventListener(`cancel`,e=>{e.preventDefault(),b()},{signal:i}),s?.addEventListener(`close`,()=>{s.open||y()},{signal:i}),s?.addEventListener(`click`,e=>{if(e.target===s&&e instanceof MouseEvent){let t=s.getBoundingClientRect();(e.clientY<t.top||e.clientY>t.bottom||e.clientX<t.left||e.clientX>t.right)&&b()}},{signal:i}),u.forEach(e=>e.addEventListener(`click`,t=>{let n=e.dataset.heading,r=n?document.getElementById(n):null;if(!r||t.metaKey||t.ctrlKey||t.shiftKey||t.altKey)return;t.preventDefault();let a=matchMedia(`(prefers-reduced-motion: reduce)`).matches?`auto`:`smooth`,o=()=>requestAnimationFrame(()=>{if(i.aborted)return;let e=document.querySelector(`.site-header`)?.getBoundingClientRect().bottom??0,t=Math.max(0,r.getBoundingClientRect().top+scrollY-e-16);scrollTo({top:t,behavior:a}),history.replaceState(history.state,``,`#${encodeURIComponent(n)}`)});s?.open?(v=o,b()):o()},{signal:i})),a.addEventListener(`change`,()=>{!a.matches&&s?.open&&b()},{signal:i});function x(){if(p=0,!t||!n)return;let e=t.getBoundingClientRect(),r=innerHeight,i=Math.min(1,Math.max(0,-e.top/Math.max(1,e.height-r))),a=document.querySelector(`.site-header`)?.getBoundingClientRect().bottom??0,o=new Set;f.forEach((e,n)=>{let i=e.getBoundingClientRect().top;(f[n+1]?.getBoundingClientRect().top??t.getBoundingClientRect().bottom)>=a&&i<=r&&o.add(e.id)}),n.style.transform=`scaleX(${i})`;let s=[...o].join(`|`);s!==m&&(u.forEach(e=>e.toggleAttribute(`aria-current`,o.has(e.dataset.heading??``))),u.forEach(e=>{o.has(e.dataset.heading??``)&&e.setAttribute(`aria-current`,`location`)}),m=s)}function S(){p||=requestAnimationFrame(x)}addEventListener(`scroll`,S,{passive:!0,signal:i}),addEventListener(`resize`,S,{signal:i});let C=new ResizeObserver(S);C.observe(t),e=()=>{r.abort(),v=void 0,_&&clearTimeout(_),_=void 0,C.disconnect(),cancelAnimationFrame(p),s?.close(),y(!1)},S()}document.addEventListener(`astro:page-load`,t),document.addEventListener(`astro:before-swap`,()=>{e?.(),e=void 0}),addEventListener(`pagehide`,()=>{e?.(),e=void 0}),addEventListener(`pageshow`,e=>{e.persisted&&t()});</script></div><div class="article-bottom"><section class="article-license" aria-label="文章版权"><div class="p-5 sm:p-6"><h2 class="text-lg font-semibold">好用好看好玩的输入法 —— 鼠须管配置使用</h2><a class="mt-3 block break-all text-sm text-(--muted) underline" href="/post/squirrel-customization-2022/">https://blog.isteed.cc/post/squirrel-customization-2022/</a><dl class="mt-5 grid grid-cols-1 gap-4 border-t border-(--line) pt-5 sm:grid-cols-3"><div><dt class="text-sm text-(--muted)">本文作者</dt><dd class="mt-1">Lufs</dd></div><div><dt class="text-sm text-(--muted)">发布于</dt><dd class="mt-1"><time datetime="2022-01-29">2022-01-29</time></dd></div><div><dt class="text-sm text-(--muted)">许可协议</dt><dd class="mt-1"><a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" rel="license">CC BY-NC-SA 4.0</a></dd></div></dl><p class="mt-5 text-sm text-(--muted)">转载或引用本文时请遵守许可协议，注明出处。不得用于商业用途。</p></div><p class="license-warning">本文最后更新于 2025-04-24，文中所述信息可能已经发生变化。</p></section><nav class="article-adjacent" aria-label="相邻文章"><a class="glass-control article-adjacent__link" href="/post/rime-2022/">← 上一篇<span>我的 Rime 配置 2022 —— 鼠须管、小狼毫与小企鹅输入法</span></a><a class="glass-control article-adjacent__link" href="/post/2021-summary/">下一篇 →<span>2021 年度总结</span></a></nav><section data-article-comments data-config="{&quot;shortname&quot;:&quot;lufss-blog&quot;,&quot;siteName&quot;:&quot;Lufs's Blog&quot;,&quot;api&quot;:&quot;https://api.isteed.cc/disqus/&quot;,&quot;apikey&quot;:&quot;f8sCuFyS82pto94gZ0V4xtPbYZlLej6xVCTPNyZ0CXlfZz25L8lqsnsxYVCPDhzc&quot;,&quot;admin&quot;:&quot;Lufs_x&quot;,&quot;title&quot;:&quot;好用好看好玩的输入法 —— 鼠须管配置使用&quot;,&quot;url&quot;:&quot;https://blog.isteed.cc/post/squirrel-customization-2022/&quot;,&quot;identifier&quot;:&quot;https://blog.isteed.cc/post/squirrel-customization-2022/&quot;}" aria-label="文章评论" class="my-10 border-t border-(--line) pt-6 text-(--ink)" data-astro-cid-nuen6n26><h2 class="mb-3 text-xl font-semibold" data-astro-cid-nuen6n26>评论</h2><p data-comment-status role="status" class="my-3 text-sm text-(--muted)" data-astro-cid-nuen6n26></p><div data-comment-host data-astro-cid-nuen6n26></div><noscript>启用 JavaScript 后可按需加载评论。</noscript></section><script type="module" src="/_astro/Comments.astro_astro_type_script_index_0_lang.DQKZMu_I.js"></script></div><script type="module" src="/_astro/ArticleEnhancements.astro_astro_type_script_index_0_lang.CXNnUNbh.js"></script></main><button class="mobile-toc__trigger" type="button" aria-label="打开文章目录" aria-haspopup="dialog" aria-controls="mobile-toc-dialog" aria-expanded="false"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true" focusable="false"><path d="M9 6h12M9 12h12M9 18h12M3 6h1M3 12h1M3 18h1" stroke-linecap="round"></path></svg></button><dialog class="mobile-toc" id="mobile-toc-dialog" aria-labelledby="mobile-toc-title"><header class="mobile-toc__header"><h2 id="mobile-toc-title">文章目录</h2><button class="mobile-toc__close" type="button" aria-label="关闭文章目录" autofocus><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true" focusable="false"><path d="m6 6 12 12M18 6 6 18" stroke-linecap="round"></path></svg></button></header><div class="mobile-toc__body"><nav data-fluid-hover="y" aria-label="文章章节"><a data-fluid-hover-item class="reading-toc__link" href="#缘起" style="--heading-indent:0px" data-heading="缘起">缘起</a><a data-fluid-hover-item class="reading-toc__link" href="#初识" style="--heading-indent:0px" data-heading="初识">初识</a><a data-fluid-hover-item class="reading-toc__link" href="#安装" style="--heading-indent:0px" data-heading="安装">安装</a><a data-fluid-hover-item class="reading-toc__link" href="#定制" style="--heading-indent:0px" data-heading="定制">定制</a><a data-fluid-hover-item class="reading-toc__link" href="#全局设置" style="--heading-indent:0px" data-heading="全局设置">全局设置</a><a data-fluid-hover-item class="reading-toc__link" href="#输入法方案" style="--heading-indent:12px" data-heading="输入法方案">输入法方案</a><a data-fluid-hover-item class="reading-toc__link" href="#记忆选择" style="--heading-indent:12px" data-heading="记忆选择">记忆选择</a><a data-fluid-hover-item class="reading-toc__link" href="#候选项数" style="--heading-indent:12px" data-heading="候选项数">候选项数</a><a data-fluid-hover-item class="reading-toc__link" href="#切换按键" style="--heading-indent:12px" data-heading="切换按键">切换按键</a><a data-fluid-hover-item class="reading-toc__link" href="#Lua选词扩展" style="--heading-indent:12px" data-heading="Lua选词扩展">Lua 选词扩展</a><a data-fluid-hover-item class="reading-toc__link" href="#按键绑定" style="--heading-indent:12px" data-heading="按键绑定">按键绑定</a><a data-fluid-hover-item class="reading-toc__link" href="#输入方案" style="--heading-indent:0px" data-heading="输入方案">输入方案</a><a data-fluid-hover-item class="reading-toc__link" href="#选择菜单" style="--heading-indent:12px" data-heading="选择菜单">选择菜单</a><a data-fluid-hover-item class="reading-toc__link" href="#输入引擎" style="--heading-indent:12px" data-heading="输入引擎">输入引擎</a><a data-fluid-hover-item class="reading-toc__link" href="#模糊音" style="--heading-indent:12px" data-heading="模糊音">模糊音</a><a data-fluid-hover-item class="reading-toc__link" href="#码表" style="--heading-indent:12px" data-heading="码表">码表</a><a data-fluid-hover-item class="reading-toc__link" href="#字符映射" style="--heading-indent:12px" data-heading="字符映射">字符映射</a><a data-fluid-hover-item class="reading-toc__link" href="#词库" style="--heading-indent:0px" data-heading="词库">词库</a><a data-fluid-hover-item class="reading-toc__link" href="#词库配置" style="--heading-indent:12px" data-heading="词库配置">词库配置</a><a data-fluid-hover-item class="reading-toc__link" href="#词库格式" style="--heading-indent:12px" data-heading="词库格式">词库格式</a><a data-fluid-hover-item class="reading-toc__link" href="#关于搜狗词库" style="--heading-indent:12px" data-heading="关于搜狗词库">关于搜狗词库</a><a data-fluid-hover-item class="reading-toc__link" href="#自定义短语" style="--heading-indent:12px" data-heading="自定义短语">自定义短语</a><a data-fluid-hover-item class="reading-toc__link" href="#鼠须管配置文件" style="--heading-indent:0px" data-heading="鼠须管配置文件">鼠须管配置文件</a><a data-fluid-hover-item class="reading-toc__link" href="#程序单独设置" style="--heading-indent:12px" data-heading="程序单独设置">程序单独设置</a><a data-fluid-hover-item class="reading-toc__link" href="#皮肤设置" style="--heading-indent:12px" data-heading="皮肤设置">皮肤设置</a><a data-fluid-hover-item class="reading-toc__link" href="#皮肤配置" style="--heading-indent:12px" data-heading="皮肤配置">皮肤配置</a><a data-fluid-hover-item class="reading-toc__link" href="#技巧" style="--heading-indent:0px" data-heading="技巧">技巧</a><a data-fluid-hover-item class="reading-toc__link" href="#动态命令" style="--heading-indent:0px" data-heading="动态命令">动态命令</a><a data-fluid-hover-item class="reading-toc__link" href="#备份用户数据" style="--heading-indent:0px" data-heading="备份用户数据">备份用户数据</a><a data-fluid-hover-item class="reading-toc__link" href="#删除错误词频" style="--heading-indent:0px" data-heading="删除错误词频">删除错误词频</a><a data-fluid-hover-item class="reading-toc__link" href="#其它" style="--heading-indent:0px" data-heading="其它">其它</a><a data-fluid-hover-item class="reading-toc__link" href="#碎碎念" style="--heading-indent:0px" data-heading="碎碎念">碎碎念</a><a data-fluid-hover-item class="reading-toc__link" href="#参考" style="--heading-indent:0px" data-heading="参考">参考</a></nav><section class="category-sidebar" aria-label="分类"><h2 class="category-sidebar__title"><a href="/categories/">分类</a></h2><nav data-fluid-hover="y" aria-label="文章分类"><a data-fluid-hover-item href="/categories/%E5%88%86%E4%BA%AB/"><span>分享</span><span class="category-sidebar__count">33</span></a><a data-fluid-hover-item href="/categories/%E6%97%A5%E5%B8%B8/"><span>日常</span><span class="category-sidebar__count">15</span></a><a data-fluid-hover-item href="/categories/%E6%80%BB%E7%BB%93/"><span>总结</span><span class="category-sidebar__count">6</span></a><a data-fluid-hover-item href="/categories/%E7%AC%94%E8%AE%B0/"><span>笔记</span><span class="category-sidebar__count">3</span></a><a data-fluid-hover-item href="/categories/%E5%BC%80%E7%AE%B1/"><span>开箱</span><span class="category-sidebar__count">2</span></a><a data-fluid-hover-item href="/categories/%E6%80%9D%E8%80%83/"><span>思考</span><span class="category-sidebar__count">1</span></a><a data-fluid-hover-item href="/categories/%E5%AD%A6%E4%B9%A0/"><span>学习</span><span class="category-sidebar__count">1</span></a><a data-fluid-hover-item href="/categories/%E8%B5%84%E6%BA%90/"><span>资源</span><span class="category-sidebar__count">1</span></a></nav></section></div></dialog><div class="reading-toc-progress" aria-hidden="true"><div class="reading-toc-progress__fill"></div></div><dialog data-search="true" data-inline="false" aria-label="搜索文章" data-astro-cid-ac66eqjo="true" class="search-scope search-dialog rounded-2xl border border-(--line) p-0"><div class="search-panel p-5 sm:p-8" data-astro-cid-ac66eqjo><div class="mb-5 flex items-center justify-between gap-4" data-astro-cid-ac66eqjo><h2 class="text-xl font-semibold" data-astro-cid-ac66eqjo>搜索文章</h2><button type="button" data-close class="rounded-lg border border-(--line) px-3 py-1.5" aria-label="关闭搜索" data-astro-cid-ac66eqjo>关闭 · Esc</button></div><form role="search" class="flex gap-2" data-astro-cid-ac66eqjo><label class="min-w-0 flex-1" data-astro-cid-ac66eqjo><span class="sr-only" data-astro-cid-ac66eqjo>搜索关键词</span><input data-query type="search" name="q" autocomplete="off" placeholder="输入标题或正文关键词…" class="w-full rounded-xl border border-(--line) bg-transparent px-4 py-3" data-astro-cid-ac66eqjo></label><button type="submit" class="rounded-xl border border-(--line) px-4" data-astro-cid-ac66eqjo>搜索</button></form><p data-status role="status" aria-live="polite" class="my-4 text-sm opacity-70" data-astro-cid-ac66eqjo>输入关键词，搜索博客中的文字。</p><button data-retry type="button" hidden class="mb-4 rounded-lg border border-(--line) px-4 py-2" data-astro-cid-ac66eqjo>重新加载</button><ul data-results class="search-results divide-y divide-(--line)" aria-label="搜索结果" tabindex="0" data-astro-cid-ac66eqjo></ul><noscript><p data-astro-cid-ac66eqjo>搜索需要启用 JavaScript，也可以<a href="/archives/" data-astro-cid-ac66eqjo>浏览文章归档</a>。</p></noscript></div></dialog><script type="module">var e;function t(t){return e??=fetch(`/search.json`).then(async e=>{if(!e.ok)throw Error(`HTTP error`);let n=await e.json();if(!Array.isArray(n))throw Error(`Invalid index`);return n.filter(e=>{if(!e||typeof e.title!=`string`||typeof e.url!=`string`||typeof e.excerpt!=`string`||typeof e.text!=`string`)return!1;try{let n=new URL(e.url,t);return n.origin===t&&[`http:`,`https:`].includes(n.protocol)}catch{return!1}}).map(e=>({...e,searchableText:`${e.title} ${e.excerpt} ${e.text}`.toLocaleLowerCase()}))}).catch(t=>{throw e=void 0,t}),e}var n=[];function r(){n.forEach(e=>e()),n=[]}function i(){r(),document.querySelectorAll(`[data-search]`).forEach(e=>{let r=new AbortController,{signal:i}=r,a=e instanceof HTMLDialogElement?e:null,o=e.querySelector(`[data-query]`),s=e.querySelector(`[data-status]`),c=e.querySelector(`[data-results]`),l=e.querySelector(`[data-retry]`),u,d=!1,f=!1,p=null,m;function h(e=!0){m?.(),m=void 0,e&&p?.isConnected&&p.focus({preventScroll:!0}),p=null}function g(){a?.close(),h()}function _(){c.replaceChildren();let e=o.value.trim();if(d){s.textContent=`正在加载搜索索引…`;return}if(f){s.textContent=`搜索索引加载失败，请检查网络后重试。`;return}if(!e){s.textContent=`输入关键词，搜索标题与正文。`;return}if(!u)return;let t=e.toLocaleLowerCase().split(/\s+/),n=u.filter(e=>t.every(t=>e.searchableText.includes(t)));s.textContent=n.length?`“${e}”找到 ${n.length} 篇文章。`:`没有找到“${e}”，试试更短或不同的关键词。`;let r=document.createDocumentFragment();for(let e of n){let t=document.createElement(`li`);t.className=`py-5`;let n=document.createElement(`a`);n.href=e.url,n.className=`text-lg font-semibold underline-offset-4 hover:underline`,n.textContent=e.title;let i=document.createElement(`p`);i.className=`mt-2 text-sm leading-7 opacity-70`,i.textContent=e.excerpt||e.text.slice(0,160),t.append(n,i),r.append(t)}c.append(r)}async function v(){if(d||u)_();else{d=!0,f=!1,l.hidden=!0,e.setAttribute(`aria-busy`,`true`),_();try{let e=await t(location.origin);if(i.aborted)return;u=e}catch{if(i.aborted)return;f=!0,l.hidden=!1}finally{i.aborted||(d=!1,e.removeAttribute(`aria-busy`),_())}}}function y(){if(!a||a.open)return;p=document.activeElement instanceof HTMLElement?document.activeElement:null,a.showModal();let e=[document.documentElement,document.body].map(e=>({el:e,value:e.style.getPropertyValue(`overflow`),priority:e.style.getPropertyPriority(`overflow`)}));e.forEach(({el:e})=>e.style.setProperty(`overflow`,`hidden`)),m=()=>e.forEach(({el:e,value:t,priority:n})=>t?e.style.setProperty(`overflow`,t,n):e.style.removeProperty(`overflow`)),o.focus(),v()}o.addEventListener(`input`,()=>{!u&&!f?v():_()},{signal:i}),e.querySelector(`form`).addEventListener(`submit`,e=>{e.preventDefault(),v()},{signal:i}),l.addEventListener(`click`,()=>void v(),{signal:i}),e.querySelector(`[data-close]`)?.addEventListener(`click`,g,{signal:i}),a?(document.addEventListener(`keydown`,e=>{(e.ctrlKey||e.metaKey)&&e.key.toLowerCase()===`k`&&!e.repeat&&(e.preventDefault(),y())},{signal:i}),a.addEventListener(`cancel`,e=>{e.preventDefault(),g()},{signal:i}),a.addEventListener(`close`,()=>{a.open||h()},{signal:i}),a.addEventListener(`click`,e=>{if(e.target!==a)return;let t=a.getBoundingClientRect();(e.clientX<t.left||e.clientX>t.right||e.clientY<t.top||e.clientY>t.bottom)&&g()},{signal:i})):(o.value=new URLSearchParams(location.search).get(`q`)??``,v()),n.push(()=>{r.abort(),a?.close(),h(!1)})})}document.addEventListener(`astro:page-load`,i),document.readyState!==`loading`&&i(),document.addEventListener(`astro:before-swap`,r),window.addEventListener(`pagehide`,r),window.addEventListener(`pageshow`,e=>{e.persisted&&i()});</script><script type="module">var e;function t(){e?.();let t=new AbortController,{signal:n}=t,r=[];document.querySelectorAll(`[data-fluid-hover]`).forEach(e=>{let t=Array.from(e.querySelectorAll(`:scope > [data-fluid-hover-item]`));if(!t.length)return;let i=document.createElement(`span`);i.className=`fluid-hover-highlight`,i.setAttribute(`aria-hidden`,`true`),e.prepend(i),r.push(i);let a=null,o=null,s=null,c=!1,l=0,u=0,d=null,f=()=>t.find(e=>e.matches(`[aria-current="page"], [aria-current="location"], [aria-pressed="true"]`))??null,p=(t,r=!1)=>{if(a=t,!t){e.removeAttribute(`data-fluid-hover-active`);return}let{offsetLeft:o,offsetTop:s,offsetWidth:l,offsetHeight:d}=t;if(!l||!d)return;let f=r||!c;f&&(cancelAnimationFrame(u),i.style.transition=`none`),i.style.width=`${l}px`,i.style.height=`${d}px`,i.style.transform=`translate3d(${o}px, ${s}px, 0)`,e.setAttribute(`data-fluid-hover-active`,`true`),c=!0,f&&(i.offsetWidth,u=requestAnimationFrame(()=>{n.aborted||i.style.removeProperty(`transition`)}))},m=()=>p(o??s??f()),h=(e,n)=>t.map(e=>({item:e,rect:e.getBoundingClientRect()})).reduce((t,{item:r,rect:i})=>{let a=Math.max(i.left-e,0,e-i.right),o=Math.max(i.top-n,0,n-i.bottom),s=a*a+o*o;return!t||s<t.distance?{item:r,distance:s}:t},null)?.item??null,g=()=>{l||=requestAnimationFrame(()=>{l=0,d&&(o=h(d.x,d.y)),m()})},_=new MutationObserver(()=>{s=null,g()});_.observe(e,{subtree:!0,attributes:!0,attributeFilter:[`aria-current`,`aria-pressed`]});let v=new ResizeObserver(g);v.observe(e),t.forEach(e=>v.observe(e)),queueMicrotask(()=>{n.aborted||m()}),e.addEventListener(`pointermove`,e=>{e.pointerType!==`touch`&&(d={x:e.clientX,y:e.clientY},g())},{signal:n}),e.addEventListener(`pointerleave`,()=>{d=null,o=null,g()},{signal:n}),e.addEventListener(`focusin`,e=>{d=null,o=null,s=t.find(t=>t===e.target||t.contains(e.target))??null,m()},{signal:n}),e.addEventListener(`focusout`,e=>{s=t.find(t=>t===e.relatedTarget||t.contains(e.relatedTarget))??null,g()},{signal:n}),e.addEventListener(`fluid:remeasure`,e=>{let t=e instanceof CustomEvent&&e.detail?.instant===!0;p(t?f():o??s??a??f(),t)},{signal:n}),n.addEventListener(`abort`,()=>{cancelAnimationFrame(l),cancelAnimationFrame(u),_.disconnect(),v.disconnect()},{once:!0})}),e=()=>{t.abort(),r.forEach(e=>e.remove()),document.querySelectorAll(`[data-fluid-hover-active]`).forEach(e=>e.removeAttribute(`data-fluid-hover-active`))}}document.addEventListener(`astro:page-load`,t),document.addEventListener(`astro:before-swap`,()=>{e?.(),e=void 0}),addEventListener(`pagehide`,()=>{e?.(),e=void 0}),addEventListener(`pageshow`,e=>{e.persisted&&t()}),document.readyState!==`loading`&&t();</script><script type="module">var e;function t(){e?.(!0);let t=new AbortController,{signal:n}=t,r=[];document.querySelectorAll(`.prose img, .article-cover, .post-thumbnail img, .archive-thumbnail img`).forEach(e=>{if(!e.hasAttribute(`src`))return;let t=e.style.display,i=document.createElement(`span`);i.className=`image-load-fallback`,i.setAttribute(`role`,`status`),i.setAttribute(`aria-label`,e.alt?`图片加载失败：${e.alt}`:`图片加载失败`);let a=document.createElement(`span`);if(a.textContent=`图片暂时无法显示`,i.append(a),!e.closest(`a[href]`)){let r=document.createElement(`button`);r.type=`button`,r.textContent=`重试加载`,r.addEventListener(`click`,()=>{let n=e.src;e.removeAttribute(`src`),e.loading=`eager`,e.classList.add(`is-image-loading`),e.style.display=t,i.before(e),i.remove(),e.src=n},{signal:n}),i.append(r)}let o=()=>{if(n.aborted||!e.isConnected)return;e.classList.remove(`is-image-loading`);let a=e.matches(`.article-cover, .post-thumbnail img, .archive-thumbnail img`),o=e.getBoundingClientRect(),s=getComputedStyle(e),c=Number(e.getAttribute(`width`)),l=Number(e.getAttribute(`height`));i.style.display=s.display.includes(`inline`)?`inline-flex`:`flex`,i.style.width=a?`100%`:`${Math.max(o.width,160)}px`,i.style.aspectRatio=a?`16 / 9`:c>0&&l>0?`${c} / ${l}`:`16 / 9`,i.style.margin=s.margin,i.style.verticalAlign=s.verticalAlign,a&&(i.dataset.cover=``),e.replaceWith(i),e.style.display=`none`,i.append(e),r.push({image:e,fallback:i,display:t})};e.addEventListener(`load`,()=>e.classList.remove(`is-image-loading`),{signal:n}),e.addEventListener(`error`,o,{signal:n}),e.complete?e.naturalWidth===0?o():e.classList.remove(`is-image-loading`):e.classList.add(`is-image-loading`)}),e=(e=!1)=>{t.abort(),e&&r.forEach(({image:e,fallback:t,display:n})=>{t.isConnected&&(e.style.display=n,t.before(e),t.remove())})}}document.addEventListener(`astro:page-load`,t),document.readyState!==`loading`&&t(),document.addEventListener(`astro:before-swap`,()=>{e?.(),e=void 0}),addEventListener(`pagehide`,()=>{e?.(!0),e=void 0}),addEventListener(`pageshow`,e=>{e.persisted&&t()});</script><footer data-astro-transition-persist="site-footer" data-astro-transition-scope="astro-v4xhcqov-3" class="site-footer shell"><div><a class="footer-brand" href="/">Lufs&#39;s Blog</a><p>© 2018–2026 Lufs · <a href="/rss2.xml">RSS</a> · <a href="/atom.xml">Atom</a></p></div></footer><script type="module">`serviceWorker`in navigator&&navigator.serviceWorker.getRegistrations().then(e=>{for(let t of e)t.scope===new URL(`/`,location.origin).href&&t.active?.scriptURL===new URL(`/sw.js`,location.origin).href&&t.update().catch(()=>{})}).catch(()=>{});</script><script>(function(){const clarityId = "alejvn2b9x";
+
+      if (!window.clarity && navigator.doNotTrack !== '1') {
+        window.clarity = function () { (window.clarity.q = window.clarity.q || []).push(arguments); };
+        const script = document.createElement('script'); script.async = true;
+        script.src = 'https://www.clarity.ms/tag/' + clarityId; document.head.appendChild(script);
+      }
+    })();</script></body></html>

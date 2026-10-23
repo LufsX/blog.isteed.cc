@@ -1,0 +1,5 @@
+/post/about /about/ 301
+/post/about/ /about/ 301
+/musicunlock /um/ 301
+/musicunlock/ /um/ 301
+/posts/* /post/:splat 301

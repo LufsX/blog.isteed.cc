@@ -1,0 +1,298 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="description" content="这是已经老久前挖的坑，现在看来是要填了 🤣 使用 CI 有啥好处呢？ 随时随地，开个网页，只要分支有 push 便会自动构建、部署博客～ 高集成，所有用到的东西都不用离开 github.com"><link rel="canonical" href="https://blog.isteed.cc/post/hexo-github-action/"><link rel="icon" href="https://cdn.isteed.cc/favicon/favicon.ico"><link rel="alternate" type="application/rss+xml" title="Lufs's Blog" href="/rss2.xml"><link rel="alternate" type="application/atom+xml" title="Lufs's Blog" href="/atom.xml"><meta property="og:title" content="使用 GitHub Actions 自动部署 Hexo · Lufs's Blog"><meta property="og:description" content="这是已经老久前挖的坑，现在看来是要填了 🤣 使用 CI 有啥好处呢？ 随时随地，开个网页，只要分支有 push 便会自动构建、部署博客～ 高集成，所有用到的东西都不用离开 github.com"><meta property="og:url" content="https://blog.isteed.cc/post/hexo-github-action/"><meta property="og:image" content="https://cdn.isteed.cc/img/hexo-github-action/thumbnail.webp"><meta property="og:type" content="website"><meta name="twitter:card" content="summary_large_image"><meta name="google-site-verification" content="wk686q2aTrts7GR0yVJ7UrALaAodD62StMuSuH7dMOU"><meta name="color-scheme" content="light dark"><title>使用 GitHub Actions 自动部署 Hexo · Lufs&#39;s Blog</title><meta name="astro-view-transitions-enabled" content="true"><meta name="astro-view-transitions-fallback" content="animate"><script type="module" src="/_astro/ClientRouter.astro_astro_type_script_index_0_lang.CKq7OsbX.js"></script><script>
+      (() => {
+        const key = 'lufs-theme';
+        const root = document.documentElement;
+        const system = window.matchMedia('(prefers-color-scheme: dark)');
+        const normalize = (value) =>
+          value === 'light' || value === 'dark' ? value : 'system';
+        let preference = 'system';
+        try {
+          preference = normalize(localStorage.getItem(key));
+        } catch {
+          // Storage may be unavailable in private or restricted contexts.
+        }
+        const apply = () => {
+          root.dataset.theme = preference === 'system'
+            ? (system.matches ? 'dark' : 'light')
+            : preference;
+          root.style.colorScheme = root.dataset.theme;
+          root.dataset.preference = preference;
+          const button = document.getElementById('theme-toggle');
+          const names = { system: '系统', light: '浅色', dark: '深色' };
+          const next = { system: 'light', light: 'dark', dark: 'system' };
+          if (button) {
+            button.setAttribute('aria-label', `当前：${names[preference]}；切换为${names[next[preference]]}`);
+            button.title = `当前：${names[preference]}；点击切换`;
+          }
+        };
+        apply();
+        system.addEventListener('change', apply);
+        document.addEventListener('astro:before-swap', (event) => {
+          const nextRoot = event.newDocument.documentElement;
+          nextRoot.dataset.theme = root.dataset.theme;
+          nextRoot.dataset.preference = preference;
+          nextRoot.style.colorScheme = root.style.colorScheme;
+        });
+        document.addEventListener('astro:after-swap', apply);
+        window.addEventListener('storage', (event) => {
+          if (event.key === key || event.key === null) {
+            preference = normalize(event.newValue);
+            apply();
+          }
+        });
+        document.addEventListener('DOMContentLoaded', () => {
+          const button = document.getElementById('theme-toggle');
+          apply();
+          button?.addEventListener('click', () => {
+            preference = { system: 'light', light: 'dark', dark: 'system' }[preference];
+            apply();
+            try { localStorage.setItem(key, preference); } catch {}
+          });
+        }, { once: true });
+      })();
+    </script><link rel="stylesheet" href="/_astro/Base._a07vYZy.css"><link rel="stylesheet" href="/_astro/ArticleEnhancements.D6DQ8Qoe.css"><style>[data-astro-transition-scope="astro-gyrtbwwo-1"] { view-transition-name: astro-gyrtbwwo-1; }@layer astro { ::view-transition-old(astro-gyrtbwwo-1) { animation: none; opacity: 0; mix-blend-mode: normal; }::view-transition-new(astro-gyrtbwwo-1) { animation: none; mix-blend-mode: normal; }::view-transition-group(astro-gyrtbwwo-1) { animation: none } }[data-astro-transition-fallback="old"] [data-astro-transition-scope="astro-gyrtbwwo-1"],
+			[data-astro-transition-fallback="old"][data-astro-transition-scope="astro-gyrtbwwo-1"] { animation: none; mix-blend-mode: normal; }[data-astro-transition-fallback="new"] [data-astro-transition-scope="astro-gyrtbwwo-1"],
+			[data-astro-transition-fallback="new"][data-astro-transition-scope="astro-gyrtbwwo-1"] { animation: none; mix-blend-mode: normal; }</style><style>[data-astro-transition-scope="astro-iywf7oe7-2"] { view-transition-name: page-content; }@layer astro { ::view-transition-old(page-content) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }::view-transition-new(page-content) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; }[data-astro-transition=back]::view-transition-old(page-content) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }[data-astro-transition=back]::view-transition-new(page-content) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; } }[data-astro-transition-fallback="old"] [data-astro-transition-scope="astro-iywf7oe7-2"],
+			[data-astro-transition-fallback="old"][data-astro-transition-scope="astro-iywf7oe7-2"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }[data-astro-transition-fallback="new"] [data-astro-transition-scope="astro-iywf7oe7-2"],
+			[data-astro-transition-fallback="new"][data-astro-transition-scope="astro-iywf7oe7-2"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; }[data-astro-transition=back][data-astro-transition-fallback="old"] [data-astro-transition-scope="astro-iywf7oe7-2"],
+			[data-astro-transition=back][data-astro-transition-fallback="old"][data-astro-transition-scope="astro-iywf7oe7-2"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }[data-astro-transition=back][data-astro-transition-fallback="new"] [data-astro-transition-scope="astro-iywf7oe7-2"],
+			[data-astro-transition=back][data-astro-transition-fallback="new"][data-astro-transition-scope="astro-iywf7oe7-2"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; }</style><style>[data-astro-transition-scope="astro-v4xhcqov-3"] { view-transition-name: astro-v4xhcqov-3; }@layer astro { ::view-transition-old(astro-v4xhcqov-3) { animation: none; opacity: 0; mix-blend-mode: normal; }::view-transition-new(astro-v4xhcqov-3) { animation: none; mix-blend-mode: normal; }::view-transition-group(astro-v4xhcqov-3) { animation: none } }[data-astro-transition-fallback="old"] [data-astro-transition-scope="astro-v4xhcqov-3"],
+			[data-astro-transition-fallback="old"][data-astro-transition-scope="astro-v4xhcqov-3"] { animation: none; mix-blend-mode: normal; }[data-astro-transition-fallback="new"] [data-astro-transition-scope="astro-v4xhcqov-3"],
+			[data-astro-transition-fallback="new"][data-astro-transition-scope="astro-v4xhcqov-3"] { animation: none; mix-blend-mode: normal; }</style></head><body id="top"><header data-astro-transition-persist="site-header" data-astro-transition-scope="astro-gyrtbwwo-1" class="site-header shell"><div class="brand-wrap"><a class="brand" href="/" aria-label="Lufs's Blog，返回顶部；在顶部时返回首页" aria-describedby="brand-slogan">Lufs&#39;s Blog</a><span id="brand-slogan" class="brand-tooltip" role="tooltip">Life feeds on negative entropy.</span></div><nav class="site-nav desktop-nav" data-fluid-hover="x" aria-label="主导航"><a data-fluid-hover-item href="/">首页</a><a data-fluid-hover-item href="/archives/">归档</a><a data-fluid-hover-item href="/tags/">标签</a><a data-fluid-hover-item href="/search/">搜索</a><a data-fluid-hover-item href="/about/">关于</a><a data-fluid-hover-item href="/welfare/">福利</a><a data-fluid-hover-item href="/friends/">友链</a></nav><div class="mobile-navigation"><button id="menu-toggle" class="menu-toggle" type="button" aria-label="打开导航菜单" aria-expanded="false" aria-controls="mobile-navigation-panel"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path class="menu-line-top" d="M5 6h14"></path><path class="menu-line-middle" d="M5 12h14"></path><path class="menu-line-bottom" d="M5 18h14"></path></svg></button><div id="mobile-navigation-panel" class="mobile-navigation-panel" data-open="false" aria-hidden="true" inert><nav class="mobile-navigation-scroll" data-fluid-hover="y" aria-label="移动端导航"><a data-fluid-hover-item href="/">首页</a><a data-fluid-hover-item href="/archives/">归档</a><a data-fluid-hover-item href="/tags/">标签</a><a data-fluid-hover-item href="/search/">搜索</a><a data-fluid-hover-item href="/about/">关于</a><a data-fluid-hover-item href="/welfare/">福利</a><a data-fluid-hover-item href="/friends/">友链</a></nav></div></div><button id="theme-toggle" class="theme-toggle" type="button" aria-label="切换主题：系统、浅色、深色"><svg class="theme-icon icon-system" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="3" y="4" width="18" height="13" rx="2"></rect><path d="M8 21h8m-4-4v4"></path></svg><svg class="theme-icon icon-light" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2m0 16v2M2 12h2m16 0h2M5 5l1.5 1.5m11 11L19 19M5 19l1.5-1.5m11-11L19 5"></path></svg><svg class="theme-icon icon-dark" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M20.5 14A9 9 0 0 1 10 3.5 9 9 0 1 0 20.5 14Z"></path></svg></button></header><script type="module" src="/_astro/Base.astro_astro_type_script_index_0_lang.C04sE12B.js"></script><main data-astro-transition-scope="astro-iywf7oe7-2" id="main-content" class="shell site-main" tabindex="-1"><header class="article-header max-w-3xl pb-6 pt-4 md:pb-8 md:pt-6"><p class="eyebrow mb-2"><a href="/categories/%E5%88%86%E4%BA%AB/">分享</a><span aria-hidden="true"> · </span><time datetime="2020-05-03">2020-05-03</time></p><h1 class="article-title">使用 GitHub Actions 自动部署 Hexo</h1><img class="article-cover is-image-loading" src="https://cdn.isteed.cc/img/hexo-github-action/thumbnail.webp" alt="使用 GitHub Actions 自动部署 Hexo：文章头图" loading="lazy" decoding="async" width="1440" height="720"></header><div class="article-layout"><article id="article" class="article-content prose"><p>这是已经老久前挖的坑，现在看来是要填了 🤣</p>
+<p>使用 CI 有啥好处呢？</p>
+<p>随时随地，开个网页，只要分支有 push 便会自动构建、部署博客～</p>
+<p>高集成，所有用到的东西都不用离开 github.com</p>
+
+<h1 id="工具">工具</h1>
+<ul>
+<li>GitHub 账号一枚</li>
+<li>Git</li>
+<li>NodeJS</li>
+</ul>
+<h1 id="准备">准备</h1>
+<h2 id="站点准备">站点准备</h2>
+<p>首先肯定先安装个 Hexo 啦</p>
+<pre><code class="hljs language-bash">npm install hexo-cli -g
+</code></pre>
+<p>然后在一个空文件夹下 执行</p>
+<pre><code class="hljs language-bash">hexo init
+</code></pre>
+<p>然后按照喜好配置你的 Hexo 站点～</p>
+<p>最后在 GitHub 上创建一个 GitHub Pages 仓库和一个 Hexo 博客文件仓库/分支（</p>
+<p>（说一下，个人主题是 Fork 了一份稍微改了一下，然后 git submodule 挂上去的说，所以 workflow 中有同步子模块的一步）</p>
+<h1 id="GitHub准备">GitHub 准备</h1>
+<p>打开 github.com</p>
+<p>在 <code>Settings</code> - <code>Developer settings</code> - <code>Personal access tokens</code> - <code>Generate new token</code> 中创建密钥</p>
+<p><img src="https://cdn.isteed.cc/img/hexo-github-action/prepare_1.webp" alt="prepare" class="is-image-loading" loading="lazy" decoding="async" width="1024" height="375" /></p>
+<p>然后勾选 <code>repo</code>，拉到最下面，<code>Generate toker</code></p>
+<p><img src="https://cdn.isteed.cc/img/hexo-github-action/prepare_2.webp" alt="prepare" class="is-image-loading" loading="lazy" decoding="async" width="773" height="464" /></p>
+<p>最后将生成的 token 保存下来（只会<strong>出现一次</strong>，一定一定记得存下来！</p>
+<p><img src="https://cdn.isteed.cc/img/hexo-github-action/prepare_3.webp" alt="prepare" class="is-image-loading" loading="lazy" decoding="async" width="750" height="332" /></p>
+<hr />
+<p>接下来在你 Hexo 博客文件仓库/分支所在的仓库 的 <code>Settings</code> - <code>Secrets</code> - <code>Add a new secret</code> 创建俩个变量分别是</p>
+<p><code>GH_REF</code> 内容为你 GitHub Pages 仓库的地址（不用带 https<br />
+<code>GH_TOKEN</code> 内容为上面所获取的 token</p>
+<p><img src="https://cdn.isteed.cc/img/hexo-github-action/prepare_4.webp" alt="prepare" class="is-image-loading" loading="lazy" decoding="async" width="1061" height="459" /></p>
+<p>至此，就差不多准备好了 😋</p>
+<h1 id="workflows">workflows</h1>
+<p>如果只是要个 workflows 的话，<a href="#%e6%88%90%e5%93%81">点我跳转到成品</a></p>
+<h2 id="过程解释">过程解释</h2>
+<ol>
+<li>名称，这个随意取</li>
+</ol>
+<pre><code class="hljs language-yaml"><span class="hljs-attr">name:</span> <span class="hljs-string">Hexo</span>
+</code></pre>
+<ol>
+<li>指定触发 workflow 的事件，这里选择的是推送至指定分支的事件</li>
+</ol>
+<pre><code class="hljs language-yaml"><span class="hljs-attr">on:</span>
+  <span class="hljs-attr">push:</span> <span class="hljs-comment"># 这里是推送事件</span>
+    <span class="hljs-attr">branches:</span>
+      <span class="hljs-bullet">-</span> <span class="hljs-string">master</span> <span class="hljs-comment"># 这里指定了推送的分支</span>
+</code></pre>
+<ol>
+<li>设置时区，这里设置的是上海的呢</li>
+</ol>
+<pre><code class="hljs language-yaml"><span class="hljs-attr">env:</span>
+  <span class="hljs-attr">TZ:</span> <span class="hljs-string">Asia/Shanghai</span>
+</code></pre>
+<ol>
+<li>指定 workflow 所运行的系统，这里是设置最新的 Ubuntu</li>
+</ol>
+<pre><code class="hljs language-yaml"><span class="hljs-attr">blog-cicd:</span>
+  <span class="hljs-attr">name:</span> <span class="hljs-string">Hexo</span> <span class="hljs-string">build</span> <span class="hljs-string">and</span> <span class="hljs-string">deploy</span>
+  <span class="hljs-attr">runs-on:</span> <span class="hljs-string">ubuntu-latest</span>
+</code></pre>
+<ol>
+<li>检出代码，设置 Node 环境</li>
+</ol>
+<pre><code class="hljs language-yaml"><span class="hljs-bullet">-</span> <span class="hljs-attr">name:</span> <span class="hljs-string">Checkout</span> <span class="hljs-string">codes</span>
+  <span class="hljs-attr">uses:</span> <span class="hljs-string">actions/checkout@v2</span>
+    <span class="hljs-attr">with:</span>
+      <span class="hljs-attr">submodules:</span> <span class="hljs-string">"true"</span> <span class="hljs-comment"># 如需同步子模块，请取消注释</span>
+
+<span class="hljs-bullet">-</span> <span class="hljs-attr">name:</span> <span class="hljs-string">Setup</span> <span class="hljs-string">node</span>
+  <span class="hljs-attr">uses:</span> <span class="hljs-string">actions/setup-node@v1.1.0</span>
+  <span class="hljs-attr">with:</span>
+    <span class="hljs-attr">version:</span> <span class="hljs-string">"12.x"</span> <span class="hljs-comment"># Node 的版本</span>
+</code></pre>
+<ol>
+<li><s>同步主题，我这里是 Fork 了一份主题并添加成了子模块的说，如果没有使用子模块的话，这一步可以忽略</s></li>
+</ol>
+<p>请看 <code>5.</code> 的注释</p>
+<p>如果你的主题未做修改的话，那你可以直接 git clone 下来使用，在 <code>.gitignore</code> 中添加忽略（当然，你直接在仓库中存在也行，不过那样的话看目录结构会复杂一点）</p>
+<pre><code class="hljs language-yaml"><span class="hljs-bullet">-</span> <span class="hljs-attr">name:</span> <span class="hljs-string">Checkout</span> <span class="hljs-string">submodules</span>
+  <span class="hljs-attr">run:</span> <span class="hljs-string">|
+    auth_header="$(git config --local --get http.https://github.com/.extraheader)"
+    git submodule sync --recursive
+    git -c "http.extraheader=$auth_header" -c protocol.version=2 submodule update --init --force --recursive --depth=1
+</span></code></pre>
+<ol>
+<li>缓存 <code>~/.npm</code> 目录，加快构建速度</li>
+</ol>
+<pre><code class="hljs language-yaml"><span class="hljs-bullet">-</span> <span class="hljs-attr">name:</span> <span class="hljs-string">Cache</span> <span class="hljs-string">Node</span> <span class="hljs-string">Dependencies</span> <span class="hljs-comment"># Npm 缓存，这一步报错的话，把这部分删掉即可</span>
+  <span class="hljs-attr">id:</span> <span class="hljs-string">cache</span>
+  <span class="hljs-attr">uses:</span> <span class="hljs-string">actions/cache@v2</span>
+  <span class="hljs-attr">with:</span>
+    <span class="hljs-attr">path:</span> <span class="hljs-string">~/.npm</span>
+    <span class="hljs-attr">key:</span> <span class="hljs-string">${{runner.OS}}-npm-caches-${{</span> <span class="hljs-string">hashFiles('package-lock.json')</span> <span class="hljs-string">}}</span>
+</code></pre>
+<ol>
+<li>安装依赖，个人使用的主题也需要安装一次，但大部分主题不需要安装，这里便没有贴出</li>
+</ol>
+<p>如果主题需要安装依赖的话，<code>cd</code> 过去安装即可（Ubuntu 环境～</p>
+<pre><code class="hljs language-yaml"><span class="hljs-bullet">-</span> <span class="hljs-attr">name:</span> <span class="hljs-string">Install</span> <span class="hljs-string">dependencies</span>
+  <span class="hljs-attr">run:</span> <span class="hljs-string">|
+    npm install hexo-cli -g
+    npm install
+    # cd /theme/name
+    # npm install
+</span></code></pre>
+<ol>
+<li>生成文件，我主题是挂子模块的，子模块中我不想它出现配置，所以这里有个 <code>mv</code> 操作将目录下的 <code>_config.theme.yml</code> 移动并重命名为 <code>_config.yml</code></li>
+</ol>
+<pre><code class="hljs language-yaml"><span class="hljs-bullet">-</span> <span class="hljs-attr">name:</span> <span class="hljs-string">Generate</span> <span class="hljs-string">files</span>
+  <span class="hljs-attr">run:</span> <span class="hljs-string">|</span>
+<span class="hljs-comment">#    mv ./_config.theme.yml ./themes/themename/_config.yml</span>
+    <span class="hljs-string">hexo</span> <span class="hljs-string">generate</span>
+</code></pre>
+<ol>
+<li>部署到到 GitHub Pages 仓库</li>
+</ol>
+<pre><code class="hljs language-yaml"><span class="hljs-bullet">-</span> <span class="hljs-attr">name:</span> <span class="hljs-string">Deploy</span> <span class="hljs-string">blog</span>
+  <span class="hljs-attr">uses:</span> <span class="hljs-string">peaceiris/actions-gh-pages@v3</span>
+  <span class="hljs-attr">with:</span>
+    <span class="hljs-attr">personal_token:</span> <span class="hljs-string">${{</span> <span class="hljs-string">secrets.GH_TOKEN</span> <span class="hljs-string">}}</span>
+    <span class="hljs-attr">external_repository:</span> <span class="hljs-string">${{</span> <span class="hljs-string">secrets.GH_REF</span> <span class="hljs-string">}}</span>
+    <span class="hljs-attr">publish_branch:</span> <span class="hljs-string">master</span>
+    <span class="hljs-attr">publish_dir:</span> <span class="hljs-string">./public</span>
+    <span class="hljs-attr">full_commit_message:</span> <span class="hljs-string">GitHub</span> <span class="hljs-string">Actions</span> <span class="hljs-string">Auto</span> <span class="hljs-string">Builder</span>
+    <span class="hljs-attr">disable_nojekyll:</span> <span class="hljs-literal">true</span>
+</code></pre>
+<h2 id="扩展">扩展</h2>
+<p>由于个人将 GitHub Pages 仓库也绑定到 Now.sh 了，所以需要添加 <code>now.json</code> 设置 404 页面（本博客的 Now.sh 域名 blog.isteed.cc）（其它的规则懒得整～</p>
+<p>所以我将 now.json 文件存储到博客源文件的根目录下，在生成文件后将其移动过去</p>
+<p>这样的话，我觉得也可以做个双线部署用用，coding 似乎使用的是新加坡腾讯云，而 Now.sh 则有香港、台湾谷歌云，速度蛮快的说（注: Now.sh 有流量限制，不过应对我这种博客没啥人的还是够了 🤣）</p>
+<h1 id="成品">成品</h1>
+<p>最后的 workflow</p>
+<pre><code class="hljs language-yaml"><span class="hljs-attr">name:</span> <span class="hljs-string">Hexo</span>
+
+<span class="hljs-attr">on:</span>
+  <span class="hljs-attr">push:</span>
+    <span class="hljs-attr">branches:</span>
+      <span class="hljs-bullet">-</span> <span class="hljs-string">master</span>
+
+<span class="hljs-attr">env:</span>
+  <span class="hljs-attr">TZ:</span> <span class="hljs-string">Asia/Shanghai</span>
+
+<span class="hljs-attr">jobs:</span>
+  <span class="hljs-attr">blog-cicd:</span>
+    <span class="hljs-attr">name:</span> <span class="hljs-string">Hexo</span> <span class="hljs-string">build</span> <span class="hljs-string">and</span> <span class="hljs-string">deploy</span>
+    <span class="hljs-attr">runs-on:</span> <span class="hljs-string">ubuntu-latest</span>
+
+    <span class="hljs-attr">steps:</span>
+      <span class="hljs-bullet">-</span> <span class="hljs-attr">name:</span> <span class="hljs-string">Checkout</span> <span class="hljs-string">codes</span>
+        <span class="hljs-attr">uses:</span> <span class="hljs-string">actions/checkout@v2</span>
+        <span class="hljs-attr">with:</span>
+          <span class="hljs-attr">submodules:</span> <span class="hljs-string">'true'</span>
+
+      <span class="hljs-bullet">-</span> <span class="hljs-attr">name:</span> <span class="hljs-string">Setup</span> <span class="hljs-string">node</span>
+        <span class="hljs-attr">uses:</span> <span class="hljs-string">actions/setup-node@v1.1.0</span>
+        <span class="hljs-attr">with:</span>
+          <span class="hljs-attr">version:</span> <span class="hljs-string">"12.x"</span>
+
+      <span class="hljs-bullet">-</span> <span class="hljs-attr">name:</span> <span class="hljs-string">Cache</span> <span class="hljs-string">Node</span> <span class="hljs-string">Dependencies</span>
+        <span class="hljs-attr">id:</span> <span class="hljs-string">cache</span>
+        <span class="hljs-attr">uses:</span> <span class="hljs-string">actions/cache@v2</span>
+        <span class="hljs-attr">with:</span>
+          <span class="hljs-attr">path:</span> <span class="hljs-string">~/.npm</span>
+          <span class="hljs-attr">key:</span> <span class="hljs-string">${{runner.OS}}-npm-caches-${{</span> <span class="hljs-string">hashFiles('package-lock.json')</span> <span class="hljs-string">}}</span>
+
+      <span class="hljs-bullet">-</span> <span class="hljs-attr">name:</span> <span class="hljs-string">Install</span> <span class="hljs-string">dependencies</span>
+        <span class="hljs-attr">run:</span> <span class="hljs-string">|
+          npm install hexo-cli -g
+          npm install
+</span>
+      <span class="hljs-bullet">-</span> <span class="hljs-attr">name:</span> <span class="hljs-string">Generate</span> <span class="hljs-string">files</span>
+        <span class="hljs-attr">run:</span> <span class="hljs-string">|</span>
+<span class="hljs-comment">#          mv ./_config.theme.yml ./themes/themename/_config.yml</span>
+          <span class="hljs-string">hexo</span> <span class="hljs-string">generate</span>
+
+      <span class="hljs-bullet">-</span> <span class="hljs-attr">name:</span> <span class="hljs-string">Deploy</span> <span class="hljs-string">blog</span>
+        <span class="hljs-attr">uses:</span> <span class="hljs-string">peaceiris/actions-gh-pages@v3</span>
+        <span class="hljs-attr">with:</span>
+          <span class="hljs-attr">personal_token:</span> <span class="hljs-string">${{</span> <span class="hljs-string">secrets.GH_TOKEN</span> <span class="hljs-string">}}</span>
+          <span class="hljs-attr">external_repository:</span> <span class="hljs-string">${{</span> <span class="hljs-string">secrets.GH_REF</span> <span class="hljs-string">}}</span>
+          <span class="hljs-attr">publish_branch:</span> <span class="hljs-string">master</span>
+          <span class="hljs-attr">publish_dir:</span> <span class="hljs-string">./public</span>
+          <span class="hljs-attr">full_commit_message:</span> <span class="hljs-string">GitHub</span> <span class="hljs-string">Actions</span> <span class="hljs-string">Auto</span> <span class="hljs-string">Builder</span>
+          <span class="hljs-attr">disable_nojekyll:</span> <span class="hljs-literal">true</span>
+</code></pre>
+<h1 id="碎碎念">碎碎念</h1>
+<p>GitHub Actions 真的是太太太好了，那么高配置的服务器，那么强的<strong>国际</strong>带宽，免费用户的私有仓库都有 2000min 的时间用，公开仓库甚至还免费不限时，系统方面不仅有 Ubuntu、Windows 甚至还有 macOS！！！</p>
+<p><img src="https://cdn.isteed.cc/img/hexo-github-action/broken.webp" alt="broken" class="is-image-loading" loading="lazy" decoding="async" width="1314" height="623" /></p>
+<p>GitHub 牛逼！巨硬牛逼！（希望少点咖喱味</p>
+<h1 id="参考链接">参考链接</h1>
+<p><a href="https://xirikm.net/2019/826-2.html">昔日的夕阳</a><br />
+<a href="https://github.com/features/actions">Github Actions</a><br />
+<a href="https://vercel.com/">Vercel</a></p>
+</article><aside class="reading-toc" aria-label="文章导航" tabindex="-1"><h2 class="reading-toc__title">文章目录</h2><nav data-fluid-hover="y" aria-label="文章章节"><a data-fluid-hover-item class="reading-toc__link" href="#工具" style="--heading-indent:0px" data-heading="工具">工具</a><a data-fluid-hover-item class="reading-toc__link" href="#准备" style="--heading-indent:0px" data-heading="准备">准备</a><a data-fluid-hover-item class="reading-toc__link" href="#站点准备" style="--heading-indent:0px" data-heading="站点准备">站点准备</a><a data-fluid-hover-item class="reading-toc__link" href="#GitHub准备" style="--heading-indent:0px" data-heading="GitHub准备">GitHub 准备</a><a data-fluid-hover-item class="reading-toc__link" href="#workflows" style="--heading-indent:0px" data-heading="workflows">workflows</a><a data-fluid-hover-item class="reading-toc__link" href="#过程解释" style="--heading-indent:0px" data-heading="过程解释">过程解释</a><a data-fluid-hover-item class="reading-toc__link" href="#扩展" style="--heading-indent:0px" data-heading="扩展">扩展</a><a data-fluid-hover-item class="reading-toc__link" href="#成品" style="--heading-indent:0px" data-heading="成品">成品</a><a data-fluid-hover-item class="reading-toc__link" href="#碎碎念" style="--heading-indent:0px" data-heading="碎碎念">碎碎念</a><a data-fluid-hover-item class="reading-toc__link" href="#参考链接" style="--heading-indent:0px" data-heading="参考链接">参考链接</a></nav><section class="category-sidebar" aria-label="分类"><h2 class="category-sidebar__title"><a href="/categories/">分类</a></h2><nav data-fluid-hover="y" aria-label="文章分类"><a data-fluid-hover-item href="/categories/%E5%88%86%E4%BA%AB/"><span>分享</span><span class="category-sidebar__count">33</span></a><a data-fluid-hover-item href="/categories/%E6%97%A5%E5%B8%B8/"><span>日常</span><span class="category-sidebar__count">15</span></a><a data-fluid-hover-item href="/categories/%E6%80%BB%E7%BB%93/"><span>总结</span><span class="category-sidebar__count">6</span></a><a data-fluid-hover-item href="/categories/%E7%AC%94%E8%AE%B0/"><span>笔记</span><span class="category-sidebar__count">3</span></a><a data-fluid-hover-item href="/categories/%E5%BC%80%E7%AE%B1/"><span>开箱</span><span class="category-sidebar__count">2</span></a><a data-fluid-hover-item href="/categories/%E6%80%9D%E8%80%83/"><span>思考</span><span class="category-sidebar__count">1</span></a><a data-fluid-hover-item href="/categories/%E5%AD%A6%E4%B9%A0/"><span>学习</span><span class="category-sidebar__count">1</span></a><a data-fluid-hover-item href="/categories/%E8%B5%84%E6%BA%90/"><span>资源</span><span class="category-sidebar__count">1</span></a></nav></section></aside><script type="module">var e;function t(){e?.(),e=void 0;let t=document.querySelector(`#article`),n=document.querySelector(`.reading-toc-progress__fill`);if(!t||!n)return;let r=new AbortController,{signal:i}=r,a=matchMedia(`(max-width: 900px)`),o=document.querySelector(`.reading-toc`),s=document.querySelector(`#mobile-toc-dialog`),c=document.querySelector(`.mobile-toc__trigger`),l=s?.querySelector(`.mobile-toc__close`),u=Array.from(document.querySelectorAll(`.reading-toc__link`)),d=new Set(u.map(e=>e.dataset.heading)),f=Array.from(t.querySelectorAll(`[id]`)).filter(e=>d.has(e.id)),p=0,m=``,h=null,g,_,v;function y(e=!0){if(!g)return;_=void 0,s?.removeAttribute(`data-closing`),g(),g=void 0,c?.setAttribute(`aria-expanded`,`false`),e&&(a.matches?h?.isConnected?h:c:o)?.focus({preventScroll:!0}),h=null;let t=v;v=void 0,t?.()}function b(){s?.open&&!_&&(s.setAttribute(`data-closing`,`true`),_=setTimeout(()=>{s.open?s.close():y()},matchMedia(`(prefers-reduced-motion: reduce)`).matches?0:240))}c?.addEventListener(`click`,()=>{if(!s||s.open||!a.matches)return;h=document.activeElement instanceof HTMLElement?document.activeElement:c,s.showModal(),s.removeAttribute(`data-closing`);let e=[document.documentElement,document.body].map(e=>({el:e,value:e.style.getPropertyValue(`overflow`),priority:e.style.getPropertyPriority(`overflow`)}));e.forEach(({el:e})=>e.style.setProperty(`overflow`,`hidden`)),g=()=>e.forEach(({el:e,value:t,priority:n})=>{t?e.style.setProperty(`overflow`,t,n):e.style.removeProperty(`overflow`)}),c.setAttribute(`aria-expanded`,`true`),s.querySelectorAll(`[data-fluid-hover]`).forEach(e=>{e.dispatchEvent(new CustomEvent(`fluid:remeasure`,{detail:{instant:!0}}))})},{signal:i}),l?.addEventListener(`click`,b,{signal:i}),s?.addEventListener(`cancel`,e=>{e.preventDefault(),b()},{signal:i}),s?.addEventListener(`close`,()=>{s.open||y()},{signal:i}),s?.addEventListener(`click`,e=>{if(e.target===s&&e instanceof MouseEvent){let t=s.getBoundingClientRect();(e.clientY<t.top||e.clientY>t.bottom||e.clientX<t.left||e.clientX>t.right)&&b()}},{signal:i}),u.forEach(e=>e.addEventListener(`click`,t=>{let n=e.dataset.heading,r=n?document.getElementById(n):null;if(!r||t.metaKey||t.ctrlKey||t.shiftKey||t.altKey)return;t.preventDefault();let a=matchMedia(`(prefers-reduced-motion: reduce)`).matches?`auto`:`smooth`,o=()=>requestAnimationFrame(()=>{if(i.aborted)return;let e=document.querySelector(`.site-header`)?.getBoundingClientRect().bottom??0,t=Math.max(0,r.getBoundingClientRect().top+scrollY-e-16);scrollTo({top:t,behavior:a}),history.replaceState(history.state,``,`#${encodeURIComponent(n)}`)});s?.open?(v=o,b()):o()},{signal:i})),a.addEventListener(`change`,()=>{!a.matches&&s?.open&&b()},{signal:i});function x(){if(p=0,!t||!n)return;let e=t.getBoundingClientRect(),r=innerHeight,i=Math.min(1,Math.max(0,-e.top/Math.max(1,e.height-r))),a=document.querySelector(`.site-header`)?.getBoundingClientRect().bottom??0,o=new Set;f.forEach((e,n)=>{let i=e.getBoundingClientRect().top;(f[n+1]?.getBoundingClientRect().top??t.getBoundingClientRect().bottom)>=a&&i<=r&&o.add(e.id)}),n.style.transform=`scaleX(${i})`;let s=[...o].join(`|`);s!==m&&(u.forEach(e=>e.toggleAttribute(`aria-current`,o.has(e.dataset.heading??``))),u.forEach(e=>{o.has(e.dataset.heading??``)&&e.setAttribute(`aria-current`,`location`)}),m=s)}function S(){p||=requestAnimationFrame(x)}addEventListener(`scroll`,S,{passive:!0,signal:i}),addEventListener(`resize`,S,{signal:i});let C=new ResizeObserver(S);C.observe(t),e=()=>{r.abort(),v=void 0,_&&clearTimeout(_),_=void 0,C.disconnect(),cancelAnimationFrame(p),s?.close(),y(!1)},S()}document.addEventListener(`astro:page-load`,t),document.addEventListener(`astro:before-swap`,()=>{e?.(),e=void 0}),addEventListener(`pagehide`,()=>{e?.(),e=void 0}),addEventListener(`pageshow`,e=>{e.persisted&&t()});</script></div><div class="article-bottom"><section class="article-license" aria-label="文章版权"><div class="p-5 sm:p-6"><h2 class="text-lg font-semibold">使用 GitHub Actions 自动部署 Hexo</h2><a class="mt-3 block break-all text-sm text-(--muted) underline" href="/post/hexo-github-action/">https://blog.isteed.cc/post/hexo-github-action/</a><dl class="mt-5 grid grid-cols-1 gap-4 border-t border-(--line) pt-5 sm:grid-cols-3"><div><dt class="text-sm text-(--muted)">本文作者</dt><dd class="mt-1">Lufs</dd></div><div><dt class="text-sm text-(--muted)">发布于</dt><dd class="mt-1"><time datetime="2020-05-03">2020-05-03</time></dd></div><div><dt class="text-sm text-(--muted)">许可协议</dt><dd class="mt-1"><a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" rel="license">CC BY-NC-SA 4.0</a></dd></div></dl><p class="mt-5 text-sm text-(--muted)">转载或引用本文时请遵守许可协议，注明出处。不得用于商业用途。</p></div><p class="license-warning">本文最后更新于 2020-08-31，文中所述信息可能已经发生变化。</p></section><nav class="article-adjacent" aria-label="相邻文章"><a class="glass-control article-adjacent__link" href="/post/vercel-github-pages/">← 上一篇<span>Now.sh 与 GitHub Pages 的双线部署</span></a><a class="glass-control article-adjacent__link" href="/post/think-changer-of-miui-12/">下一篇 →<span>关于 MIUI 12 的瞎吐槽</span></a></nav><section data-article-comments data-config="{&quot;shortname&quot;:&quot;lufss-blog&quot;,&quot;siteName&quot;:&quot;Lufs's Blog&quot;,&quot;api&quot;:&quot;https://api.isteed.cc/disqus/&quot;,&quot;apikey&quot;:&quot;f8sCuFyS82pto94gZ0V4xtPbYZlLej6xVCTPNyZ0CXlfZz25L8lqsnsxYVCPDhzc&quot;,&quot;admin&quot;:&quot;Lufs_x&quot;,&quot;title&quot;:&quot;使用 GitHub Actions 自动部署 Hexo&quot;,&quot;url&quot;:&quot;https://blog.isteed.cc/post/hexo-github-action/&quot;,&quot;identifier&quot;:&quot;https://blog.isteed.cc/post/hexo-github-action/&quot;}" aria-label="文章评论" class="my-10 border-t border-(--line) pt-6 text-(--ink)" data-astro-cid-nuen6n26><h2 class="mb-3 text-xl font-semibold" data-astro-cid-nuen6n26>评论</h2><p data-comment-status role="status" class="my-3 text-sm text-(--muted)" data-astro-cid-nuen6n26></p><div data-comment-host data-astro-cid-nuen6n26></div><noscript>启用 JavaScript 后可按需加载评论。</noscript></section><script type="module" src="/_astro/Comments.astro_astro_type_script_index_0_lang.DQKZMu_I.js"></script></div><script type="module" src="/_astro/ArticleEnhancements.astro_astro_type_script_index_0_lang.CXNnUNbh.js"></script></main><button class="mobile-toc__trigger" type="button" aria-label="打开文章目录" aria-haspopup="dialog" aria-controls="mobile-toc-dialog" aria-expanded="false"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true" focusable="false"><path d="M9 6h12M9 12h12M9 18h12M3 6h1M3 12h1M3 18h1" stroke-linecap="round"></path></svg></button><dialog class="mobile-toc" id="mobile-toc-dialog" aria-labelledby="mobile-toc-title"><header class="mobile-toc__header"><h2 id="mobile-toc-title">文章目录</h2><button class="mobile-toc__close" type="button" aria-label="关闭文章目录" autofocus><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true" focusable="false"><path d="m6 6 12 12M18 6 6 18" stroke-linecap="round"></path></svg></button></header><div class="mobile-toc__body"><nav data-fluid-hover="y" aria-label="文章章节"><a data-fluid-hover-item class="reading-toc__link" href="#工具" style="--heading-indent:0px" data-heading="工具">工具</a><a data-fluid-hover-item class="reading-toc__link" href="#准备" style="--heading-indent:0px" data-heading="准备">准备</a><a data-fluid-hover-item class="reading-toc__link" href="#站点准备" style="--heading-indent:0px" data-heading="站点准备">站点准备</a><a data-fluid-hover-item class="reading-toc__link" href="#GitHub准备" style="--heading-indent:0px" data-heading="GitHub准备">GitHub 准备</a><a data-fluid-hover-item class="reading-toc__link" href="#workflows" style="--heading-indent:0px" data-heading="workflows">workflows</a><a data-fluid-hover-item class="reading-toc__link" href="#过程解释" style="--heading-indent:0px" data-heading="过程解释">过程解释</a><a data-fluid-hover-item class="reading-toc__link" href="#扩展" style="--heading-indent:0px" data-heading="扩展">扩展</a><a data-fluid-hover-item class="reading-toc__link" href="#成品" style="--heading-indent:0px" data-heading="成品">成品</a><a data-fluid-hover-item class="reading-toc__link" href="#碎碎念" style="--heading-indent:0px" data-heading="碎碎念">碎碎念</a><a data-fluid-hover-item class="reading-toc__link" href="#参考链接" style="--heading-indent:0px" data-heading="参考链接">参考链接</a></nav><section class="category-sidebar" aria-label="分类"><h2 class="category-sidebar__title"><a href="/categories/">分类</a></h2><nav data-fluid-hover="y" aria-label="文章分类"><a data-fluid-hover-item href="/categories/%E5%88%86%E4%BA%AB/"><span>分享</span><span class="category-sidebar__count">33</span></a><a data-fluid-hover-item href="/categories/%E6%97%A5%E5%B8%B8/"><span>日常</span><span class="category-sidebar__count">15</span></a><a data-fluid-hover-item href="/categories/%E6%80%BB%E7%BB%93/"><span>总结</span><span class="category-sidebar__count">6</span></a><a data-fluid-hover-item href="/categories/%E7%AC%94%E8%AE%B0/"><span>笔记</span><span class="category-sidebar__count">3</span></a><a data-fluid-hover-item href="/categories/%E5%BC%80%E7%AE%B1/"><span>开箱</span><span class="category-sidebar__count">2</span></a><a data-fluid-hover-item href="/categories/%E6%80%9D%E8%80%83/"><span>思考</span><span class="category-sidebar__count">1</span></a><a data-fluid-hover-item href="/categories/%E5%AD%A6%E4%B9%A0/"><span>学习</span><span class="category-sidebar__count">1</span></a><a data-fluid-hover-item href="/categories/%E8%B5%84%E6%BA%90/"><span>资源</span><span class="category-sidebar__count">1</span></a></nav></section></div></dialog><div class="reading-toc-progress" aria-hidden="true"><div class="reading-toc-progress__fill"></div></div><dialog data-search="true" data-inline="false" aria-label="搜索文章" data-astro-cid-ac66eqjo="true" class="search-scope search-dialog rounded-2xl border border-(--line) p-0"><div class="search-panel p-5 sm:p-8" data-astro-cid-ac66eqjo><div class="mb-5 flex items-center justify-between gap-4" data-astro-cid-ac66eqjo><h2 class="text-xl font-semibold" data-astro-cid-ac66eqjo>搜索文章</h2><button type="button" data-close class="rounded-lg border border-(--line) px-3 py-1.5" aria-label="关闭搜索" data-astro-cid-ac66eqjo>关闭 · Esc</button></div><form role="search" class="flex gap-2" data-astro-cid-ac66eqjo><label class="min-w-0 flex-1" data-astro-cid-ac66eqjo><span class="sr-only" data-astro-cid-ac66eqjo>搜索关键词</span><input data-query type="search" name="q" autocomplete="off" placeholder="输入标题或正文关键词…" class="w-full rounded-xl border border-(--line) bg-transparent px-4 py-3" data-astro-cid-ac66eqjo></label><button type="submit" class="rounded-xl border border-(--line) px-4" data-astro-cid-ac66eqjo>搜索</button></form><p data-status role="status" aria-live="polite" class="my-4 text-sm opacity-70" data-astro-cid-ac66eqjo>输入关键词，搜索博客中的文字。</p><button data-retry type="button" hidden class="mb-4 rounded-lg border border-(--line) px-4 py-2" data-astro-cid-ac66eqjo>重新加载</button><ul data-results class="search-results divide-y divide-(--line)" aria-label="搜索结果" tabindex="0" data-astro-cid-ac66eqjo></ul><noscript><p data-astro-cid-ac66eqjo>搜索需要启用 JavaScript，也可以<a href="/archives/" data-astro-cid-ac66eqjo>浏览文章归档</a>。</p></noscript></div></dialog><script type="module">var e;function t(t){return e??=fetch(`/search.json`).then(async e=>{if(!e.ok)throw Error(`HTTP error`);let n=await e.json();if(!Array.isArray(n))throw Error(`Invalid index`);return n.filter(e=>{if(!e||typeof e.title!=`string`||typeof e.url!=`string`||typeof e.excerpt!=`string`||typeof e.text!=`string`)return!1;try{let n=new URL(e.url,t);return n.origin===t&&[`http:`,`https:`].includes(n.protocol)}catch{return!1}}).map(e=>({...e,searchableText:`${e.title} ${e.excerpt} ${e.text}`.toLocaleLowerCase()}))}).catch(t=>{throw e=void 0,t}),e}var n=[];function r(){n.forEach(e=>e()),n=[]}function i(){r(),document.querySelectorAll(`[data-search]`).forEach(e=>{let r=new AbortController,{signal:i}=r,a=e instanceof HTMLDialogElement?e:null,o=e.querySelector(`[data-query]`),s=e.querySelector(`[data-status]`),c=e.querySelector(`[data-results]`),l=e.querySelector(`[data-retry]`),u,d=!1,f=!1,p=null,m;function h(e=!0){m?.(),m=void 0,e&&p?.isConnected&&p.focus({preventScroll:!0}),p=null}function g(){a?.close(),h()}function _(){c.replaceChildren();let e=o.value.trim();if(d){s.textContent=`正在加载搜索索引…`;return}if(f){s.textContent=`搜索索引加载失败，请检查网络后重试。`;return}if(!e){s.textContent=`输入关键词，搜索标题与正文。`;return}if(!u)return;let t=e.toLocaleLowerCase().split(/\s+/),n=u.filter(e=>t.every(t=>e.searchableText.includes(t)));s.textContent=n.length?`“${e}”找到 ${n.length} 篇文章。`:`没有找到“${e}”，试试更短或不同的关键词。`;let r=document.createDocumentFragment();for(let e of n){let t=document.createElement(`li`);t.className=`py-5`;let n=document.createElement(`a`);n.href=e.url,n.className=`text-lg font-semibold underline-offset-4 hover:underline`,n.textContent=e.title;let i=document.createElement(`p`);i.className=`mt-2 text-sm leading-7 opacity-70`,i.textContent=e.excerpt||e.text.slice(0,160),t.append(n,i),r.append(t)}c.append(r)}async function v(){if(d||u)_();else{d=!0,f=!1,l.hidden=!0,e.setAttribute(`aria-busy`,`true`),_();try{let e=await t(location.origin);if(i.aborted)return;u=e}catch{if(i.aborted)return;f=!0,l.hidden=!1}finally{i.aborted||(d=!1,e.removeAttribute(`aria-busy`),_())}}}function y(){if(!a||a.open)return;p=document.activeElement instanceof HTMLElement?document.activeElement:null,a.showModal();let e=[document.documentElement,document.body].map(e=>({el:e,value:e.style.getPropertyValue(`overflow`),priority:e.style.getPropertyPriority(`overflow`)}));e.forEach(({el:e})=>e.style.setProperty(`overflow`,`hidden`)),m=()=>e.forEach(({el:e,value:t,priority:n})=>t?e.style.setProperty(`overflow`,t,n):e.style.removeProperty(`overflow`)),o.focus(),v()}o.addEventListener(`input`,()=>{!u&&!f?v():_()},{signal:i}),e.querySelector(`form`).addEventListener(`submit`,e=>{e.preventDefault(),v()},{signal:i}),l.addEventListener(`click`,()=>void v(),{signal:i}),e.querySelector(`[data-close]`)?.addEventListener(`click`,g,{signal:i}),a?(document.addEventListener(`keydown`,e=>{(e.ctrlKey||e.metaKey)&&e.key.toLowerCase()===`k`&&!e.repeat&&(e.preventDefault(),y())},{signal:i}),a.addEventListener(`cancel`,e=>{e.preventDefault(),g()},{signal:i}),a.addEventListener(`close`,()=>{a.open||h()},{signal:i}),a.addEventListener(`click`,e=>{if(e.target!==a)return;let t=a.getBoundingClientRect();(e.clientX<t.left||e.clientX>t.right||e.clientY<t.top||e.clientY>t.bottom)&&g()},{signal:i})):(o.value=new URLSearchParams(location.search).get(`q`)??``,v()),n.push(()=>{r.abort(),a?.close(),h(!1)})})}document.addEventListener(`astro:page-load`,i),document.readyState!==`loading`&&i(),document.addEventListener(`astro:before-swap`,r),window.addEventListener(`pagehide`,r),window.addEventListener(`pageshow`,e=>{e.persisted&&i()});</script><script type="module">var e;function t(){e?.();let t=new AbortController,{signal:n}=t,r=[];document.querySelectorAll(`[data-fluid-hover]`).forEach(e=>{let t=Array.from(e.querySelectorAll(`:scope > [data-fluid-hover-item]`));if(!t.length)return;let i=document.createElement(`span`);i.className=`fluid-hover-highlight`,i.setAttribute(`aria-hidden`,`true`),e.prepend(i),r.push(i);let a=null,o=null,s=null,c=!1,l=0,u=0,d=null,f=()=>t.find(e=>e.matches(`[aria-current="page"], [aria-current="location"], [aria-pressed="true"]`))??null,p=(t,r=!1)=>{if(a=t,!t){e.removeAttribute(`data-fluid-hover-active`);return}let{offsetLeft:o,offsetTop:s,offsetWidth:l,offsetHeight:d}=t;if(!l||!d)return;let f=r||!c;f&&(cancelAnimationFrame(u),i.style.transition=`none`),i.style.width=`${l}px`,i.style.height=`${d}px`,i.style.transform=`translate3d(${o}px, ${s}px, 0)`,e.setAttribute(`data-fluid-hover-active`,`true`),c=!0,f&&(i.offsetWidth,u=requestAnimationFrame(()=>{n.aborted||i.style.removeProperty(`transition`)}))},m=()=>p(o??s??f()),h=(e,n)=>t.map(e=>({item:e,rect:e.getBoundingClientRect()})).reduce((t,{item:r,rect:i})=>{let a=Math.max(i.left-e,0,e-i.right),o=Math.max(i.top-n,0,n-i.bottom),s=a*a+o*o;return!t||s<t.distance?{item:r,distance:s}:t},null)?.item??null,g=()=>{l||=requestAnimationFrame(()=>{l=0,d&&(o=h(d.x,d.y)),m()})},_=new MutationObserver(()=>{s=null,g()});_.observe(e,{subtree:!0,attributes:!0,attributeFilter:[`aria-current`,`aria-pressed`]});let v=new ResizeObserver(g);v.observe(e),t.forEach(e=>v.observe(e)),queueMicrotask(()=>{n.aborted||m()}),e.addEventListener(`pointermove`,e=>{e.pointerType!==`touch`&&(d={x:e.clientX,y:e.clientY},g())},{signal:n}),e.addEventListener(`pointerleave`,()=>{d=null,o=null,g()},{signal:n}),e.addEventListener(`focusin`,e=>{d=null,o=null,s=t.find(t=>t===e.target||t.contains(e.target))??null,m()},{signal:n}),e.addEventListener(`focusout`,e=>{s=t.find(t=>t===e.relatedTarget||t.contains(e.relatedTarget))??null,g()},{signal:n}),e.addEventListener(`fluid:remeasure`,e=>{let t=e instanceof CustomEvent&&e.detail?.instant===!0;p(t?f():o??s??a??f(),t)},{signal:n}),n.addEventListener(`abort`,()=>{cancelAnimationFrame(l),cancelAnimationFrame(u),_.disconnect(),v.disconnect()},{once:!0})}),e=()=>{t.abort(),r.forEach(e=>e.remove()),document.querySelectorAll(`[data-fluid-hover-active]`).forEach(e=>e.removeAttribute(`data-fluid-hover-active`))}}document.addEventListener(`astro:page-load`,t),document.addEventListener(`astro:before-swap`,()=>{e?.(),e=void 0}),addEventListener(`pagehide`,()=>{e?.(),e=void 0}),addEventListener(`pageshow`,e=>{e.persisted&&t()}),document.readyState!==`loading`&&t();</script><script type="module">var e;function t(){e?.(!0);let t=new AbortController,{signal:n}=t,r=[];document.querySelectorAll(`.prose img, .article-cover, .post-thumbnail img, .archive-thumbnail img`).forEach(e=>{if(!e.hasAttribute(`src`))return;let t=e.style.display,i=document.createElement(`span`);i.className=`image-load-fallback`,i.setAttribute(`role`,`status`),i.setAttribute(`aria-label`,e.alt?`图片加载失败：${e.alt}`:`图片加载失败`);let a=document.createElement(`span`);if(a.textContent=`图片暂时无法显示`,i.append(a),!e.closest(`a[href]`)){let r=document.createElement(`button`);r.type=`button`,r.textContent=`重试加载`,r.addEventListener(`click`,()=>{let n=e.src;e.removeAttribute(`src`),e.loading=`eager`,e.classList.add(`is-image-loading`),e.style.display=t,i.before(e),i.remove(),e.src=n},{signal:n}),i.append(r)}let o=()=>{if(n.aborted||!e.isConnected)return;e.classList.remove(`is-image-loading`);let a=e.matches(`.article-cover, .post-thumbnail img, .archive-thumbnail img`),o=e.getBoundingClientRect(),s=getComputedStyle(e),c=Number(e.getAttribute(`width`)),l=Number(e.getAttribute(`height`));i.style.display=s.display.includes(`inline`)?`inline-flex`:`flex`,i.style.width=a?`100%`:`${Math.max(o.width,160)}px`,i.style.aspectRatio=a?`16 / 9`:c>0&&l>0?`${c} / ${l}`:`16 / 9`,i.style.margin=s.margin,i.style.verticalAlign=s.verticalAlign,a&&(i.dataset.cover=``),e.replaceWith(i),e.style.display=`none`,i.append(e),r.push({image:e,fallback:i,display:t})};e.addEventListener(`load`,()=>e.classList.remove(`is-image-loading`),{signal:n}),e.addEventListener(`error`,o,{signal:n}),e.complete?e.naturalWidth===0?o():e.classList.remove(`is-image-loading`):e.classList.add(`is-image-loading`)}),e=(e=!1)=>{t.abort(),e&&r.forEach(({image:e,fallback:t,display:n})=>{t.isConnected&&(e.style.display=n,t.before(e),t.remove())})}}document.addEventListener(`astro:page-load`,t),document.readyState!==`loading`&&t(),document.addEventListener(`astro:before-swap`,()=>{e?.(),e=void 0}),addEventListener(`pagehide`,()=>{e?.(!0),e=void 0}),addEventListener(`pageshow`,e=>{e.persisted&&t()});</script><footer data-astro-transition-persist="site-footer" data-astro-transition-scope="astro-v4xhcqov-3" class="site-footer shell"><div><a class="footer-brand" href="/">Lufs&#39;s Blog</a><p>© 2018–2026 Lufs · <a href="/rss2.xml">RSS</a> · <a href="/atom.xml">Atom</a></p></div></footer><script type="module">`serviceWorker`in navigator&&navigator.serviceWorker.getRegistrations().then(e=>{for(let t of e)t.scope===new URL(`/`,location.origin).href&&t.active?.scriptURL===new URL(`/sw.js`,location.origin).href&&t.update().catch(()=>{})}).catch(()=>{});</script><script>(function(){const clarityId = "alejvn2b9x";
+
+      if (!window.clarity && navigator.doNotTrack !== '1') {
+        window.clarity = function () { (window.clarity.q = window.clarity.q || []).push(arguments); };
+        const script = document.createElement('script'); script.async = true;
+        script.src = 'https://www.clarity.ms/tag/' + clarityId; document.head.appendChild(script);
+      }
+    })();</script></body></html>

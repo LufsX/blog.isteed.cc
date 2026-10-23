@@ -1,0 +1,9 @@
+[
+  { "name": "Sukka's Blog", "img": "https://cdn.jsdelivr.net/npm/skx@0.2.3/avatar/144x144.png", "url": "https://blog.skk.moe/", "text": "苏卡卡的有底洞" },
+  { "name": "BLOG @ GIUEM", "img": "https://cdn.jsdelivr.net/gh/giuem/assets@20190501/avatar/giuem.png", "url": "https://www.giuem.com/", "text": "菜鸡 GIUEM 的日常" },
+  { "name": "Huanx", "img": "https://cdn.isteed.cc/img/friend-avatar/huanx.jpg", "url": "https://huanxx.com/", "text": "Huanx 呢" },
+  { "name": "老虎不吃人", "img": "https://cdn.jsdelivr.net/gh/TigerCOOI/cdn-tdeh@0.1/img/logo/favicon.ico", "url": "https://tdeh.top/", "text": "活着就是为了改变世界" },
+  { "name": "Hanxuan's Balcony", "img": "https://cors.isteed.cc/https://avatars.githubusercontent.com/u/106010535", "url": "https://blog.hanxuan.org/", "text": "Francie 写奇奇怪怪东西的地方（" },
+  { "name": "wallleap", "img": "https://cdn.isteed.cc/img/friend-avatar/wallleap.webp", "url": "https://myblog.wallleap.cn/", "text": "Luwang's Blog!" },
+  { "name": "Clocky7", "img": "https://cdn.isteed.cc/img/friend-avatar/clocky7.webp", "url": "https://blog.ccky7.cc", "text": "一只无所事事的舟!" }
+]

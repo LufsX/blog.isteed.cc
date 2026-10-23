@@ -1,0 +1,573 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="description" content="世界上有一个软件，它能做到能在所有设备都有优秀的统一使用体验，兼容各大桌面平台（macOS/Windows/Linux）以及移动平台（iOS/Android/Windows Phone）甚至还在 Web 都有全功能体验。 为了让更多的人知道这难道不易的优秀 IM (聊天) 体验，便写了此篇入坑指南"><link rel="canonical" href="https://blog.isteed.cc/post/how-to-go-tg/"><link rel="icon" href="https://cdn.isteed.cc/favicon/favicon.ico"><link rel="alternate" type="application/rss+xml" title="Lufs's Blog" href="/rss2.xml"><link rel="alternate" type="application/atom+xml" title="Lufs's Blog" href="/atom.xml"><meta property="og:title" content="优秀、轻快、安全的即时通讯 —— Telegram 入坑指南 · Lufs's Blog"><meta property="og:description" content="世界上有一个软件，它能做到能在所有设备都有优秀的统一使用体验，兼容各大桌面平台（macOS/Windows/Linux）以及移动平台（iOS/Android/Windows Phone）甚至还在 Web 都有全功能体验。 为了让更多的人知道这难道不易的优秀 IM (聊天) 体验，便写了此篇入坑指南"><meta property="og:url" content="https://blog.isteed.cc/post/how-to-go-tg/"><meta property="og:image" content="https://cdn.isteed.cc/img/how-to-go-tg/thumbnail.webp"><meta property="og:type" content="website"><meta name="twitter:card" content="summary_large_image"><meta name="google-site-verification" content="wk686q2aTrts7GR0yVJ7UrALaAodD62StMuSuH7dMOU"><meta name="color-scheme" content="light dark"><title>优秀、轻快、安全的即时通讯 —— Telegram 入坑指南 · Lufs&#39;s Blog</title><meta name="astro-view-transitions-enabled" content="true"><meta name="astro-view-transitions-fallback" content="animate"><script type="module" src="/_astro/ClientRouter.astro_astro_type_script_index_0_lang.CKq7OsbX.js"></script><script>
+      (() => {
+        const key = 'lufs-theme';
+        const root = document.documentElement;
+        const system = window.matchMedia('(prefers-color-scheme: dark)');
+        const normalize = (value) =>
+          value === 'light' || value === 'dark' ? value : 'system';
+        let preference = 'system';
+        try {
+          preference = normalize(localStorage.getItem(key));
+        } catch {
+          // Storage may be unavailable in private or restricted contexts.
+        }
+        const apply = () => {
+          root.dataset.theme = preference === 'system'
+            ? (system.matches ? 'dark' : 'light')
+            : preference;
+          root.style.colorScheme = root.dataset.theme;
+          root.dataset.preference = preference;
+          const button = document.getElementById('theme-toggle');
+          const names = { system: '系统', light: '浅色', dark: '深色' };
+          const next = { system: 'light', light: 'dark', dark: 'system' };
+          if (button) {
+            button.setAttribute('aria-label', `当前：${names[preference]}；切换为${names[next[preference]]}`);
+            button.title = `当前：${names[preference]}；点击切换`;
+          }
+        };
+        apply();
+        system.addEventListener('change', apply);
+        document.addEventListener('astro:before-swap', (event) => {
+          const nextRoot = event.newDocument.documentElement;
+          nextRoot.dataset.theme = root.dataset.theme;
+          nextRoot.dataset.preference = preference;
+          nextRoot.style.colorScheme = root.style.colorScheme;
+        });
+        document.addEventListener('astro:after-swap', apply);
+        window.addEventListener('storage', (event) => {
+          if (event.key === key || event.key === null) {
+            preference = normalize(event.newValue);
+            apply();
+          }
+        });
+        document.addEventListener('DOMContentLoaded', () => {
+          const button = document.getElementById('theme-toggle');
+          apply();
+          button?.addEventListener('click', () => {
+            preference = { system: 'light', light: 'dark', dark: 'system' }[preference];
+            apply();
+            try { localStorage.setItem(key, preference); } catch {}
+          });
+        }, { once: true });
+      })();
+    </script><link rel="stylesheet" href="/_astro/Base._a07vYZy.css"><link rel="stylesheet" href="/_astro/ArticleEnhancements.D6DQ8Qoe.css"><style>[data-astro-transition-scope="astro-gyrtbwwo-1"] { view-transition-name: astro-gyrtbwwo-1; }@layer astro { ::view-transition-old(astro-gyrtbwwo-1) { animation: none; opacity: 0; mix-blend-mode: normal; }::view-transition-new(astro-gyrtbwwo-1) { animation: none; mix-blend-mode: normal; }::view-transition-group(astro-gyrtbwwo-1) { animation: none } }[data-astro-transition-fallback="old"] [data-astro-transition-scope="astro-gyrtbwwo-1"],
+			[data-astro-transition-fallback="old"][data-astro-transition-scope="astro-gyrtbwwo-1"] { animation: none; mix-blend-mode: normal; }[data-astro-transition-fallback="new"] [data-astro-transition-scope="astro-gyrtbwwo-1"],
+			[data-astro-transition-fallback="new"][data-astro-transition-scope="astro-gyrtbwwo-1"] { animation: none; mix-blend-mode: normal; }</style><style>[data-astro-transition-scope="astro-iywf7oe7-2"] { view-transition-name: page-content; }@layer astro { ::view-transition-old(page-content) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }::view-transition-new(page-content) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; }[data-astro-transition=back]::view-transition-old(page-content) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }[data-astro-transition=back]::view-transition-new(page-content) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; } }[data-astro-transition-fallback="old"] [data-astro-transition-scope="astro-iywf7oe7-2"],
+			[data-astro-transition-fallback="old"][data-astro-transition-scope="astro-iywf7oe7-2"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }[data-astro-transition-fallback="new"] [data-astro-transition-scope="astro-iywf7oe7-2"],
+			[data-astro-transition-fallback="new"][data-astro-transition-scope="astro-iywf7oe7-2"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; }[data-astro-transition=back][data-astro-transition-fallback="old"] [data-astro-transition-scope="astro-iywf7oe7-2"],
+			[data-astro-transition=back][data-astro-transition-fallback="old"][data-astro-transition-scope="astro-iywf7oe7-2"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }[data-astro-transition=back][data-astro-transition-fallback="new"] [data-astro-transition-scope="astro-iywf7oe7-2"],
+			[data-astro-transition=back][data-astro-transition-fallback="new"][data-astro-transition-scope="astro-iywf7oe7-2"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; }</style><style>[data-astro-transition-scope="astro-v4xhcqov-3"] { view-transition-name: astro-v4xhcqov-3; }@layer astro { ::view-transition-old(astro-v4xhcqov-3) { animation: none; opacity: 0; mix-blend-mode: normal; }::view-transition-new(astro-v4xhcqov-3) { animation: none; mix-blend-mode: normal; }::view-transition-group(astro-v4xhcqov-3) { animation: none } }[data-astro-transition-fallback="old"] [data-astro-transition-scope="astro-v4xhcqov-3"],
+			[data-astro-transition-fallback="old"][data-astro-transition-scope="astro-v4xhcqov-3"] { animation: none; mix-blend-mode: normal; }[data-astro-transition-fallback="new"] [data-astro-transition-scope="astro-v4xhcqov-3"],
+			[data-astro-transition-fallback="new"][data-astro-transition-scope="astro-v4xhcqov-3"] { animation: none; mix-blend-mode: normal; }</style></head><body id="top"><header data-astro-transition-persist="site-header" data-astro-transition-scope="astro-gyrtbwwo-1" class="site-header shell"><div class="brand-wrap"><a class="brand" href="/" aria-label="Lufs's Blog，返回顶部；在顶部时返回首页" aria-describedby="brand-slogan">Lufs&#39;s Blog</a><span id="brand-slogan" class="brand-tooltip" role="tooltip">Life feeds on negative entropy.</span></div><nav class="site-nav desktop-nav" data-fluid-hover="x" aria-label="主导航"><a data-fluid-hover-item href="/">首页</a><a data-fluid-hover-item href="/archives/">归档</a><a data-fluid-hover-item href="/tags/">标签</a><a data-fluid-hover-item href="/search/">搜索</a><a data-fluid-hover-item href="/about/">关于</a><a data-fluid-hover-item href="/welfare/">福利</a><a data-fluid-hover-item href="/friends/">友链</a></nav><div class="mobile-navigation"><button id="menu-toggle" class="menu-toggle" type="button" aria-label="打开导航菜单" aria-expanded="false" aria-controls="mobile-navigation-panel"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path class="menu-line-top" d="M5 6h14"></path><path class="menu-line-middle" d="M5 12h14"></path><path class="menu-line-bottom" d="M5 18h14"></path></svg></button><div id="mobile-navigation-panel" class="mobile-navigation-panel" data-open="false" aria-hidden="true" inert><nav class="mobile-navigation-scroll" data-fluid-hover="y" aria-label="移动端导航"><a data-fluid-hover-item href="/">首页</a><a data-fluid-hover-item href="/archives/">归档</a><a data-fluid-hover-item href="/tags/">标签</a><a data-fluid-hover-item href="/search/">搜索</a><a data-fluid-hover-item href="/about/">关于</a><a data-fluid-hover-item href="/welfare/">福利</a><a data-fluid-hover-item href="/friends/">友链</a></nav></div></div><button id="theme-toggle" class="theme-toggle" type="button" aria-label="切换主题：系统、浅色、深色"><svg class="theme-icon icon-system" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="3" y="4" width="18" height="13" rx="2"></rect><path d="M8 21h8m-4-4v4"></path></svg><svg class="theme-icon icon-light" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2m0 16v2M2 12h2m16 0h2M5 5l1.5 1.5m11 11L19 19M5 19l1.5-1.5m11-11L19 5"></path></svg><svg class="theme-icon icon-dark" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M20.5 14A9 9 0 0 1 10 3.5 9 9 0 1 0 20.5 14Z"></path></svg></button></header><script type="module" src="/_astro/Base.astro_astro_type_script_index_0_lang.C04sE12B.js"></script><main data-astro-transition-scope="astro-iywf7oe7-2" id="main-content" class="shell site-main" tabindex="-1"><header class="article-header max-w-3xl pb-6 pt-4 md:pb-8 md:pt-6"><p class="eyebrow mb-2"><a href="/categories/%E5%88%86%E4%BA%AB/">分享</a><span aria-hidden="true"> · </span><time datetime="2020-06-13">2020-06-13</time></p><h1 class="article-title">优秀、轻快、安全的即时通讯 —— Telegram 入坑指南</h1><img class="article-cover is-image-loading" src="https://cdn.isteed.cc/img/how-to-go-tg/thumbnail.webp" alt="优秀、轻快、安全的即时通讯 —— Telegram 入坑指南：文章头图" loading="lazy" decoding="async" width="1440" height="720"></header><div class="article-layout"><article id="article" class="article-content prose"><p>世界上有一个软件，它能做到能在所有设备都有优秀的统一使用体验，兼容各大桌面平台（macOS/Windows/Linux）以及移动平台（iOS/Android/<s>Windows Phone</s>）甚至还在 <a href="https://web.telegram.org/">Web</a> 都有全功能体验。</p>
+<p>为了让更多的人知道这难道不易的优秀 IM (聊天) 体验，便写了此篇入坑指南</p>
+
+<hr />
+<p>目录：</p>
+
+<ul>
+<li><a href="#%E5%89%8D%E8%A8%80">前言</a></li>
+<li><a href="#%E7%AE%80%E4%BB%8B-%E5%AF%B9%E6%AF%94">简介/对比</a></li>
+<li><a href="#%E5%85%A5%E5%9D%91%E6%8C%87%E5%8D%97">入坑指南</a>
+<ul>
+<li><a href="#%E4%B8%8B%E8%BD%BD-%E5%AE%89%E8%A3%85">下载&amp;安装</a>
+<ul>
+<li><a href="#Android">Android</a></li>
+<li><a href="#iOS">iOS</a></li>
+<li><a href="#Desktop">Desktop</a></li>
+</ul>
+</li>
+<li><a href="#%E8%B4%A6%E5%8F%B7%E6%B3%A8%E5%86%8C">账号注册</a>
+<ul>
+<li><a href="#Nekogram-X">Nekogram X</a></li>
+<li><a href="#%E5%AE%98%E6%96%B9%E5%AE%A2%E6%88%B7%E7%AB%AF">官方客户端</a></li>
+</ul>
+</li>
+<li><a href="#%E5%B0%8F%E6%8A%80%E5%B7%A7">小技巧</a></li>
+<li><a href="#%E9%A2%91%E9%81%93%E6%8E%A8%E8%8D%90">频道推荐</a>
+<ul>
+<li><a href="#%E5%90%84%E7%A7%8D%E8%B5%84%E8%AE%AF">各种资讯</a></li>
+<li><a href="#%E8%B5%84%E6%BA%90%E9%A2%91%E9%81%93">资源频道</a></li>
+<li><a href="#%E6%B2%99%E9%9B%95%E5%9B%BE%E4%B8%8E%E8%A7%86%E9%A2%91">沙雕图与视频</a></li>
+<li><a href="#NSFW">NSFW</a></li>
+</ul>
+</li>
+<li><a href="#%E6%9C%BA%E5%99%A8%E4%BA%BA%E6%8E%A8%E8%8D%90">机器人推荐</a></li>
+</ul>
+</li>
+<li><a href="#%E4%B8%80%E4%BA%9B%E9%93%BE%E6%8E%A5">一些链接</a>
+<ul>
+<li><a href="#%E6%A1%8C%E9%9D%A2%E7%89%88">桌面版</a></li>
+<li><a href="#%E5%85%AC%E5%85%B1%E4%BB%A3%E7%90%86">公共代理</a></li>
+<li><a href="#%E6%B1%89%E5%8C%96%E8%AF%AD%E8%A8%80%E5%8C%85">汉化语言包</a></li>
+</ul>
+</li>
+<li><a href="#%E7%A2%8E%E7%A2%8E%E5%BF%B5">碎碎念</a></li>
+</ul>
+<hr />
+<h1 id="前言">前言</h1>
+<p>本篇入坑指南可能较长较详细，请耐心的看下去。</p>
+<p>当你玩懂了后，你会发现这里不仅可以聊天，还能听音乐、看番、看电影、看资讯、下载软件，你甚至还能拿它做网盘！</p>
+<h1 id="简介对比">简介/对比</h1>
+<p>用这个嘛，肯定是相较于其它 IM 软件有极大的优势，下面放一个由<a href="https://t.me/akafeng_broadcast/14">这个频道</a>所整理的 QQ、微信、Telegram 的特性对比图</p>
+<p><img src="https://cdn.isteed.cc/img/how-to-go-tg/tqc.webp" alt="Telegram 与 QQ 微信的对比" class="is-image-loading" loading="lazy" decoding="async" width="881" height="1280" /></p>
+<p>图为 2018.08.24 更新，现在已经是 2022 年了，有些东西已经发生了变化。。。</p>
+<p>这里稍做增添/更正，还有些我就不考究了</p>
+<p>更新日期: 2023-04-17</p>
+
+<table>
+<thead>
+<tr>
+<th style="text-align:center">-</th>
+<th style="text-align:left">QQ</th>
+<th style="text-align:left">微信</th>
+<th style="text-align:left">Telegram</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">创建群组</td>
+<td style="text-align:left">3000 人群（需要 QQ 超级会员可以创建三个）</td>
+<td style="text-align:left">-</td>
+<td style="text-align:left">最多可包含 200,000 人<br />广播群组不限制人数</td>
+</tr>
+<tr>
+<td style="text-align:center">消息撤回</td>
+<td style="text-align:left">-</td>
+<td style="text-align:left">-</td>
+<td style="text-align:left">私聊可为对方删除消息</td>
+</tr>
+<tr>
+<td style="text-align:center">安装包大小（Android）</td>
+<td style="text-align:left">313.3MB</td>
+<td style="text-align:left">256.7MB</td>
+<td style="text-align:left">29.02MB</td>
+</tr>
+<tr>
+<td style="text-align:center">安装包大小（iOS）</td>
+<td style="text-align:left">677.6MB</td>
+<td style="text-align:left">600.7MB</td>
+<td style="text-align:left">119.8MB</td>
+</tr>
+<tr>
+<td style="text-align:center">多终端支持</td>
+<td style="text-align:left">最多可允许三端同时登录<br />Phone/Pad/PC</td>
+<td style="text-align:left">最多可允许三端同时登陆<br />（网页版登陆时会将 PC 端退出登陆）<br />Phone/Pad/PC</td>
+<td style="text-align:left">不限制多终端登陆<br />支持同平台同时登陆，可单独管理已登陆的设备<br />Phone/Pad/PC/Web</td>
+</tr>
+<tr>
+<td style="text-align:center">存储空间统计/清理</td>
+<td style="text-align:left">可看见缓存及其下载文件占用(TIM)<br />支持单独清理已下载的文件<br />支持清空消息列表<br />支持清空所有聊天记录</td>
+<td style="text-align:left">可以统计已用空间<br />可以精准到对话的清理空间<br />只支持手动选择操作，且删除后无法恢复</td>
+<td style="text-align:left">可以统计<strong>所有</strong>存储使用情况<br />可手动清理各类型图片<br />支持设置媒体文件保留时间<br />支持精准到对话的清理以及类型选择</td>
+</tr>
+<tr>
+<td style="text-align:center">消息推送</td>
+<td style="text-align:left">Android 端已接入 OPPO/Vivo/HMS 推送<br />iOS 端支持完整 APNS</td>
+<td style="text-align:left">Android 端支持残废 FCM<br />iOS 端支持完整 APNS</td>
+<td style="text-align:left">Android 端支持完整 FCM<br />iOS 端支持完整 APNS</td>
+</tr>
+<tr>
+<td style="text-align:center">广告显示</td>
+<td style="text-align:left">有，包括「红点」广告，空间广告，会员广告</td>
+<td style="text-align:left">有，包括随机的朋友圈贴片广告，公众号信息流广告</td>
+<td style="text-align:left">有，在千人以上的非敏感频道中，浏览完所有已读消息后显示消息广告，且部分功能需要开会员使用</td>
+</tr>
+</tbody>
+</table>
+<p>腾讯！内存！</p>
+<p><img src="https://article.biliimg.com/bfs/article/58575794bad1ba056b8ee1717c924e287928fb95.jpg" alt="内存！" class="is-image-loading" loading="lazy" decoding="async" width="828" height="1185" /></p>
+<hr />
+<p><s>在我手机(Pixel 2)上，微信完全关闭后从打开到完全进入需要 5s 左右，TIM 则为 1s 左右，Telegram 不到 1s。</s></p>
+<p>在我的 Pixel 4 上，微信完全关闭后仍需 5s 左右完全进入，而 Telegram 则需 1s 左右（其中微信进入后，微信会假死一段时间）</p>
+<p>微信不仅魔改系统原生行为（原生那么好看的选择框全给你改的 iOS 式丑不拉寄的网易），还极其笨重、拖沓、垃圾、高占用，要不是有些时候不得不用﹍哎﹍（微信不值得！）</p>
+<p>顺带一提，由于 Telegram 换开发者了（drklo 换掉了），可能是新人不熟悉 Android 开发，导致 Telegram Android 版应用质量下滑，但可以放心，仍然比 QQ 和微信好～</p>
+<h1 id="入坑指南">入坑指南</h1>
+<p>如何入坑 Telegram <img alt="Telegram" width="256" src="https://cdn.isteed.cc/img/how-to-go-tg/telegram.webp" class="is-image-loading" loading="lazy" decoding="async" style="width:16px" height="256" /> 呢？</p>
+<h2 id="下载安装">下载&amp;安装</h2>
+<h3 id="Android">Android</h3>
+<p>Android 端可以使用 <a href="https://github.com/NekoX-dev/NekoX">Nekogram X</a>（一个第三方的<strong>开源</strong>客户端）</p>
+<p>如何下载使用呢？下载的就是下面那个东西～</p>
+<a href="https://cors.isteed.cc/https://github.com/NekoX-Dev/NekoX/releases/download/v9.3.3/NekoX-v9.3.3-full-arm64-v8a-release.apk">
+<p><img alt="NekoX" width="192" src="https://cdn.isteed.cc/img/how-to-go-tg/nekox.webp" class="is-image-loading" loading="lazy" decoding="async" style="width:192px" height="192" /></p>
+</a>
+<p>首先先点击上面的图标或是<a href="https://cors.isteed.cc/https://github.com/NekoX-Dev/NekoX/releases/download/v9.3.3/NekoX-v9.3.3-full-arm64-v8a-release.apk">这个下载链接</a>下载 APK 安装文件</p>
+<p>下载完成后打开安装即可~</p>
+<h3 id="iOS">iOS</h3>
+<p>iOS 端在 AppStore 内搜索 <code>Telegram</code> 即可下载</p>
+<div class="toast toast-warning">
+⚠️ 注意：官方原版是这个，使用<b>非开源</b>、不安全的第三方客户端有可能会导致手机号码、信息等隐私信息泄漏！
+</div>
+<p><img src="https://cdn.isteed.cc/img/how-to-go-tg/inappstore.webp" alt="AppStore" class="is-image-loading" loading="lazy" decoding="async" width="750" height="608" /></p>
+<h3 id="Desktop">Desktop</h3>
+<p>什么？你想在电脑上用？可以，但是设置较为繁琐复杂，这里就等你用到一定程度后自己摸索了，安装文件可以去<a href="http://t.me/">官网</a>获取（⚠️ 注意，需要自行翻过长城）</p>
+<p>这里提供一个国内可以直接下载的地址</p>
+<ul>
+<li><a href="https://cors.isteed.cc/https://osx.telegram.org/updates/Telegram.dmg">macOS(OS X)</a></li>
+<li><a href="https://cors.isteed.cc/https://telegram.org/dl/desktop/win">Windows</a></li>
+<li><a href="https://cors.isteed.cc/https://telegram.org/dl/desktop/linux">Linux64</a></li>
+<li><a href="https://cors.isteed.cc/https://telegram.org/dl/desktop/linux32">Linux32</a></li>
+</ul>
+<p>部分浏览器上可能无法正常显示下载文件名，需要手动更改后缀</p>
+<ul>
+<li>macOS 的后缀是 <code>.dmg</code></li>
+<li>Windows 的后缀是 <code>.exe</code></li>
+<li>Linux 的后缀是 <code>.tar.xz</code></li>
+</ul>
+<h2 id="账号注册">账号注册</h2>
+<p>由于防火墙的阻扰，需要使用一些特殊手段才能成功注册</p>
+<p>接下来，为了能够顺利的进行注册，请先按以下步骤<strong>设置代理</strong></p>
+<p>Android 可以使用 <a href="#nekogram-x">Nekogram X</a> 按<a href="#nekogram-x">此步骤</a>注册即可（<a href="#nekogram-x">点击跳转</a>）</p>
+<p>iOS 使用<a href="#%E5%AE%98%E6%96%B9%E5%AE%A2%E6%88%B7%E7%AB%AF">官方客户端</a>按<a href="#%E5%AE%98%E6%96%B9%E5%AE%A2%E6%88%B7%E7%AB%AF">此步骤</a>注册即可（<a href="#%E5%AE%98%E6%96%B9%E5%AE%A2%E6%88%B7%E7%AB%AF">点击跳转</a>）</p>
+<p>桌面平台？有点难整，等待你自己探索哦！</p>
+<h3 id="NekogramX">Nekogram X</h3>
+<p>Nekogram X 内置公共代理，注册时可以直接使用公共代理列表中的代理。</p>
+<p>打开后，标题栏可能一直显示 <code>连接中...</code>，这里的话直接点图中的哪个「小盾牌」就好了，如果没有显示 <code>连接中…</code>，则可以直接注册帐号，流程与普通应用一致</p>
+<p><img src="https://cdn.isteed.cc/img/how-to-go-tg/nx01p.webp" alt="NekoX_1p" class="is-image-loading" loading="lazy" decoding="async" width="1080" height="611" /></p>
+<p>在代理设置中点击三条杠杠的哪个图标</p>
+<p><img src="https://cdn.isteed.cc/img/how-to-go-tg/nx02p.webp" alt="NekoX_2p" class="is-image-loading" loading="lazy" decoding="async" width="1080" height="680" /></p>
+<p>先点一下更新，更新完成后确定即可</p>
+<p><img src="https://cdn.isteed.cc/img/how-to-go-tg/nx03p.webp" alt="NekoX_3p" class="is-image-loading" loading="lazy" decoding="async" width="1080" height="408" /></p>
+<p>确定后「代理连接」下就多了一堆列表，这里选择一个显示「<font color="green">可用</font>」代理连接即可</p>
+<p>注意 ⚠️：若所有代理都显示「<font color="gray">检查中...</font>」的话，请从上到下依次点击尝试连接（「<font color="gray">连接中...</font>」到「<font color="green">已连接</font>」可能会需要一点时间）</p>
+<p><img src="https://cdn.isteed.cc/img/how-to-go-tg/nx04p.webp" alt="NekoX_4p" class="is-image-loading" loading="lazy" decoding="async" width="1080" height="651" /></p>
+<p>然后返回，输入手机号后就能正常的注册啦</p>
+<p><img src="https://cdn.isteed.cc/img/how-to-go-tg/nx05p.webp" alt="NekoX_5p" class="is-image-loading" loading="lazy" decoding="async" width="1080" height="824" /></p>
+<p>题外话，如果短信很久很久（指五分钟后还没收到）没有收到，请点击右上方的三个点，尝试切换「自定义 API」后重新接收验证码</p>
+<p><img src="https://cdn.isteed.cc/img/how-to-go-tg/nx06p.webp" alt="NekoX_6p" class="is-image-loading" loading="lazy" decoding="async" width="1080" height="986" /></p>
+<p>这里就需要设置姓名和头像啦～</p>
+<p>名字就是对非联系人显示的「呢称」，姓氏的话填不填无所谓（还有，这个姓名可以不是真实姓名的啊啊啊）</p>
+<p><img src="https://cdn.isteed.cc/img/how-to-go-tg/nx07p.webp" alt="NekoX_7p" class="is-image-loading" loading="lazy" decoding="async" width="1080" height="1015" /></p>
+<p>进去后会弹出这俩个弹窗，依次确定就好（<strong>建议按提示操作！</strong>）</p>
+<p><img src="https://cdn.isteed.cc/img/how-to-go-tg/nx08p.webp" alt="NekoX_8p" class="is-image-loading" loading="lazy" decoding="async" width="1080" height="605" /><br />
+<img src="https://cdn.isteed.cc/img/how-to-go-tg/nx09p.webp" alt="NekoX_9p" class="is-image-loading" loading="lazy" decoding="async" width="1080" height="596" /></p>
+<p>设置两步验证设置可以在 <code>侧栏</code> - <code>设置</code> - <code>隐私和安全</code> - <code>两步验证</code> 里找到</p>
+<p><img src="https://cdn.isteed.cc/img/how-to-go-tg/nx10p.webp" alt="NekoX_10p" class="is-image-loading" loading="lazy" decoding="async" width="1080" height="424" /></p>
+<p>密码提示应该知道是干啥的吧？这个你可别直接重复一遍密码呢（可跳过）</p>
+<p><img src="https://cdn.isteed.cc/img/how-to-go-tg/nx11p.webp" alt="NekoX_11p" class="is-image-loading" loading="lazy" decoding="async" width="1080" height="953" /></p>
+<p>恢复邮箱的话，可以使用 QQ 邮箱，一般 QQ 邮箱是 <code>你得QQ号@qq.com</code> 的形式</p>
+<p>当邮件发送到你邮箱时，QQ 邮件就会给你验证码，自己按提示输入即可</p>
+<p>（顺带一提，万一你密码忘记了，又没设置恢复邮箱，那么这个账号就与你拜拜咯</p>
+<p><img src="https://cdn.isteed.cc/img/how-to-go-tg/nx12p.webp" alt="NekoX_12p" class="is-image-loading" loading="lazy" decoding="async" width="1080" height="951" /></p>
+<p>如果等验证邮件中途不小心退出验证界面了，可以在 <code>侧栏</code> - <code>设置</code> - <code>隐私和安全</code> - <code>两步验证</code> 里继续设置</p>
+<hr />
+<p>这样，最基础的注册就好了</p>
+<h3 id="官方客户端">官方客户端</h3>
+<p>将本网页网址在浏览器中打开（iOS 请使用 Safari；安卓则可以使用 Chrome、Edge 等浏览器）中打开，拉到「<a href="#%E5%85%AC%E5%85%B1%E4%BB%A3%E7%90%86">公共代理</a>」点击「点击设置代理」，点击后选择打开 Telegram 即可</p>
+<p><img src="https://cdn.isteed.cc/img/how-to-go-tg/t1p.webp" alt="T01p" class="is-image-loading" loading="lazy" decoding="async" width="750" height="941" /></p>
+<p>跳转到 Telegram 后，点击 <code>Connect Proxy</code> 如果 Status 为 Fail 的话，请尝试其它公共代理</p>
+<p><img src="https://cdn.isteed.cc/img/how-to-go-tg/t2p.webp" alt="T02p" class="is-image-loading" loading="lazy" decoding="async" width="750" height="711" /></p>
+<p>接下来输入手机号注册或登陆就行啦</p>
+<p>如在 iOS 上注册，请在注册完成后打开<strong>两步验证</strong>、并将<strong>手机号码</strong>设置为仅联系人可见或没有人可见</p>
+<hr />
+<p>你现在会发现界面是英文的，看不懂咋办呢？</p>
+<p>不用担心，Telegram 给我们提供了自定义语言包的选项，你现在只需要<a>点击一下</a>，就可以打开 Telegram 套用自定义语言包啦</p>
+<p><img src="https://cdn.isteed.cc/img/how-to-go-tg/t3p.webp" alt="T03p" class="is-image-loading" loading="lazy" decoding="async" width="750" height="1291" /></p>
+<p>只需要点击 <code>Change</code> 即可设置成中文啦</p>
+<p><img src="https://cdn.isteed.cc/img/how-to-go-tg/t4p.webp" alt="T04p" class="is-image-loading" loading="lazy" decoding="async" width="750" height="715" /></p>
+<p>设置好了后就不用担心看不懂咯</p>
+<p><img src="https://cdn.isteed.cc/img/how-to-go-tg/t5p.webp" alt="T05p" class="is-image-loading" loading="lazy" decoding="async" width="750" height="1297" /></p>
+<hr />
+<p>有些代理可能会显示一个频道在消息列表的顶部，可以加入频道后将其归档，即可让它不在顶部显示</p>
+<h2 id="小技巧">小技巧</h2>
+<p>部分代理可能会显示一个频道在消息列表的顶部，有两种方法可以将其从消息列表顶部消失</p>
+<p><img src="https://cdn.isteed.cc/img/how-to-go-tg/nx13p.webp" alt="NekoX_13p" class="is-image-loading" loading="lazy" decoding="async" width="1080" height="350" /></p>
+<blockquote>
+<p><strong>第一种</strong><br />
+加入它，然后将它归档</p>
+<p><strong>第二种</strong>（仅仅适用于 Nekogram 系列)<br />
+在 <code>侧栏</code> - <code>设置</code> - <code>喵设置</code> - <code>通用</code> 里把 <code>隐藏代理赞助商频道</code> 开启<br />
+<img src="https://cdn.isteed.cc/img/how-to-go-tg/nx14p.webp" alt="NekoX_14p" class="is-image-loading" loading="lazy" decoding="async" width="1080" height="1221" /></p>
+</blockquote>
+<h2 id="频道推荐">频道推荐</h2>
+<p>经过上述操作，就可以正常使用 Telegram 啦</p>
+<p>但是，对话列表中空空的啥也没有，是不是有点空虚呢？</p>
+<p>为了防止你们注册完了就再也不打开了，所以我要推荐 more 多 more 多的频道给你们，让你们用的安逸 😆</p>
+<p><a href="https://t.me/lufsxchannel">博主自己的频道</a> | <a>点击唤起 Telegram</a><br />
+<a href="https://t.me/lufsxdaliy">博主自己的日常频道</a> | <a>点击唤起 Telegram</a> | 博主自己日常瞎逼逼的地方？（暴论警告 🤣）</p>
+<blockquote>
+<p>⚠️ 注意：</p>
+<p>博主与以下频道均无任何直接或间接的利益关系！</p>
+<p>请勿轻信频道内的任何广告！</p>
+<p>请勿轻信任何右下角标为 <code>sponsored</code> 、<code>赞助</code>、<code>广告</code> 内容的信息，该信息为 Telegram 投放，长按即可查看详情</p>
+</blockquote>
+<h3 id="各种资讯">各种资讯</h3>
+<ul>
+<li><a href="https://t.me/lufsxchannel">博主自己的频道</a> | <a>点击唤起 Telegram</a> | 博主自己瞎逼逼的地方 🤣</li>
+<li><a href="https://t.me/Cloudflare_CN">Cloudflare 在中国频道</a> | <a>点击唤起 Telegram</a> | Cloudflare 周边消息</li>
+<li><a href="https://t.me/playsales">Google Play 限免信息</a> | <a>点击唤起 Telegram</a> | 白嫖党喜加一</li>
+<li><a href="https://t.me/NewlearnerChannel">Newlearner の自留地</a> | <a>点击唤起 Telegram</a> | 各种各样的资讯</li>
+<li><a href="https://t.me/solidot">Solidot</a> | <a>点击唤起 Telegram</a> | 奇客的资讯，重要的东西</li>
+<li><a href="https://t.me/sspai">少数派 sspai</a> | <a>点击唤起 Telegram</a> | <a href="https://sspai.com/">少数派</a>官方 RSS 频道</li>
+<li><a href="https://t.me/awesomeopensource">每日 AWESOME 观察</a> | <a>点击唤起 Telegram</a> | 各种好玩的 GitHub 项目</li>
+<li><a href="https://t.me/cnphotog_collect">每日摄影观察</a> | <a>点击唤起 Telegram</a></li>
+<li><a href="https://t.me/CE_Observe">每日消费电子观察</a> | <a>点击唤起 Telegram</a></li>
+<li><a href="https://t.me/siubeng_notebook">烧饼的 Android 杂谈</a> | <a>点击唤起 Telegram</a></li>
+<li><a href="https://t.me/lychee_wood">荔枝木</a> | <a>点击唤起 Telegram</a></li>
+<li><a href="https://t.me/pincongessence">蛋挞报</a> | <a>点击唤起 Telegram</a></li>
+<li><a href="https://t.me/GoogleSHIT">💊 辣鸡咕鸽毁我信仰 #CurryMyLife</a> | <a>点击唤起 Telegram</a> | 《关于咕鸽如何毁掉某些人的信仰那件事》</li>
+<li><a href="https://t.me/AppleNuts"> Apple Nuts</a> | <a>点击唤起 Telegram</a> | 大佬说苹果</li>
+<li>[Google Pixel Hub | <a>点击唤起 Telegram</a> | Updates™](<a href="https://t.me/PixelHubUpdates">https://t.me/PixelHubUpdates</a>) | <a>点击唤起 Telegram</a> | 关于 Pixel 的一些事情</li>
+<li><a href="https://t.me/DocOfCard">85.60×53.98 卡粉订阅/提醒</a> | <a>点击唤起 Telegram</a> | 玩卡的～</li>
+</ul>
+<h3 id="资源频道">资源频道</h3>
+<ul>
+<li><a href="https://t.me/AndroidRepo">Android Repository</a> | <a>点击唤起 Telegram</a></li>
+<li><a href="https://t.me/clash_for_android_channel">Clash for Android Channel</a> | <a>点击唤起 Telegram</a> | ClashForAndroid 的更新频道</li>
+<li><a href="https://t.me/joinchat/AAAAAFIjQeMoWKXkTnGnTA">EMK Anime Album Sharing Channel</a> | Google Photos 动画相册分享</li>
+<li><a href="https://t.me/joinchat/AAAAAEh3nQ7C9-_yL94NQg">EMK App Sharing Channel</a> | 各种各样的 APP 搬运</li>
+<li><a href="https://t.me/onessr">MTPROTO 公益 TG 代理发放频道</a> | <a>点击唤起 Telegram</a> | 发放可以使用的 TG 代理</li>
+<li><a href="https://t.me/Animenep">NEP.Anime | 动画仓库</a> | <a>点击唤起 Telegram</a> | 近期播出的动画番剧全都有哦</li>
+<li><a href="https://t.me/NekogramX">NekoX Updates</a> | <a>点击唤起 Telegram</a> | Nekogram X 的官方频道</li>
+<li><a href="https://t.me/softchnl">壹品閣 CH</a> | <a>点击唤起 Telegram</a></li>
+<li><a href="https://t.me/Aliyundrive_Share_Channel">阿里云盘发布频道</a> | | <a>点击唤起 Telegram</a> | 阿里云盘各类资源分享</li>
+</ul>
+<h3 id="沙雕图与视频">沙雕图与视频</h3>
+<ul>
+<li><a href="https://t.me/ibuki_Kitakubu">ibuki 🏖⭐️ 收藏夹</a> | <a>点击唤起 Telegram</a></li>
+<li><a href="https://t.me/goworkbitch">上班划水之沙雕图</a> | <a>点击唤起 Telegram</a></li>
+<li><a href="https://t.me/xinjingdaily">心惊报</a> | <a>点击唤起 Telegram</a></li>
+<li><a href="https://t.me/ilemonrain_channel">柠檬的日常搞怪生活</a> | <a>点击唤起 Telegram</a></li>
+<li><a href="https://t.me/woshadiao">每日沙雕墙</a> | <a>点击唤起 Telegram</a></li>
+<li><a href="https://t.me/jandan_pic">煎蛋无聊图</a> | <a>点击唤起 Telegram</a></li>
+</ul>
+<h3 id="NSFW">NSFW</h3>
+<div class="toast toast-warning">
+FBI WARN!!!
+</div>
+<br /><br />
+<details>
+<summary><font color="gray">点击显示/隐藏</font></summary>
+<br /><br />
+<div class="toast toast-warning">
+本人与频道内推广无任何关系，请勿轻信频道内的任何内容！
+</div>
+<ul>
+<li>
+<p><a href="https://t.me/vikacg_nsfw">[NSFW]曉霧的司機成長記</a> | <a>点击唤起 Telegram</a></p>
+</li>
+<li>
+<p><a href="https://t.me/douza23333">cosplay 写真[NSFW]</a> | <a>点击唤起 Telegram</a></p>
+</li>
+<li>
+<p><a href="https://t.me/OwO_setu">叶子的 H 分享</a> | <a>点击唤起 Telegram</a></p>
+</li>
+<li>
+<p><a href="https://t.me/AnchorPic">套图精选(NSFW)</a> | <a>点击唤起 Telegram</a></p>
+</li>
+<li>
+<p><a href="https://t.me/HHZJIZHONGYING">好孩子集中营</a> | <a>点击唤起 Telegram</a></p>
+</li>
+<li>
+<p><a href="https://t.me/zijianzhang710">安利安利［NSFW］</a> | <a>点击唤起 Telegram</a></p>
+</li>
+<li>
+<p><a href="https://t.me/zijianzhang300">安利的三次元［NSFW］</a> | <a>点击唤起 Telegram</a></p>
+</li>
+<li>
+<p><a href="https://t.me/Dailyshejing_cos">每日射精管理_COS</a> | <a>点击唤起 Telegram</a></p>
+</li>
+<li>
+<p><a href="https://t.me/pp_porn">澀澀</a> | <a>点击唤起 Telegram</a></p>
+</li>
+<li>
+<p><a href="https://t.me/SPussyParadise">猫猫色批屋 (virtual)</a> | <a>点击唤起 Telegram</a></p>
+</li>
+<li>
+<p><a href="https://t.me/dppsclub">色色娱乐频道</a> | <a>点击唤起 Telegram</a></p>
+</li>
+<li>
+<p><a href="https://t.me/galgamenoHCG">(ゲーム CG) 一个兴趣使然的[NSFW-ios-XNR]</a> | <a>点击唤起 Telegram</a></p>
+</li>
+<li>
+<p><a href="https://t.me/danger_nsfw">Danger!? NSFW?</a> | <a>点击唤起 Telegram</a></p>
+</li>
+<li>
+<p><a href="https://t.me/exlolicon">ExLOLI</a> | <a>点击唤起 Telegram</a></p>
+</li>
+<li>
+<p><a href="https://t.me/dailyYande">Yande 站每日榜</a> | <a>点击唤起 Telegram</a></p>
+</li>
+<li>
+<p><a href="https://t.me/tuixiusiji">everyday color photos</a> | <a>点击唤起 Telegram</a></p>
+</li>
+<li>
+<p><a href="https://t.me/PictureShare">咸鱼的杂货铺(AWSL)</a> | <a>点击唤起 Telegram</a></p>
+</li>
+<li>
+<p><a href="https://t.me/joinchat/AAAAAFZIf_1RbKVx4Qiivw">字幕組動畫備份頻道 Anime Backup Channel [R18] [NSFW] [FanSub]</a></p>
+</li>
+<li>
+<p><a href="https://t.me/qingan567">安利（NSFW）</a> | <a>点击唤起 Telegram</a></p>
+</li>
+<li>
+<p><a href="https://t.me/joinchat/AAAAAEgRQIEpvRAp8u1U5g">自壓動畫備份頻道 Anime Backup Channel [R18] [NSFW] [Self-Rip]</a></p>
+</li>
+<li>
+<p><a href="https://t.me/Animecutegirl">［NSFW］二次元萌妹(Anime Cute Girl)</a> | <a>点击唤起 Telegram</a></p>
+</li>
+</ul>
+<p>（没错，我就只有这么一点~~，欢迎投稿哦～~~</p>
+</details>
+<h2 id="机器人推荐">机器人推荐</h2>
+<p>Telegram 凭借它那自由、开放、具有官方 API 支持的机器人，使 Telegram 不单单只可以拿来聊天</p>
+<p>接下来，为了扩展它，下面将是一个简单的机器人使用教程</p>
+<p>机器人，顾名思义，<s>就是背后机器的人</s>，一般背后是由服务器等控制的（其实还有人形自走机器人呢），能够识别用户的发出的指令，从而进行各种各样的操作。（除部分官方机器人以外，其它的机器人在用户名后面一定是 <code>Bot</code> 字样（除非是有人拿个人账号搞机器人）</p>
+<p>在 Telegram 中，要使用机器人就必须先按底下哪 <code>开始</code>，按下后，你就会给机器人发送一条 <code>/start</code> 的消息，接下来，你便可以发送指令给机器人啦 😋</p>
+<p>点击聊天框的斜杆按钮里可以看到机器人支持的指令，点击即可发送。你也可以手动输入 <code>/</code> 符号，这时候，Telegram 便会自动「联想」指令以供输入</p>
+<p>在手机上，还有一些小技巧，比如长按指令，你所需要的指令便会直接进入输入框，并为你自动空出一格，以便我们输入命令参数。</p>
+<hr />
+<p>废话就到这儿了，下面就开始推荐吧！</p>
+<ul>
+<li><a href="https://t.me/ChinoNyanBot">チノ喵</a> | <a>点击唤起 Telegram</a>
+<ul>
+<li>神器 Bot！！！你可以拿它下载个大平台的无损音乐，看看 Pixiv 热门</li>
+<li>支持下载虾米、QQ、网易云、酷狗的音乐！</li>
+<li>使用方法：
+<ul>
+<li>网易云：<code>/netease</code> + <code>歌名 / 歌手名</code></li>
+<li>腾讯音乐：<code>/tencent</code> + <code>歌名 / 歌手名</code></li>
+<li>虾米音乐：<code>/xiami</code> + <code>歌名 / 歌手名</code></li>
+<li>酷狗音乐：<code>/kugou</code> + <code>歌名 / 歌手名</code></li>
+<li>也可以直接将音乐链接分享给它</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="https://t.me/WhatAnimeBot">WAIT: What Anime Is This</a> | <a>点击唤起 Telegram</a>
+<ul>
+<li>这是啥动漫 bot</li>
+<li>把想要找的动漫 GIF / 视频 / 图片 发给它，就可以找到哦(基本大部分动漫都找得到)</li>
+</ul>
+</li>
+<li><a href="https://t.me/GetPublicLinkBot">Get Public Link Bot</a> | <a>点击唤起 Telegram</a>
+<ul>
+<li>将 Telegram 文件发送给它，等会儿它就会给你文件直链，可以直接下载（国内可用）</li>
+<li>速度不佳可以搭配 <a href="https://cors.isteed.cc/">https://cors.isteed.cc/</a> 使用</li>
+<li>这家伙还可以帮你把下载的文件转存到 Google Drive（需要自行绑定）</li>
+</ul>
+</li>
+<li><a href="https://t.me/GmailBot">Gmail Bot</a> | <a>点击唤起 Telegram</a>
+<ul>
+<li>绑定 Gmail 后可以直接在 Telegram 上查看邮件</li>
+</ul>
+</li>
+<li><a href="https://t.me/gdlink_bot">GDlink</a> | <a>点击唤起 Telegram</a>
+<ul>
+<li>发送 Google Drive 链接过去，它会给你下载直链</li>
+<li>建议配合 <a href="https://cors.isteed.cc/">https://cors.isteed.cc/</a> 使用</li>
+</ul>
+</li>
+<li><a href="https://t.me/GIFDownloader_bot">TG Downloader</a> | <a>点击唤起 Telegram</a>
+<ul>
+<li>这个于上上上面的机器人不同，这个是下载 Telegram 上哪些好好看的贴纸的说（表情包）</li>
+</ul>
+</li>
+<li><a href="https://t.me/WTFisBot">WTFisBot</a> | <a>点击唤起 Telegram</a>
+<ul>
+<li>一个无聊时可以玩玩的机器人呀</li>
+</ul>
+</li>
+<li><a href="https://t.me/wangjingze_bot">王境泽</a> | <a>点击唤起 Telegram</a>
+<ul>
+<li>发送四句话给它，它就会给你生成王境泽的表情包给你</li>
+</ul>
+</li>
+<li><a href="https://t.me/SpamBot">Spam Info Bot</a> | <a>点击唤起 Telegram</a>
+<ul>
+<li>官方的自助解除限制的机器人</li>
+<li>由于国内手机号被滥用，无法给 <code>+1</code> 手机号的人发消息，可以通过这个机器人自行解除限制</li>
+</ul>
+</li>
+</ul>
+<h1 id="一些链接">一些链接</h1>
+<p>这里统一放一些链接的说，包括下载、公共代理、语言包等链接</p>
+<h2 id="桌面版">桌面版</h2>
+<p>国内可直接下载</p>
+<details>
+<summary>点击显示/隐藏</summary>
+<ul>
+<li><a href="https://cors.isteed.cc/https://osx.telegram.org/updates/Telegram.dmg">macOS(OS X)</a></li>
+<li><a href="https://cors.isteed.cc/https://telegram.org/dl/desktop/win">Windows</a></li>
+<li><a href="https://cors.isteed.cc/https://telegram.org/dl/desktop/linux">Linux64</a></li>
+<li><a href="https://cors.isteed.cc/https://telegram.org/dl/desktop/linux32">Linux32</a></li>
+</ul>
+</details>
+<h2 id="公共代理">公共代理</h2>
+<p>这里提供一些公共代理</p>
+<p>声明：本人与代理提供方<strong>无</strong>任何<strong>利益关系</strong>！</p>
+<details>
+<summary>点击显示/隐藏</summary>
+<p>目前的公共代理都极易失效，不再建议使用</p>
+</details>
+<br />
+<p>当然，也可以到 <a href="https://github.com/NekoX-Dev/ProxyList/">NekoX-Dev/ProxyList</a> 所维护的公共代理列表中获取</p>
+<p>这里有一个可以解析公共代理列表的页面，可以自行逐个尝试：</p>
+<p><a href="https://api.isteed.cc/nekoxproxy">NekoXProxy</a></p>
+<h2 id="汉化语言包">汉化语言包</h2>
+<ul>
+<li><a>点击设置语言包</a> | 非官方，简体中文(推荐)</li>
+<li><a>点击设置语言包</a> | 官方，简体中文（汉化不全）</li>
+<li><a>点击设置语言包</a> | 官方，繁体中文</li>
+<li><a>点击设置语言包</a> | 非官方，简体中文</li>
+</ul>
+<h1 id="碎碎念">碎碎念</h1>
+<p>如果文章有帮助到你，可以考虑赞赏哦～</p>
+
+<table>
+<thead>
+<tr>
+<th style="text-align:center">支付宝</th>
+<th style="text-align:center">微信</th>
+<th style="text-align:center">支付宝红包码</th>
+<th style="text-align:center">爱发电</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><a href="https://cdn.isteed.cc/img/pay/alipay.png"><img src="https://cdn.isteed.cc/img/pay/alipay.png" alt="alipay" class="is-image-loading" loading="lazy" decoding="async" width="231" height="231" /></a></td>
+<td style="text-align:center"><a href="https://cdn.isteed.cc/img/pay/wechat.png"><img src="https://cdn.isteed.cc/img/pay/wechat.png" alt="wechat" class="is-image-loading" loading="lazy" decoding="async" width="296" height="296" /></a></td>
+<td style="text-align:center"><a href="https://cdn.isteed.cc/img/pay/redpacket.png"><img src="https://cdn.isteed.cc/img/pay/redpacket.png" alt="alihb" class="is-image-loading" loading="lazy" decoding="async" width="231" height="231" /></a></td>
+<td style="text-align:center"><a href="https://afdian.net/@Lufs_X">@Lufs_X</a></td>
+</tr>
+</tbody>
+</table>
+</article><aside class="reading-toc" aria-label="文章导航" tabindex="-1"><h2 class="reading-toc__title">文章目录</h2><nav data-fluid-hover="y" aria-label="文章章节"><a data-fluid-hover-item class="reading-toc__link" href="#前言" style="--heading-indent:0px" data-heading="前言">前言</a><a data-fluid-hover-item class="reading-toc__link" href="#简介对比" style="--heading-indent:0px" data-heading="简介对比">简介/对比</a><a data-fluid-hover-item class="reading-toc__link" href="#入坑指南" style="--heading-indent:0px" data-heading="入坑指南">入坑指南</a><a data-fluid-hover-item class="reading-toc__link" href="#下载安装" style="--heading-indent:0px" data-heading="下载安装">下载&amp;安装</a><a data-fluid-hover-item class="reading-toc__link" href="#Android" style="--heading-indent:12px" data-heading="Android">Android</a><a data-fluid-hover-item class="reading-toc__link" href="#iOS" style="--heading-indent:12px" data-heading="iOS">iOS</a><a data-fluid-hover-item class="reading-toc__link" href="#Desktop" style="--heading-indent:12px" data-heading="Desktop">Desktop</a><a data-fluid-hover-item class="reading-toc__link" href="#账号注册" style="--heading-indent:0px" data-heading="账号注册">账号注册</a><a data-fluid-hover-item class="reading-toc__link" href="#NekogramX" style="--heading-indent:12px" data-heading="NekogramX">Nekogram X</a><a data-fluid-hover-item class="reading-toc__link" href="#官方客户端" style="--heading-indent:12px" data-heading="官方客户端">官方客户端</a><a data-fluid-hover-item class="reading-toc__link" href="#小技巧" style="--heading-indent:0px" data-heading="小技巧">小技巧</a><a data-fluid-hover-item class="reading-toc__link" href="#频道推荐" style="--heading-indent:0px" data-heading="频道推荐">频道推荐</a><a data-fluid-hover-item class="reading-toc__link" href="#各种资讯" style="--heading-indent:12px" data-heading="各种资讯">各种资讯</a><a data-fluid-hover-item class="reading-toc__link" href="#资源频道" style="--heading-indent:12px" data-heading="资源频道">资源频道</a><a data-fluid-hover-item class="reading-toc__link" href="#沙雕图与视频" style="--heading-indent:12px" data-heading="沙雕图与视频">沙雕图与视频</a><a data-fluid-hover-item class="reading-toc__link" href="#NSFW" style="--heading-indent:12px" data-heading="NSFW">NSFW</a><a data-fluid-hover-item class="reading-toc__link" href="#机器人推荐" style="--heading-indent:0px" data-heading="机器人推荐">机器人推荐</a><a data-fluid-hover-item class="reading-toc__link" href="#一些链接" style="--heading-indent:0px" data-heading="一些链接">一些链接</a><a data-fluid-hover-item class="reading-toc__link" href="#桌面版" style="--heading-indent:0px" data-heading="桌面版">桌面版</a><a data-fluid-hover-item class="reading-toc__link" href="#公共代理" style="--heading-indent:0px" data-heading="公共代理">公共代理</a><a data-fluid-hover-item class="reading-toc__link" href="#汉化语言包" style="--heading-indent:0px" data-heading="汉化语言包">汉化语言包</a><a data-fluid-hover-item class="reading-toc__link" href="#碎碎念" style="--heading-indent:0px" data-heading="碎碎念">碎碎念</a></nav><section class="category-sidebar" aria-label="分类"><h2 class="category-sidebar__title"><a href="/categories/">分类</a></h2><nav data-fluid-hover="y" aria-label="文章分类"><a data-fluid-hover-item href="/categories/%E5%88%86%E4%BA%AB/"><span>分享</span><span class="category-sidebar__count">33</span></a><a data-fluid-hover-item href="/categories/%E6%97%A5%E5%B8%B8/"><span>日常</span><span class="category-sidebar__count">15</span></a><a data-fluid-hover-item href="/categories/%E6%80%BB%E7%BB%93/"><span>总结</span><span class="category-sidebar__count">6</span></a><a data-fluid-hover-item href="/categories/%E7%AC%94%E8%AE%B0/"><span>笔记</span><span class="category-sidebar__count">3</span></a><a data-fluid-hover-item href="/categories/%E5%BC%80%E7%AE%B1/"><span>开箱</span><span class="category-sidebar__count">2</span></a><a data-fluid-hover-item href="/categories/%E6%80%9D%E8%80%83/"><span>思考</span><span class="category-sidebar__count">1</span></a><a data-fluid-hover-item href="/categories/%E5%AD%A6%E4%B9%A0/"><span>学习</span><span class="category-sidebar__count">1</span></a><a data-fluid-hover-item href="/categories/%E8%B5%84%E6%BA%90/"><span>资源</span><span class="category-sidebar__count">1</span></a></nav></section></aside><script type="module">var e;function t(){e?.(),e=void 0;let t=document.querySelector(`#article`),n=document.querySelector(`.reading-toc-progress__fill`);if(!t||!n)return;let r=new AbortController,{signal:i}=r,a=matchMedia(`(max-width: 900px)`),o=document.querySelector(`.reading-toc`),s=document.querySelector(`#mobile-toc-dialog`),c=document.querySelector(`.mobile-toc__trigger`),l=s?.querySelector(`.mobile-toc__close`),u=Array.from(document.querySelectorAll(`.reading-toc__link`)),d=new Set(u.map(e=>e.dataset.heading)),f=Array.from(t.querySelectorAll(`[id]`)).filter(e=>d.has(e.id)),p=0,m=``,h=null,g,_,v;function y(e=!0){if(!g)return;_=void 0,s?.removeAttribute(`data-closing`),g(),g=void 0,c?.setAttribute(`aria-expanded`,`false`),e&&(a.matches?h?.isConnected?h:c:o)?.focus({preventScroll:!0}),h=null;let t=v;v=void 0,t?.()}function b(){s?.open&&!_&&(s.setAttribute(`data-closing`,`true`),_=setTimeout(()=>{s.open?s.close():y()},matchMedia(`(prefers-reduced-motion: reduce)`).matches?0:240))}c?.addEventListener(`click`,()=>{if(!s||s.open||!a.matches)return;h=document.activeElement instanceof HTMLElement?document.activeElement:c,s.showModal(),s.removeAttribute(`data-closing`);let e=[document.documentElement,document.body].map(e=>({el:e,value:e.style.getPropertyValue(`overflow`),priority:e.style.getPropertyPriority(`overflow`)}));e.forEach(({el:e})=>e.style.setProperty(`overflow`,`hidden`)),g=()=>e.forEach(({el:e,value:t,priority:n})=>{t?e.style.setProperty(`overflow`,t,n):e.style.removeProperty(`overflow`)}),c.setAttribute(`aria-expanded`,`true`),s.querySelectorAll(`[data-fluid-hover]`).forEach(e=>{e.dispatchEvent(new CustomEvent(`fluid:remeasure`,{detail:{instant:!0}}))})},{signal:i}),l?.addEventListener(`click`,b,{signal:i}),s?.addEventListener(`cancel`,e=>{e.preventDefault(),b()},{signal:i}),s?.addEventListener(`close`,()=>{s.open||y()},{signal:i}),s?.addEventListener(`click`,e=>{if(e.target===s&&e instanceof MouseEvent){let t=s.getBoundingClientRect();(e.clientY<t.top||e.clientY>t.bottom||e.clientX<t.left||e.clientX>t.right)&&b()}},{signal:i}),u.forEach(e=>e.addEventListener(`click`,t=>{let n=e.dataset.heading,r=n?document.getElementById(n):null;if(!r||t.metaKey||t.ctrlKey||t.shiftKey||t.altKey)return;t.preventDefault();let a=matchMedia(`(prefers-reduced-motion: reduce)`).matches?`auto`:`smooth`,o=()=>requestAnimationFrame(()=>{if(i.aborted)return;let e=document.querySelector(`.site-header`)?.getBoundingClientRect().bottom??0,t=Math.max(0,r.getBoundingClientRect().top+scrollY-e-16);scrollTo({top:t,behavior:a}),history.replaceState(history.state,``,`#${encodeURIComponent(n)}`)});s?.open?(v=o,b()):o()},{signal:i})),a.addEventListener(`change`,()=>{!a.matches&&s?.open&&b()},{signal:i});function x(){if(p=0,!t||!n)return;let e=t.getBoundingClientRect(),r=innerHeight,i=Math.min(1,Math.max(0,-e.top/Math.max(1,e.height-r))),a=document.querySelector(`.site-header`)?.getBoundingClientRect().bottom??0,o=new Set;f.forEach((e,n)=>{let i=e.getBoundingClientRect().top;(f[n+1]?.getBoundingClientRect().top??t.getBoundingClientRect().bottom)>=a&&i<=r&&o.add(e.id)}),n.style.transform=`scaleX(${i})`;let s=[...o].join(`|`);s!==m&&(u.forEach(e=>e.toggleAttribute(`aria-current`,o.has(e.dataset.heading??``))),u.forEach(e=>{o.has(e.dataset.heading??``)&&e.setAttribute(`aria-current`,`location`)}),m=s)}function S(){p||=requestAnimationFrame(x)}addEventListener(`scroll`,S,{passive:!0,signal:i}),addEventListener(`resize`,S,{signal:i});let C=new ResizeObserver(S);C.observe(t),e=()=>{r.abort(),v=void 0,_&&clearTimeout(_),_=void 0,C.disconnect(),cancelAnimationFrame(p),s?.close(),y(!1)},S()}document.addEventListener(`astro:page-load`,t),document.addEventListener(`astro:before-swap`,()=>{e?.(),e=void 0}),addEventListener(`pagehide`,()=>{e?.(),e=void 0}),addEventListener(`pageshow`,e=>{e.persisted&&t()});</script></div><div class="article-bottom"><section class="article-license" aria-label="文章版权"><div class="p-5 sm:p-6"><h2 class="text-lg font-semibold">优秀、轻快、安全的即时通讯 —— Telegram 入坑指南</h2><a class="mt-3 block break-all text-sm text-(--muted) underline" href="/post/how-to-go-tg/">https://blog.isteed.cc/post/how-to-go-tg/</a><dl class="mt-5 grid grid-cols-1 gap-4 border-t border-(--line) pt-5 sm:grid-cols-3"><div><dt class="text-sm text-(--muted)">本文作者</dt><dd class="mt-1">Lufs</dd></div><div><dt class="text-sm text-(--muted)">发布于</dt><dd class="mt-1"><time datetime="2020-06-13">2020-06-13</time></dd></div><div><dt class="text-sm text-(--muted)">许可协议</dt><dd class="mt-1"><a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" rel="license">CC BY-NC-SA 4.0</a></dd></div></dl><p class="mt-5 text-sm text-(--muted)">转载或引用本文时请遵守许可协议，注明出处。不得用于商业用途。</p></div><p class="license-warning">本文最后更新于 2023-05-03，文中所述信息可能已经发生变化。</p></section><nav class="article-adjacent" aria-label="相邻文章"><a class="glass-control article-adjacent__link" href="/post/google-analytics-hit-count/">← 上一篇<span>以 Google Analytics 实现的 PV 浏览量统计</span></a><a class="glass-control article-adjacent__link" href="/post/xiaomi-65w-gan/">下一篇 →<span>小身材，大能量 —— 迟来的小米 GaN 充电器 65W 开箱（和一些简单的体验</span></a></nav><section data-article-comments data-config="{&quot;shortname&quot;:&quot;lufss-blog&quot;,&quot;siteName&quot;:&quot;Lufs's Blog&quot;,&quot;api&quot;:&quot;https://api.isteed.cc/disqus/&quot;,&quot;apikey&quot;:&quot;f8sCuFyS82pto94gZ0V4xtPbYZlLej6xVCTPNyZ0CXlfZz25L8lqsnsxYVCPDhzc&quot;,&quot;admin&quot;:&quot;Lufs_x&quot;,&quot;title&quot;:&quot;优秀、轻快、安全的即时通讯 —— Telegram 入坑指南&quot;,&quot;url&quot;:&quot;https://blog.isteed.cc/post/how-to-go-tg/&quot;,&quot;identifier&quot;:&quot;https://blog.isteed.cc/post/how-to-go-tg/&quot;}" aria-label="文章评论" class="my-10 border-t border-(--line) pt-6 text-(--ink)" data-astro-cid-nuen6n26><h2 class="mb-3 text-xl font-semibold" data-astro-cid-nuen6n26>评论</h2><p data-comment-status role="status" class="my-3 text-sm text-(--muted)" data-astro-cid-nuen6n26></p><div data-comment-host data-astro-cid-nuen6n26></div><noscript>启用 JavaScript 后可按需加载评论。</noscript></section><script type="module" src="/_astro/Comments.astro_astro_type_script_index_0_lang.DQKZMu_I.js"></script></div><script type="module" src="/_astro/ArticleEnhancements.astro_astro_type_script_index_0_lang.CXNnUNbh.js"></script></main><button class="mobile-toc__trigger" type="button" aria-label="打开文章目录" aria-haspopup="dialog" aria-controls="mobile-toc-dialog" aria-expanded="false"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true" focusable="false"><path d="M9 6h12M9 12h12M9 18h12M3 6h1M3 12h1M3 18h1" stroke-linecap="round"></path></svg></button><dialog class="mobile-toc" id="mobile-toc-dialog" aria-labelledby="mobile-toc-title"><header class="mobile-toc__header"><h2 id="mobile-toc-title">文章目录</h2><button class="mobile-toc__close" type="button" aria-label="关闭文章目录" autofocus><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true" focusable="false"><path d="m6 6 12 12M18 6 6 18" stroke-linecap="round"></path></svg></button></header><div class="mobile-toc__body"><nav data-fluid-hover="y" aria-label="文章章节"><a data-fluid-hover-item class="reading-toc__link" href="#前言" style="--heading-indent:0px" data-heading="前言">前言</a><a data-fluid-hover-item class="reading-toc__link" href="#简介对比" style="--heading-indent:0px" data-heading="简介对比">简介/对比</a><a data-fluid-hover-item class="reading-toc__link" href="#入坑指南" style="--heading-indent:0px" data-heading="入坑指南">入坑指南</a><a data-fluid-hover-item class="reading-toc__link" href="#下载安装" style="--heading-indent:0px" data-heading="下载安装">下载&amp;安装</a><a data-fluid-hover-item class="reading-toc__link" href="#Android" style="--heading-indent:12px" data-heading="Android">Android</a><a data-fluid-hover-item class="reading-toc__link" href="#iOS" style="--heading-indent:12px" data-heading="iOS">iOS</a><a data-fluid-hover-item class="reading-toc__link" href="#Desktop" style="--heading-indent:12px" data-heading="Desktop">Desktop</a><a data-fluid-hover-item class="reading-toc__link" href="#账号注册" style="--heading-indent:0px" data-heading="账号注册">账号注册</a><a data-fluid-hover-item class="reading-toc__link" href="#NekogramX" style="--heading-indent:12px" data-heading="NekogramX">Nekogram X</a><a data-fluid-hover-item class="reading-toc__link" href="#官方客户端" style="--heading-indent:12px" data-heading="官方客户端">官方客户端</a><a data-fluid-hover-item class="reading-toc__link" href="#小技巧" style="--heading-indent:0px" data-heading="小技巧">小技巧</a><a data-fluid-hover-item class="reading-toc__link" href="#频道推荐" style="--heading-indent:0px" data-heading="频道推荐">频道推荐</a><a data-fluid-hover-item class="reading-toc__link" href="#各种资讯" style="--heading-indent:12px" data-heading="各种资讯">各种资讯</a><a data-fluid-hover-item class="reading-toc__link" href="#资源频道" style="--heading-indent:12px" data-heading="资源频道">资源频道</a><a data-fluid-hover-item class="reading-toc__link" href="#沙雕图与视频" style="--heading-indent:12px" data-heading="沙雕图与视频">沙雕图与视频</a><a data-fluid-hover-item class="reading-toc__link" href="#NSFW" style="--heading-indent:12px" data-heading="NSFW">NSFW</a><a data-fluid-hover-item class="reading-toc__link" href="#机器人推荐" style="--heading-indent:0px" data-heading="机器人推荐">机器人推荐</a><a data-fluid-hover-item class="reading-toc__link" href="#一些链接" style="--heading-indent:0px" data-heading="一些链接">一些链接</a><a data-fluid-hover-item class="reading-toc__link" href="#桌面版" style="--heading-indent:0px" data-heading="桌面版">桌面版</a><a data-fluid-hover-item class="reading-toc__link" href="#公共代理" style="--heading-indent:0px" data-heading="公共代理">公共代理</a><a data-fluid-hover-item class="reading-toc__link" href="#汉化语言包" style="--heading-indent:0px" data-heading="汉化语言包">汉化语言包</a><a data-fluid-hover-item class="reading-toc__link" href="#碎碎念" style="--heading-indent:0px" data-heading="碎碎念">碎碎念</a></nav><section class="category-sidebar" aria-label="分类"><h2 class="category-sidebar__title"><a href="/categories/">分类</a></h2><nav data-fluid-hover="y" aria-label="文章分类"><a data-fluid-hover-item href="/categories/%E5%88%86%E4%BA%AB/"><span>分享</span><span class="category-sidebar__count">33</span></a><a data-fluid-hover-item href="/categories/%E6%97%A5%E5%B8%B8/"><span>日常</span><span class="category-sidebar__count">15</span></a><a data-fluid-hover-item href="/categories/%E6%80%BB%E7%BB%93/"><span>总结</span><span class="category-sidebar__count">6</span></a><a data-fluid-hover-item href="/categories/%E7%AC%94%E8%AE%B0/"><span>笔记</span><span class="category-sidebar__count">3</span></a><a data-fluid-hover-item href="/categories/%E5%BC%80%E7%AE%B1/"><span>开箱</span><span class="category-sidebar__count">2</span></a><a data-fluid-hover-item href="/categories/%E6%80%9D%E8%80%83/"><span>思考</span><span class="category-sidebar__count">1</span></a><a data-fluid-hover-item href="/categories/%E5%AD%A6%E4%B9%A0/"><span>学习</span><span class="category-sidebar__count">1</span></a><a data-fluid-hover-item href="/categories/%E8%B5%84%E6%BA%90/"><span>资源</span><span class="category-sidebar__count">1</span></a></nav></section></div></dialog><div class="reading-toc-progress" aria-hidden="true"><div class="reading-toc-progress__fill"></div></div><dialog data-search="true" data-inline="false" aria-label="搜索文章" data-astro-cid-ac66eqjo="true" class="search-scope search-dialog rounded-2xl border border-(--line) p-0"><div class="search-panel p-5 sm:p-8" data-astro-cid-ac66eqjo><div class="mb-5 flex items-center justify-between gap-4" data-astro-cid-ac66eqjo><h2 class="text-xl font-semibold" data-astro-cid-ac66eqjo>搜索文章</h2><button type="button" data-close class="rounded-lg border border-(--line) px-3 py-1.5" aria-label="关闭搜索" data-astro-cid-ac66eqjo>关闭 · Esc</button></div><form role="search" class="flex gap-2" data-astro-cid-ac66eqjo><label class="min-w-0 flex-1" data-astro-cid-ac66eqjo><span class="sr-only" data-astro-cid-ac66eqjo>搜索关键词</span><input data-query type="search" name="q" autocomplete="off" placeholder="输入标题或正文关键词…" class="w-full rounded-xl border border-(--line) bg-transparent px-4 py-3" data-astro-cid-ac66eqjo></label><button type="submit" class="rounded-xl border border-(--line) px-4" data-astro-cid-ac66eqjo>搜索</button></form><p data-status role="status" aria-live="polite" class="my-4 text-sm opacity-70" data-astro-cid-ac66eqjo>输入关键词，搜索博客中的文字。</p><button data-retry type="button" hidden class="mb-4 rounded-lg border border-(--line) px-4 py-2" data-astro-cid-ac66eqjo>重新加载</button><ul data-results class="search-results divide-y divide-(--line)" aria-label="搜索结果" tabindex="0" data-astro-cid-ac66eqjo></ul><noscript><p data-astro-cid-ac66eqjo>搜索需要启用 JavaScript，也可以<a href="/archives/" data-astro-cid-ac66eqjo>浏览文章归档</a>。</p></noscript></div></dialog><script type="module">var e;function t(t){return e??=fetch(`/search.json`).then(async e=>{if(!e.ok)throw Error(`HTTP error`);let n=await e.json();if(!Array.isArray(n))throw Error(`Invalid index`);return n.filter(e=>{if(!e||typeof e.title!=`string`||typeof e.url!=`string`||typeof e.excerpt!=`string`||typeof e.text!=`string`)return!1;try{let n=new URL(e.url,t);return n.origin===t&&[`http:`,`https:`].includes(n.protocol)}catch{return!1}}).map(e=>({...e,searchableText:`${e.title} ${e.excerpt} ${e.text}`.toLocaleLowerCase()}))}).catch(t=>{throw e=void 0,t}),e}var n=[];function r(){n.forEach(e=>e()),n=[]}function i(){r(),document.querySelectorAll(`[data-search]`).forEach(e=>{let r=new AbortController,{signal:i}=r,a=e instanceof HTMLDialogElement?e:null,o=e.querySelector(`[data-query]`),s=e.querySelector(`[data-status]`),c=e.querySelector(`[data-results]`),l=e.querySelector(`[data-retry]`),u,d=!1,f=!1,p=null,m;function h(e=!0){m?.(),m=void 0,e&&p?.isConnected&&p.focus({preventScroll:!0}),p=null}function g(){a?.close(),h()}function _(){c.replaceChildren();let e=o.value.trim();if(d){s.textContent=`正在加载搜索索引…`;return}if(f){s.textContent=`搜索索引加载失败，请检查网络后重试。`;return}if(!e){s.textContent=`输入关键词，搜索标题与正文。`;return}if(!u)return;let t=e.toLocaleLowerCase().split(/\s+/),n=u.filter(e=>t.every(t=>e.searchableText.includes(t)));s.textContent=n.length?`“${e}”找到 ${n.length} 篇文章。`:`没有找到“${e}”，试试更短或不同的关键词。`;let r=document.createDocumentFragment();for(let e of n){let t=document.createElement(`li`);t.className=`py-5`;let n=document.createElement(`a`);n.href=e.url,n.className=`text-lg font-semibold underline-offset-4 hover:underline`,n.textContent=e.title;let i=document.createElement(`p`);i.className=`mt-2 text-sm leading-7 opacity-70`,i.textContent=e.excerpt||e.text.slice(0,160),t.append(n,i),r.append(t)}c.append(r)}async function v(){if(d||u)_();else{d=!0,f=!1,l.hidden=!0,e.setAttribute(`aria-busy`,`true`),_();try{let e=await t(location.origin);if(i.aborted)return;u=e}catch{if(i.aborted)return;f=!0,l.hidden=!1}finally{i.aborted||(d=!1,e.removeAttribute(`aria-busy`),_())}}}function y(){if(!a||a.open)return;p=document.activeElement instanceof HTMLElement?document.activeElement:null,a.showModal();let e=[document.documentElement,document.body].map(e=>({el:e,value:e.style.getPropertyValue(`overflow`),priority:e.style.getPropertyPriority(`overflow`)}));e.forEach(({el:e})=>e.style.setProperty(`overflow`,`hidden`)),m=()=>e.forEach(({el:e,value:t,priority:n})=>t?e.style.setProperty(`overflow`,t,n):e.style.removeProperty(`overflow`)),o.focus(),v()}o.addEventListener(`input`,()=>{!u&&!f?v():_()},{signal:i}),e.querySelector(`form`).addEventListener(`submit`,e=>{e.preventDefault(),v()},{signal:i}),l.addEventListener(`click`,()=>void v(),{signal:i}),e.querySelector(`[data-close]`)?.addEventListener(`click`,g,{signal:i}),a?(document.addEventListener(`keydown`,e=>{(e.ctrlKey||e.metaKey)&&e.key.toLowerCase()===`k`&&!e.repeat&&(e.preventDefault(),y())},{signal:i}),a.addEventListener(`cancel`,e=>{e.preventDefault(),g()},{signal:i}),a.addEventListener(`close`,()=>{a.open||h()},{signal:i}),a.addEventListener(`click`,e=>{if(e.target!==a)return;let t=a.getBoundingClientRect();(e.clientX<t.left||e.clientX>t.right||e.clientY<t.top||e.clientY>t.bottom)&&g()},{signal:i})):(o.value=new URLSearchParams(location.search).get(`q`)??``,v()),n.push(()=>{r.abort(),a?.close(),h(!1)})})}document.addEventListener(`astro:page-load`,i),document.readyState!==`loading`&&i(),document.addEventListener(`astro:before-swap`,r),window.addEventListener(`pagehide`,r),window.addEventListener(`pageshow`,e=>{e.persisted&&i()});</script><script type="module">var e;function t(){e?.();let t=new AbortController,{signal:n}=t,r=[];document.querySelectorAll(`[data-fluid-hover]`).forEach(e=>{let t=Array.from(e.querySelectorAll(`:scope > [data-fluid-hover-item]`));if(!t.length)return;let i=document.createElement(`span`);i.className=`fluid-hover-highlight`,i.setAttribute(`aria-hidden`,`true`),e.prepend(i),r.push(i);let a=null,o=null,s=null,c=!1,l=0,u=0,d=null,f=()=>t.find(e=>e.matches(`[aria-current="page"], [aria-current="location"], [aria-pressed="true"]`))??null,p=(t,r=!1)=>{if(a=t,!t){e.removeAttribute(`data-fluid-hover-active`);return}let{offsetLeft:o,offsetTop:s,offsetWidth:l,offsetHeight:d}=t;if(!l||!d)return;let f=r||!c;f&&(cancelAnimationFrame(u),i.style.transition=`none`),i.style.width=`${l}px`,i.style.height=`${d}px`,i.style.transform=`translate3d(${o}px, ${s}px, 0)`,e.setAttribute(`data-fluid-hover-active`,`true`),c=!0,f&&(i.offsetWidth,u=requestAnimationFrame(()=>{n.aborted||i.style.removeProperty(`transition`)}))},m=()=>p(o??s??f()),h=(e,n)=>t.map(e=>({item:e,rect:e.getBoundingClientRect()})).reduce((t,{item:r,rect:i})=>{let a=Math.max(i.left-e,0,e-i.right),o=Math.max(i.top-n,0,n-i.bottom),s=a*a+o*o;return!t||s<t.distance?{item:r,distance:s}:t},null)?.item??null,g=()=>{l||=requestAnimationFrame(()=>{l=0,d&&(o=h(d.x,d.y)),m()})},_=new MutationObserver(()=>{s=null,g()});_.observe(e,{subtree:!0,attributes:!0,attributeFilter:[`aria-current`,`aria-pressed`]});let v=new ResizeObserver(g);v.observe(e),t.forEach(e=>v.observe(e)),queueMicrotask(()=>{n.aborted||m()}),e.addEventListener(`pointermove`,e=>{e.pointerType!==`touch`&&(d={x:e.clientX,y:e.clientY},g())},{signal:n}),e.addEventListener(`pointerleave`,()=>{d=null,o=null,g()},{signal:n}),e.addEventListener(`focusin`,e=>{d=null,o=null,s=t.find(t=>t===e.target||t.contains(e.target))??null,m()},{signal:n}),e.addEventListener(`focusout`,e=>{s=t.find(t=>t===e.relatedTarget||t.contains(e.relatedTarget))??null,g()},{signal:n}),e.addEventListener(`fluid:remeasure`,e=>{let t=e instanceof CustomEvent&&e.detail?.instant===!0;p(t?f():o??s??a??f(),t)},{signal:n}),n.addEventListener(`abort`,()=>{cancelAnimationFrame(l),cancelAnimationFrame(u),_.disconnect(),v.disconnect()},{once:!0})}),e=()=>{t.abort(),r.forEach(e=>e.remove()),document.querySelectorAll(`[data-fluid-hover-active]`).forEach(e=>e.removeAttribute(`data-fluid-hover-active`))}}document.addEventListener(`astro:page-load`,t),document.addEventListener(`astro:before-swap`,()=>{e?.(),e=void 0}),addEventListener(`pagehide`,()=>{e?.(),e=void 0}),addEventListener(`pageshow`,e=>{e.persisted&&t()}),document.readyState!==`loading`&&t();</script><script type="module">var e;function t(){e?.(!0);let t=new AbortController,{signal:n}=t,r=[];document.querySelectorAll(`.prose img, .article-cover, .post-thumbnail img, .archive-thumbnail img`).forEach(e=>{if(!e.hasAttribute(`src`))return;let t=e.style.display,i=document.createElement(`span`);i.className=`image-load-fallback`,i.setAttribute(`role`,`status`),i.setAttribute(`aria-label`,e.alt?`图片加载失败：${e.alt}`:`图片加载失败`);let a=document.createElement(`span`);if(a.textContent=`图片暂时无法显示`,i.append(a),!e.closest(`a[href]`)){let r=document.createElement(`button`);r.type=`button`,r.textContent=`重试加载`,r.addEventListener(`click`,()=>{let n=e.src;e.removeAttribute(`src`),e.loading=`eager`,e.classList.add(`is-image-loading`),e.style.display=t,i.before(e),i.remove(),e.src=n},{signal:n}),i.append(r)}let o=()=>{if(n.aborted||!e.isConnected)return;e.classList.remove(`is-image-loading`);let a=e.matches(`.article-cover, .post-thumbnail img, .archive-thumbnail img`),o=e.getBoundingClientRect(),s=getComputedStyle(e),c=Number(e.getAttribute(`width`)),l=Number(e.getAttribute(`height`));i.style.display=s.display.includes(`inline`)?`inline-flex`:`flex`,i.style.width=a?`100%`:`${Math.max(o.width,160)}px`,i.style.aspectRatio=a?`16 / 9`:c>0&&l>0?`${c} / ${l}`:`16 / 9`,i.style.margin=s.margin,i.style.verticalAlign=s.verticalAlign,a&&(i.dataset.cover=``),e.replaceWith(i),e.style.display=`none`,i.append(e),r.push({image:e,fallback:i,display:t})};e.addEventListener(`load`,()=>e.classList.remove(`is-image-loading`),{signal:n}),e.addEventListener(`error`,o,{signal:n}),e.complete?e.naturalWidth===0?o():e.classList.remove(`is-image-loading`):e.classList.add(`is-image-loading`)}),e=(e=!1)=>{t.abort(),e&&r.forEach(({image:e,fallback:t,display:n})=>{t.isConnected&&(e.style.display=n,t.before(e),t.remove())})}}document.addEventListener(`astro:page-load`,t),document.readyState!==`loading`&&t(),document.addEventListener(`astro:before-swap`,()=>{e?.(),e=void 0}),addEventListener(`pagehide`,()=>{e?.(!0),e=void 0}),addEventListener(`pageshow`,e=>{e.persisted&&t()});</script><footer data-astro-transition-persist="site-footer" data-astro-transition-scope="astro-v4xhcqov-3" class="site-footer shell"><div><a class="footer-brand" href="/">Lufs&#39;s Blog</a><p>© 2018–2026 Lufs · <a href="/rss2.xml">RSS</a> · <a href="/atom.xml">Atom</a></p></div></footer><script type="module">`serviceWorker`in navigator&&navigator.serviceWorker.getRegistrations().then(e=>{for(let t of e)t.scope===new URL(`/`,location.origin).href&&t.active?.scriptURL===new URL(`/sw.js`,location.origin).href&&t.update().catch(()=>{})}).catch(()=>{});</script><script>(function(){const clarityId = "alejvn2b9x";
+
+      if (!window.clarity && navigator.doNotTrack !== '1') {
+        window.clarity = function () { (window.clarity.q = window.clarity.q || []).push(arguments); };
+        const script = document.createElement('script'); script.async = true;
+        script.src = 'https://www.clarity.ms/tag/' + clarityId; document.head.appendChild(script);
+      }
+    })();</script></body></html>

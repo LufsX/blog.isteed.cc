@@ -1,0 +1,289 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="description" content="前言 流光易逝，2024 留下了它哪充实的一笔～"><link rel="canonical" href="https://blog.isteed.cc/post/2024-summary/"><link rel="icon" href="https://cdn.isteed.cc/favicon/favicon.ico"><link rel="alternate" type="application/rss+xml" title="Lufs's Blog" href="/rss2.xml"><link rel="alternate" type="application/atom+xml" title="Lufs's Blog" href="/atom.xml"><meta property="og:title" content="2024 年度总结 · Lufs's Blog"><meta property="og:description" content="前言 流光易逝，2024 留下了它哪充实的一笔～"><meta property="og:url" content="https://blog.isteed.cc/post/2024-summary/"><meta property="og:image" content="https://cdn.isteed.cc/img/2024-summary/thumbnail.webp"><meta property="og:type" content="website"><meta name="twitter:card" content="summary_large_image"><meta name="google-site-verification" content="wk686q2aTrts7GR0yVJ7UrALaAodD62StMuSuH7dMOU"><meta name="color-scheme" content="light dark"><title>2024 年度总结 · Lufs&#39;s Blog</title><meta name="astro-view-transitions-enabled" content="true"><meta name="astro-view-transitions-fallback" content="animate"><script type="module" src="/_astro/ClientRouter.astro_astro_type_script_index_0_lang.CKq7OsbX.js"></script><script>
+      (() => {
+        const key = 'lufs-theme';
+        const root = document.documentElement;
+        const system = window.matchMedia('(prefers-color-scheme: dark)');
+        const normalize = (value) =>
+          value === 'light' || value === 'dark' ? value : 'system';
+        let preference = 'system';
+        try {
+          preference = normalize(localStorage.getItem(key));
+        } catch {
+          // Storage may be unavailable in private or restricted contexts.
+        }
+        const apply = () => {
+          root.dataset.theme = preference === 'system'
+            ? (system.matches ? 'dark' : 'light')
+            : preference;
+          root.style.colorScheme = root.dataset.theme;
+          root.dataset.preference = preference;
+          const button = document.getElementById('theme-toggle');
+          const names = { system: '系统', light: '浅色', dark: '深色' };
+          const next = { system: 'light', light: 'dark', dark: 'system' };
+          if (button) {
+            button.setAttribute('aria-label', `当前：${names[preference]}；切换为${names[next[preference]]}`);
+            button.title = `当前：${names[preference]}；点击切换`;
+          }
+        };
+        apply();
+        system.addEventListener('change', apply);
+        document.addEventListener('astro:before-swap', (event) => {
+          const nextRoot = event.newDocument.documentElement;
+          nextRoot.dataset.theme = root.dataset.theme;
+          nextRoot.dataset.preference = preference;
+          nextRoot.style.colorScheme = root.style.colorScheme;
+        });
+        document.addEventListener('astro:after-swap', apply);
+        window.addEventListener('storage', (event) => {
+          if (event.key === key || event.key === null) {
+            preference = normalize(event.newValue);
+            apply();
+          }
+        });
+        document.addEventListener('DOMContentLoaded', () => {
+          const button = document.getElementById('theme-toggle');
+          apply();
+          button?.addEventListener('click', () => {
+            preference = { system: 'light', light: 'dark', dark: 'system' }[preference];
+            apply();
+            try { localStorage.setItem(key, preference); } catch {}
+          });
+        }, { once: true });
+      })();
+    </script><link rel="stylesheet" href="/_astro/Base._a07vYZy.css"><link rel="stylesheet" href="/_astro/ArticleEnhancements.D6DQ8Qoe.css"><style>[data-astro-transition-scope="astro-gyrtbwwo-1"] { view-transition-name: astro-gyrtbwwo-1; }@layer astro { ::view-transition-old(astro-gyrtbwwo-1) { animation: none; opacity: 0; mix-blend-mode: normal; }::view-transition-new(astro-gyrtbwwo-1) { animation: none; mix-blend-mode: normal; }::view-transition-group(astro-gyrtbwwo-1) { animation: none } }[data-astro-transition-fallback="old"] [data-astro-transition-scope="astro-gyrtbwwo-1"],
+			[data-astro-transition-fallback="old"][data-astro-transition-scope="astro-gyrtbwwo-1"] { animation: none; mix-blend-mode: normal; }[data-astro-transition-fallback="new"] [data-astro-transition-scope="astro-gyrtbwwo-1"],
+			[data-astro-transition-fallback="new"][data-astro-transition-scope="astro-gyrtbwwo-1"] { animation: none; mix-blend-mode: normal; }</style><style>[data-astro-transition-scope="astro-iywf7oe7-2"] { view-transition-name: page-content; }@layer astro { ::view-transition-old(page-content) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }::view-transition-new(page-content) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; }[data-astro-transition=back]::view-transition-old(page-content) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }[data-astro-transition=back]::view-transition-new(page-content) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; } }[data-astro-transition-fallback="old"] [data-astro-transition-scope="astro-iywf7oe7-2"],
+			[data-astro-transition-fallback="old"][data-astro-transition-scope="astro-iywf7oe7-2"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }[data-astro-transition-fallback="new"] [data-astro-transition-scope="astro-iywf7oe7-2"],
+			[data-astro-transition-fallback="new"][data-astro-transition-scope="astro-iywf7oe7-2"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; }[data-astro-transition=back][data-astro-transition-fallback="old"] [data-astro-transition-scope="astro-iywf7oe7-2"],
+			[data-astro-transition=back][data-astro-transition-fallback="old"][data-astro-transition-scope="astro-iywf7oe7-2"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }[data-astro-transition=back][data-astro-transition-fallback="new"] [data-astro-transition-scope="astro-iywf7oe7-2"],
+			[data-astro-transition=back][data-astro-transition-fallback="new"][data-astro-transition-scope="astro-iywf7oe7-2"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; }</style><style>[data-astro-transition-scope="astro-v4xhcqov-3"] { view-transition-name: astro-v4xhcqov-3; }@layer astro { ::view-transition-old(astro-v4xhcqov-3) { animation: none; opacity: 0; mix-blend-mode: normal; }::view-transition-new(astro-v4xhcqov-3) { animation: none; mix-blend-mode: normal; }::view-transition-group(astro-v4xhcqov-3) { animation: none } }[data-astro-transition-fallback="old"] [data-astro-transition-scope="astro-v4xhcqov-3"],
+			[data-astro-transition-fallback="old"][data-astro-transition-scope="astro-v4xhcqov-3"] { animation: none; mix-blend-mode: normal; }[data-astro-transition-fallback="new"] [data-astro-transition-scope="astro-v4xhcqov-3"],
+			[data-astro-transition-fallback="new"][data-astro-transition-scope="astro-v4xhcqov-3"] { animation: none; mix-blend-mode: normal; }</style></head><body id="top"><header data-astro-transition-persist="site-header" data-astro-transition-scope="astro-gyrtbwwo-1" class="site-header shell"><div class="brand-wrap"><a class="brand" href="/" aria-label="Lufs's Blog，返回顶部；在顶部时返回首页" aria-describedby="brand-slogan">Lufs&#39;s Blog</a><span id="brand-slogan" class="brand-tooltip" role="tooltip">Life feeds on negative entropy.</span></div><nav class="site-nav desktop-nav" data-fluid-hover="x" aria-label="主导航"><a data-fluid-hover-item href="/">首页</a><a data-fluid-hover-item href="/archives/">归档</a><a data-fluid-hover-item href="/tags/">标签</a><a data-fluid-hover-item href="/search/">搜索</a><a data-fluid-hover-item href="/about/">关于</a><a data-fluid-hover-item href="/welfare/">福利</a><a data-fluid-hover-item href="/friends/">友链</a></nav><div class="mobile-navigation"><button id="menu-toggle" class="menu-toggle" type="button" aria-label="打开导航菜单" aria-expanded="false" aria-controls="mobile-navigation-panel"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path class="menu-line-top" d="M5 6h14"></path><path class="menu-line-middle" d="M5 12h14"></path><path class="menu-line-bottom" d="M5 18h14"></path></svg></button><div id="mobile-navigation-panel" class="mobile-navigation-panel" data-open="false" aria-hidden="true" inert><nav class="mobile-navigation-scroll" data-fluid-hover="y" aria-label="移动端导航"><a data-fluid-hover-item href="/">首页</a><a data-fluid-hover-item href="/archives/">归档</a><a data-fluid-hover-item href="/tags/">标签</a><a data-fluid-hover-item href="/search/">搜索</a><a data-fluid-hover-item href="/about/">关于</a><a data-fluid-hover-item href="/welfare/">福利</a><a data-fluid-hover-item href="/friends/">友链</a></nav></div></div><button id="theme-toggle" class="theme-toggle" type="button" aria-label="切换主题：系统、浅色、深色"><svg class="theme-icon icon-system" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="3" y="4" width="18" height="13" rx="2"></rect><path d="M8 21h8m-4-4v4"></path></svg><svg class="theme-icon icon-light" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2m0 16v2M2 12h2m16 0h2M5 5l1.5 1.5m11 11L19 19M5 19l1.5-1.5m11-11L19 5"></path></svg><svg class="theme-icon icon-dark" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M20.5 14A9 9 0 0 1 10 3.5 9 9 0 1 0 20.5 14Z"></path></svg></button></header><script type="module" src="/_astro/Base.astro_astro_type_script_index_0_lang.C04sE12B.js"></script><main data-astro-transition-scope="astro-iywf7oe7-2" id="main-content" class="shell site-main" tabindex="-1"><header class="article-header max-w-3xl pb-6 pt-4 md:pb-8 md:pt-6"><p class="eyebrow mb-2"><a href="/categories/%E6%80%BB%E7%BB%93/">总结</a><span aria-hidden="true"> · </span><time datetime="2024-12-31">2024-12-31</time></p><h1 class="article-title">2024 年度总结</h1><img class="article-cover is-image-loading" src="https://cdn.isteed.cc/img/2024-summary/thumbnail.webp" alt="2024 年度总结：文章头图" loading="lazy" decoding="async" width="1280" height="960"></header><div class="article-layout"><article id="article" class="article-content prose"><h1 id="前言">前言</h1>
+<p>流光易逝，2024 留下了它哪充实的一笔～</p>
+
+<h1 id="关于网站">关于网站</h1>
+<p>今年相较于繁忙的 2023 来说，还是有更新那么几篇文章的，统计还是拿 Microsoft Clarity 来说，毕竟 Cloudflare Web Analytics 不能看一整年的数据（</p>
+<h2 id="博客">博客</h2>
+<p>博客的搜索统计：</p>
+<p><img src="https://cdn.isteed.cc/img/2024-summary/blog-search.webp" alt="blog-search" class="is-image-loading" loading="lazy" decoding="async" width="1857" height="759" /></p>
+<p>博客的访问统计：</p>
+<p><img src="https://cdn.isteed.cc/img/2024-summary/blog-analytics.webp" alt="blog-analytics" class="is-image-loading" loading="lazy" decoding="async" width="1907" height="1343" /></p>
+<p>这次博客的主要几大流量头子总算有了新写的文章了，其它的还是归于以前写的两篇 Rime 相关使用指南～</p>
+<ul>
+<li><a href="https://blog.isteed.cc/post/xiaomi-13-root-guide/">玩机的必备操作 —— 小米 13 解锁并获得 root 权限</a>
+<ul>
+<li>看来小米更新它哪不断加难的解锁政策还是折腾了挺多人的，小米忘记了它的「为发烧而生」的口号，慢慢的变的闭锁，加之现在厂商总喜欢往系统里面加料，喜欢揭示出来的恰恰是这批喜欢折腾的发烧友…</li>
+</ul>
+</li>
+<li><a href="https://blog.isteed.cc/post/rime-2022/">我的 Rime 配置</a>
+<ul>
+<li>依旧是好用的输入法几件套～比较趋于稳定了，我的方案一般没有太大的变化，我现在觉得还是哪点，词库不够好不够全面，但多用用还是能够慢慢的养成自己的词库，目前我在除了 iOS 端外，都在使用这个系列的输入法，自己熟悉折腾起来还是很安逸的～</li>
+</ul>
+</li>
+<li><a href="https://blog.isteed.cc/post/squirrel-customization-2022/">鼠须管配置使用</a>
+<ul>
+<li>同上～</li>
+</ul>
+</li>
+</ul>
+<h2 id="网盘">网盘</h2>
+<p>网盘的访问统计：</p>
+
+<table>
+<thead>
+<tr>
+<th style="text-align:center">Google Analytics</th>
+<th style="text-align:center">Microsoft Clarity</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><img src="https://cdn.isteed.cc/img/2024-summary/drive-google.webp" alt="drive-analytics" class="is-image-loading" loading="lazy" decoding="async" width="1265" height="815" /></td>
+<td style="text-align:center"><img src="https://cdn.isteed.cc/img/2024-summary/drive-clarity.webp" alt="drive-analytics" class="is-image-loading" loading="lazy" decoding="async" width="1907" height="1343" /></td>
+</tr>
+</tbody>
+</table>
+<p>今年的网盘嘛，更多的还是放着各种方便共享使用的软件之类的，东西还是比较杂的，部分资源的更新就很随缘，一般都是想起了就更新下，不然白白浪费了能跑千兆以上的上传带宽（没想到瓶颈竟是千兆网线 🤣（虽然更多的是我没咋用这些软件了……</p>
+<h2 id="其它">其它</h2>
+<p>cors.isteed.cc 嘛，反正 Cloudflare Workers 免费额度不超够用就是了，自己用起来分享也挺方便的，毕竟有些 GitHub 上的资源给同学访问起来太困难了，所以就有了这个小玩意～</p>
+<p>还有就是维护了我所在的实验室的几个网站，这里就不细说了，毕竟拿着 Cloudflare Tunnel 穿透上去，用的一台在学校不关机的机子，用着各种抽象的方法搭些服务，只要能用就是胜利！</p>
+<p>香港的服务器拿去用 ServerStatus-Rust 搭了个<a href="https://status.isteed.cc/">探针</a>玩，来监控动不动就爆炸的学校网络 😅</p>
+<h1 id="2024年的收获">2024 年的收获？</h1>
+<p>买买买！</p>
+<h2 id="硬件">硬件</h2>
+<h3 id="手机">手机</h3>
+<ul>
+<li>小米 13
+<ul>
+<li>天猫第三方店购入，当时三月份 2758 ，买的 12+256 版本，没想到六一八背刺 2700 直接能上 12+512……</li>
+<li>近些年第一台买的全新机子，好久没当过爱撕机膜人了</li>
+</ul>
+</li>
+</ul>
+<p>似乎贯彻了十三香原则，双持机子，一台 iPhone 13 一台小米 13 😋</p>
+<h3 id="电脑">电脑</h3>
+<p>在专业的要求下，我把原来的哪台<a href="https://blog.isteed.cc/post/mechrevo-s-mini-experience/">迷你主机</a>给卖掉了，自己重新配了台 ITX，终于能愉快的 <s>打游戏</s> 跑实验代码了～</p>
+<p>配置单如下，在双十一用尽神力叠出来的 😋</p>
+<ul>
+<li>机箱 闪鳞 G200 279 （实付 170.27-20 保价=150.27</li>
+<li>主板 铭瑄 B760 ITX D4 V2 Wi-Fi 781.93 （实付 736.64</li>
+<li>散热 利民 AK120 SE 白色 99 （实付 56.27</li>
+<li>显卡 万丽 4070 Super 雪狐 4469 （实付 4169</li>
+<li>CPU 12600KF 1016 （实付 913.41</li>
+<li>内存 光威 DDR 4 3600 海力士 CJR 337.21 （实付 225.87-19.9 保价-19.9 保价=186.07</li>
+<li>电源 玄武 850 SE 249 （实付 228（太吵了，退了</li>
+<li>电源 TT GF1 850W 466.3（实付 455.73</li>
+<li>风扇 玄冥 普 FDB 版 18.9 （实付 18.9</li>
+<li>利民固态硬盘散热片 19.8（实付 4.36-1 保价=3.36</li>
+</ul>
+<p>（P.S. 虽然 50 系快发售了，但我仍然觉得老黄应该会保值老卡……吧（希望背刺不严重 🙏</p>
+<p>同步更新的还有显示器，终于换上了能够带支持 KVM 的 USB Hub 屏惹～</p>
+<ul>
+<li>泰坦军团 P2710V MAX</li>
+</ul>
+<p>其它外设</p>
+<ul>
+<li>VXE MAD R MAJOR+ 长续航版鼠标（从同学哪儿收的 😋</li>
+<li>飞智黑武士 4 Pro 手柄（拿从奇奇怪怪的地方攒的京东 e 卡奖励奖励自己</li>
+<li>Windows Hello 电脑指纹识别器（有指纹不用输密码就是爽！</li>
+</ul>
+<h3 id="其它-1">其它</h3>
+<ul>
+<li>华为 FreeBuds 4e 无线耳机（虽然我不喜欢某为，但奈何这个是小比赛得的奖 🤣（这个耳机续航不太行，降噪在半入耳中算不错，依旧凑合</li>
+<li>水月雨 LAN 兰 入耳式耳机</li>
+<li>水月雨 FreeDSP 升级解码线（给 兰，顺便能让电脑上能直接插 TypeC 用</li>
+<li>水月雨 知更鸟联名无线耳机（在一众联名产品甚至普通产品里居然算有性价比的超值耳机，别问为啥水家，一联名，二调音听惯了 😋（但倒霉如我连续两次售后换新，小厂品控仍需加强</li>
+<li>联想 ThinkPlus 30W GaN 充电头（小巧易携，主要是便宜，十一块钱要啥自行车</li>
+<li>维简 CC1 电压电流检测表*2（一个送老爸，一个自己用 😋</li>
+<li>酷态科 6A 磁吸编织数据线*2（别说，磁吸的确实好收拾</li>
+<li>酷态科 10 号 120W GaN 充电头（多设备充电不会让两台手机响充电提示音 N 次惹</li>
+<li>ESTKme-ECO Lite</li>
+</ul>
+<h2 id="软件">软件</h2>
+<p>iOS：</p>
+<ul>
+<li>仓输入法·Pro
+<ul>
+<li>是 Rime 的 iOS 新的实现，现阶段（好像现在已经趋于完善了？之后用起来试试，上次用还没进 Beta 阶段）仍需打磨，买个 Pro 支持下开发者</li>
+</ul>
+</li>
+</ul>
+<p>Android：</p>
+<ul>
+<li>Yamby Pro
+<ul>
+<li>Android 下的一个第三方 Emby 客户端，很好用，但不知道为啥 Google Play 封禁了开发者……</li>
+</ul>
+</li>
+<li>Poweramp Feature Pack #1
+<ul>
+<li>虽然这个插件对我来说没啥用，但正好消耗消耗 Google Play 积分，顺便再次支持下</li>
+</ul>
+</li>
+</ul>
+<p>订阅：</p>
+<ul>
+<li>GitHub Student Pack
+<ul>
+<li>终于……在我 <code>You've already submitted 69 requests</code> 之后，终于成功认证了（我真是带学生啊），太不容易了 😢</li>
+</ul>
+</li>
+<li>阿里云 2C2G3M40G 服务器一年</li>
+<li>阿里云 2C1G30M40G 服务器一年</li>
+<li>哔哩哔哩 年度大会员</li>
+</ul>
+<p>顺带，换了有独显的新电脑，又买了点游戏耍了耍～</p>
+<h1 id="关于我">关于我</h1>
+<p>不知为何，最近的分享欲下滑严重，不知是进入大三后的忙碌还是什么原因，希望以此次年度总结重拾当初那份分享欲，虽然不一定会写成博客，但至少会分享在 <a href="https://t.me/lufsxdaily">Telegram 频道</a>里～</p>
+<hr />
+<p>由于成功申请到了 Github Student Pack，理所当然的开始爽起了 Copilot，作为 AI 专业的学生，用 Copilot 写 AI 不也是理所当然 👻</p>
+<p>现在当个小助教，基于 Gitea 给专业课手搓个测评系统用用，左绕右建的，成功让全班人都接触并简单使用了 Git，我就是哪个好人 😋</p>
+<hr />
+<p>关于今年的新番，有一个久久不能忘怀的《吹响吧！上低音号 第三季》，该死的花田给我贡献了一个压根睡不着的夜晚，魔改的原作结局，崩坏的人设，天降的喧宾夺主之工具人，加之刚从打击中恢复的京阿尼，无疑的大大拉低了前两季铺垫的观感，以及彻底击碎了一路看过来的观众的心，以至于那段时间对同属花田的《GIRLS BAND CRY》都抱有心理阴影，好在在 GBC 时并没有发病 😅</p>
+<p>好在不就后的《败犬女主太多了！》抚慰了被伤透了的心，正确应用了「电影感」的镜头处理（点名阿龙），加之又一次厨力满满的 A1 全力发挥，共同献上了这一视听盛宴 😋</p>
+<p>其余还有不错的有小故事有趣穿插连贯的乐子番《怪人的沙拉碗》，看电波对不对的上的《末日列车去哪里？》，原作烂尾烂完但动画依旧不错的《【我推的孩子】 第二季》，有趣并不乏小神回的《深夜重拳》，制作顶尖但剧情有毛病但仍然值得冲着制作一看的《擅长逃跑的殿下》</p>
+<p>不推荐看的有前期不错后期叙事莫名奇妙的《夜晚的水母不会游泳》，说是搞笑番但是是建立在重复无聊慢动作并且某些方面都更像在霸凌女主的《鹿乃子乃子乃子虎视眈眈》（没想到这玩意最有意思的就是它的 OP 了……）</p>
+<hr />
+<p>游戏方面其实也没玩啥了</p>
+<p>《原神》方面嘛确实退下了，权当电子手办时不时看看</p>
+<p>《崩坏·星穹铁道》则感觉更像番剧类转变，可以看作一个带入体验的主线，有一说一还得是烧鸡老师，刀糖并发，日常也轻松没啥压力</p>
+<p>《绝区零》虽说也才开服没多久，但也沦为了电子手办，偶尔上去玩一玩体验体验战斗爽</p>
+<p>由于换了电脑，《鸣潮》、《无限暖暖》也简单体验了下，但也差不多只是登录游戏的级别</p>
+<p>论真正玩的多的，还得是《Counter-Strike 2》，毕竟游戏的最高配置就是有朋友一起玩 😋（当然，《战地风云 ™ 2042》捞不动薯条抑或是不太适应这作，《三角洲行动》高压+刷分干烂游戏体验，《战地风云 5》依旧是能够稳定耍耍的游戏，不过排队进社区服+部分服规则不能打狙保护体验还是挺麻的</p>
+<p>大作方面，仅仅是稍微打了下《黑神话：悟空》，画质真心不错，后续有时间再仔细玩玩，《极限竞速：地平线 4》则是自己蹭着最后一波下架，赶紧入了个终极版，配合上自己新换的手柄，爽开 😆</p>
+<hr />
+<p>今年到现在看了挺多年度总结的，各种银行的，哔哩哔哩的，网易云音乐的</p>
+<p>各个银行的比较大的变化就是现在为了薅各银行的毛，左手倒右手流水刷的挺多，没啥参考价值</p>
+<p>哔哩哔哩的则 366 天打卡 353 天，饭点必备下饭视频，对我而言哔哩哔哩更像一个类似「RSS」的订阅器，我基本只看我关注的 UP 主的视频，推荐倒是基本不刷 🤣</p>
+<p>网易云音乐的年度歌单则感觉莫名其妙，年度歌单里硬是没有一首我红心的歌曲，不知道是怎么个算法生成出来的，有点莫名其妙 😅</p>
+<hr />
+<p>办卡方面，今年也是开户爽的一年</p>
+<p>新增了 Club SIM 的 eSIM 作为绑定 WeChat 的手机号，目前观察而言，+852 的微信风控和大陆的基本一致，而且数据中心也还是在深圳，基本是最好的选择，由此获得了通行密钥、朋友圈无广告以及 iOS 上的 CallKit 功能（注：无 Shadow Ban 的体验只有完全重新注册的才没有）</p>
+<p>其它的有：</p>
+<ul>
+<li>HSBC HK 账户</li>
+<li>ZA BANK 账户</li>
+<li>BOC HK 账户<br />
+……</li>
+<li>工行双龙戏珠借记卡</li>
+<li>农行只此青绿卡</li>
+<li>招行春日萌气卡</li>
+<li>交行新市民卡</li>
+<li>兴业和花借记卡</li>
+<li>中信运通金卡</li>
+<li>中信万事达白金卡</li>
+<li>中信托帕联名卡</li>
+</ul>
+<p>一时开户一时爽，一直开户一直爽！每个银行施舍点，每天都能改善伙食 😆</p>
+<p>再次展示军火：<br />
+<img src="https://cdn.isteed.cc/img/2024-summary/card.webp" alt="card" class="is-image-loading" loading="lazy" decoding="async" width="1156" height="1280" /></p>
+<h1 id="FFFForetimeFutureFlag">FFF（Foretime/Future/Flag）</h1>
+<ul class="contains-task-list">
+<li class="task-list-item"><input type="checkbox" disabled /> 不挂科</li>
+<li class="task-list-item"><input type="checkbox" disabled checked /> 干出自己的一份简历</li>
+<li class="task-list-item"><input type="checkbox" disabled checked /> 找到实习</li>
+<li class="task-list-item"><input type="checkbox" disabled /> 完整通关一部游戏（2023 续）</li>
+<li class="task-list-item"><input type="checkbox" disabled /> 给博客焕新一下主题（2023 续）</li>
+<li class="task-list-item"><input type="checkbox" disabled /> 把这篇年度总结里挖的坑填上（2023 的才完成了一半，今年继续完成）</li>
+<li class="task-list-item"><input type="checkbox" disabled /> 顺利、开心、安全的度过 2025</li>
+</ul>
+</article><aside class="reading-toc" aria-label="文章导航" tabindex="-1"><h2 class="reading-toc__title">文章目录</h2><nav data-fluid-hover="y" aria-label="文章章节"><a data-fluid-hover-item class="reading-toc__link" href="#前言" style="--heading-indent:0px" data-heading="前言">前言</a><a data-fluid-hover-item class="reading-toc__link" href="#关于网站" style="--heading-indent:0px" data-heading="关于网站">关于网站</a><a data-fluid-hover-item class="reading-toc__link" href="#博客" style="--heading-indent:0px" data-heading="博客">博客</a><a data-fluid-hover-item class="reading-toc__link" href="#网盘" style="--heading-indent:0px" data-heading="网盘">网盘</a><a data-fluid-hover-item class="reading-toc__link" href="#其它" style="--heading-indent:0px" data-heading="其它">其它</a><a data-fluid-hover-item class="reading-toc__link" href="#2024年的收获" style="--heading-indent:0px" data-heading="2024年的收获">2024 年的收获？</a><a data-fluid-hover-item class="reading-toc__link" href="#硬件" style="--heading-indent:0px" data-heading="硬件">硬件</a><a data-fluid-hover-item class="reading-toc__link" href="#手机" style="--heading-indent:12px" data-heading="手机">手机</a><a data-fluid-hover-item class="reading-toc__link" href="#电脑" style="--heading-indent:12px" data-heading="电脑">电脑</a><a data-fluid-hover-item class="reading-toc__link" href="#其它-1" style="--heading-indent:12px" data-heading="其它-1">其它</a><a data-fluid-hover-item class="reading-toc__link" href="#软件" style="--heading-indent:0px" data-heading="软件">软件</a><a data-fluid-hover-item class="reading-toc__link" href="#关于我" style="--heading-indent:0px" data-heading="关于我">关于我</a><a data-fluid-hover-item class="reading-toc__link" href="#FFFForetimeFutureFlag" style="--heading-indent:0px" data-heading="FFFForetimeFutureFlag">FFF（Foretime/Future/Flag）</a></nav><section class="category-sidebar" aria-label="分类"><h2 class="category-sidebar__title"><a href="/categories/">分类</a></h2><nav data-fluid-hover="y" aria-label="文章分类"><a data-fluid-hover-item href="/categories/%E5%88%86%E4%BA%AB/"><span>分享</span><span class="category-sidebar__count">33</span></a><a data-fluid-hover-item href="/categories/%E6%97%A5%E5%B8%B8/"><span>日常</span><span class="category-sidebar__count">15</span></a><a data-fluid-hover-item href="/categories/%E6%80%BB%E7%BB%93/"><span>总结</span><span class="category-sidebar__count">6</span></a><a data-fluid-hover-item href="/categories/%E7%AC%94%E8%AE%B0/"><span>笔记</span><span class="category-sidebar__count">3</span></a><a data-fluid-hover-item href="/categories/%E5%BC%80%E7%AE%B1/"><span>开箱</span><span class="category-sidebar__count">2</span></a><a data-fluid-hover-item href="/categories/%E6%80%9D%E8%80%83/"><span>思考</span><span class="category-sidebar__count">1</span></a><a data-fluid-hover-item href="/categories/%E5%AD%A6%E4%B9%A0/"><span>学习</span><span class="category-sidebar__count">1</span></a><a data-fluid-hover-item href="/categories/%E8%B5%84%E6%BA%90/"><span>资源</span><span class="category-sidebar__count">1</span></a></nav></section></aside><script type="module">var e;function t(){e?.(),e=void 0;let t=document.querySelector(`#article`),n=document.querySelector(`.reading-toc-progress__fill`);if(!t||!n)return;let r=new AbortController,{signal:i}=r,a=matchMedia(`(max-width: 900px)`),o=document.querySelector(`.reading-toc`),s=document.querySelector(`#mobile-toc-dialog`),c=document.querySelector(`.mobile-toc__trigger`),l=s?.querySelector(`.mobile-toc__close`),u=Array.from(document.querySelectorAll(`.reading-toc__link`)),d=new Set(u.map(e=>e.dataset.heading)),f=Array.from(t.querySelectorAll(`[id]`)).filter(e=>d.has(e.id)),p=0,m=``,h=null,g,_,v;function y(e=!0){if(!g)return;_=void 0,s?.removeAttribute(`data-closing`),g(),g=void 0,c?.setAttribute(`aria-expanded`,`false`),e&&(a.matches?h?.isConnected?h:c:o)?.focus({preventScroll:!0}),h=null;let t=v;v=void 0,t?.()}function b(){s?.open&&!_&&(s.setAttribute(`data-closing`,`true`),_=setTimeout(()=>{s.open?s.close():y()},matchMedia(`(prefers-reduced-motion: reduce)`).matches?0:240))}c?.addEventListener(`click`,()=>{if(!s||s.open||!a.matches)return;h=document.activeElement instanceof HTMLElement?document.activeElement:c,s.showModal(),s.removeAttribute(`data-closing`);let e=[document.documentElement,document.body].map(e=>({el:e,value:e.style.getPropertyValue(`overflow`),priority:e.style.getPropertyPriority(`overflow`)}));e.forEach(({el:e})=>e.style.setProperty(`overflow`,`hidden`)),g=()=>e.forEach(({el:e,value:t,priority:n})=>{t?e.style.setProperty(`overflow`,t,n):e.style.removeProperty(`overflow`)}),c.setAttribute(`aria-expanded`,`true`),s.querySelectorAll(`[data-fluid-hover]`).forEach(e=>{e.dispatchEvent(new CustomEvent(`fluid:remeasure`,{detail:{instant:!0}}))})},{signal:i}),l?.addEventListener(`click`,b,{signal:i}),s?.addEventListener(`cancel`,e=>{e.preventDefault(),b()},{signal:i}),s?.addEventListener(`close`,()=>{s.open||y()},{signal:i}),s?.addEventListener(`click`,e=>{if(e.target===s&&e instanceof MouseEvent){let t=s.getBoundingClientRect();(e.clientY<t.top||e.clientY>t.bottom||e.clientX<t.left||e.clientX>t.right)&&b()}},{signal:i}),u.forEach(e=>e.addEventListener(`click`,t=>{let n=e.dataset.heading,r=n?document.getElementById(n):null;if(!r||t.metaKey||t.ctrlKey||t.shiftKey||t.altKey)return;t.preventDefault();let a=matchMedia(`(prefers-reduced-motion: reduce)`).matches?`auto`:`smooth`,o=()=>requestAnimationFrame(()=>{if(i.aborted)return;let e=document.querySelector(`.site-header`)?.getBoundingClientRect().bottom??0,t=Math.max(0,r.getBoundingClientRect().top+scrollY-e-16);scrollTo({top:t,behavior:a}),history.replaceState(history.state,``,`#${encodeURIComponent(n)}`)});s?.open?(v=o,b()):o()},{signal:i})),a.addEventListener(`change`,()=>{!a.matches&&s?.open&&b()},{signal:i});function x(){if(p=0,!t||!n)return;let e=t.getBoundingClientRect(),r=innerHeight,i=Math.min(1,Math.max(0,-e.top/Math.max(1,e.height-r))),a=document.querySelector(`.site-header`)?.getBoundingClientRect().bottom??0,o=new Set;f.forEach((e,n)=>{let i=e.getBoundingClientRect().top;(f[n+1]?.getBoundingClientRect().top??t.getBoundingClientRect().bottom)>=a&&i<=r&&o.add(e.id)}),n.style.transform=`scaleX(${i})`;let s=[...o].join(`|`);s!==m&&(u.forEach(e=>e.toggleAttribute(`aria-current`,o.has(e.dataset.heading??``))),u.forEach(e=>{o.has(e.dataset.heading??``)&&e.setAttribute(`aria-current`,`location`)}),m=s)}function S(){p||=requestAnimationFrame(x)}addEventListener(`scroll`,S,{passive:!0,signal:i}),addEventListener(`resize`,S,{signal:i});let C=new ResizeObserver(S);C.observe(t),e=()=>{r.abort(),v=void 0,_&&clearTimeout(_),_=void 0,C.disconnect(),cancelAnimationFrame(p),s?.close(),y(!1)},S()}document.addEventListener(`astro:page-load`,t),document.addEventListener(`astro:before-swap`,()=>{e?.(),e=void 0}),addEventListener(`pagehide`,()=>{e?.(),e=void 0}),addEventListener(`pageshow`,e=>{e.persisted&&t()});</script></div><div class="article-bottom"><section class="article-license" aria-label="文章版权"><div class="p-5 sm:p-6"><h2 class="text-lg font-semibold">2024 年度总结</h2><a class="mt-3 block break-all text-sm text-(--muted) underline" href="/post/2024-summary/">https://blog.isteed.cc/post/2024-summary/</a><dl class="mt-5 grid grid-cols-1 gap-4 border-t border-(--line) pt-5 sm:grid-cols-3"><div><dt class="text-sm text-(--muted)">本文作者</dt><dd class="mt-1">Lufs</dd></div><div><dt class="text-sm text-(--muted)">发布于</dt><dd class="mt-1"><time datetime="2024-12-31">2024-12-31</time></dd></div><div><dt class="text-sm text-(--muted)">许可协议</dt><dd class="mt-1"><a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" rel="license">CC BY-NC-SA 4.0</a></dd></div></dl><p class="mt-5 text-sm text-(--muted)">转载或引用本文时请遵守许可协议，注明出处。不得用于商业用途。</p></div><p class="license-warning">本文最后更新于 2025-04-17，文中所述信息可能已经发生变化。</p></section><nav class="article-adjacent" aria-label="相邻文章"><a class="glass-control article-adjacent__link" href="/post/upgrade-ios-without-backup/">← 上一篇<span>在 macOS 上跳过备份直接升级 iOS 设备</span></a><a class="glass-control article-adjacent__link" href="/post/cloudflare-trace-info/">下一篇 →<span>在网页展示上 Cloudflare 网关跟踪信息 —— Cloudflare-Trace-Info-on-Web</span></a></nav><section data-article-comments data-config="{&quot;shortname&quot;:&quot;lufss-blog&quot;,&quot;siteName&quot;:&quot;Lufs's Blog&quot;,&quot;api&quot;:&quot;https://api.isteed.cc/disqus/&quot;,&quot;apikey&quot;:&quot;f8sCuFyS82pto94gZ0V4xtPbYZlLej6xVCTPNyZ0CXlfZz25L8lqsnsxYVCPDhzc&quot;,&quot;admin&quot;:&quot;Lufs_x&quot;,&quot;title&quot;:&quot;2024 年度总结&quot;,&quot;url&quot;:&quot;https://blog.isteed.cc/post/2024-summary/&quot;,&quot;identifier&quot;:&quot;https://blog.isteed.cc/post/2024-summary/&quot;}" aria-label="文章评论" class="my-10 border-t border-(--line) pt-6 text-(--ink)" data-astro-cid-nuen6n26><h2 class="mb-3 text-xl font-semibold" data-astro-cid-nuen6n26>评论</h2><p data-comment-status role="status" class="my-3 text-sm text-(--muted)" data-astro-cid-nuen6n26></p><div data-comment-host data-astro-cid-nuen6n26></div><noscript>启用 JavaScript 后可按需加载评论。</noscript></section><script type="module" src="/_astro/Comments.astro_astro_type_script_index_0_lang.DQKZMu_I.js"></script></div><script type="module" src="/_astro/ArticleEnhancements.astro_astro_type_script_index_0_lang.CXNnUNbh.js"></script></main><button class="mobile-toc__trigger" type="button" aria-label="打开文章目录" aria-haspopup="dialog" aria-controls="mobile-toc-dialog" aria-expanded="false"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true" focusable="false"><path d="M9 6h12M9 12h12M9 18h12M3 6h1M3 12h1M3 18h1" stroke-linecap="round"></path></svg></button><dialog class="mobile-toc" id="mobile-toc-dialog" aria-labelledby="mobile-toc-title"><header class="mobile-toc__header"><h2 id="mobile-toc-title">文章目录</h2><button class="mobile-toc__close" type="button" aria-label="关闭文章目录" autofocus><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true" focusable="false"><path d="m6 6 12 12M18 6 6 18" stroke-linecap="round"></path></svg></button></header><div class="mobile-toc__body"><nav data-fluid-hover="y" aria-label="文章章节"><a data-fluid-hover-item class="reading-toc__link" href="#前言" style="--heading-indent:0px" data-heading="前言">前言</a><a data-fluid-hover-item class="reading-toc__link" href="#关于网站" style="--heading-indent:0px" data-heading="关于网站">关于网站</a><a data-fluid-hover-item class="reading-toc__link" href="#博客" style="--heading-indent:0px" data-heading="博客">博客</a><a data-fluid-hover-item class="reading-toc__link" href="#网盘" style="--heading-indent:0px" data-heading="网盘">网盘</a><a data-fluid-hover-item class="reading-toc__link" href="#其它" style="--heading-indent:0px" data-heading="其它">其它</a><a data-fluid-hover-item class="reading-toc__link" href="#2024年的收获" style="--heading-indent:0px" data-heading="2024年的收获">2024 年的收获？</a><a data-fluid-hover-item class="reading-toc__link" href="#硬件" style="--heading-indent:0px" data-heading="硬件">硬件</a><a data-fluid-hover-item class="reading-toc__link" href="#手机" style="--heading-indent:12px" data-heading="手机">手机</a><a data-fluid-hover-item class="reading-toc__link" href="#电脑" style="--heading-indent:12px" data-heading="电脑">电脑</a><a data-fluid-hover-item class="reading-toc__link" href="#其它-1" style="--heading-indent:12px" data-heading="其它-1">其它</a><a data-fluid-hover-item class="reading-toc__link" href="#软件" style="--heading-indent:0px" data-heading="软件">软件</a><a data-fluid-hover-item class="reading-toc__link" href="#关于我" style="--heading-indent:0px" data-heading="关于我">关于我</a><a data-fluid-hover-item class="reading-toc__link" href="#FFFForetimeFutureFlag" style="--heading-indent:0px" data-heading="FFFForetimeFutureFlag">FFF（Foretime/Future/Flag）</a></nav><section class="category-sidebar" aria-label="分类"><h2 class="category-sidebar__title"><a href="/categories/">分类</a></h2><nav data-fluid-hover="y" aria-label="文章分类"><a data-fluid-hover-item href="/categories/%E5%88%86%E4%BA%AB/"><span>分享</span><span class="category-sidebar__count">33</span></a><a data-fluid-hover-item href="/categories/%E6%97%A5%E5%B8%B8/"><span>日常</span><span class="category-sidebar__count">15</span></a><a data-fluid-hover-item href="/categories/%E6%80%BB%E7%BB%93/"><span>总结</span><span class="category-sidebar__count">6</span></a><a data-fluid-hover-item href="/categories/%E7%AC%94%E8%AE%B0/"><span>笔记</span><span class="category-sidebar__count">3</span></a><a data-fluid-hover-item href="/categories/%E5%BC%80%E7%AE%B1/"><span>开箱</span><span class="category-sidebar__count">2</span></a><a data-fluid-hover-item href="/categories/%E6%80%9D%E8%80%83/"><span>思考</span><span class="category-sidebar__count">1</span></a><a data-fluid-hover-item href="/categories/%E5%AD%A6%E4%B9%A0/"><span>学习</span><span class="category-sidebar__count">1</span></a><a data-fluid-hover-item href="/categories/%E8%B5%84%E6%BA%90/"><span>资源</span><span class="category-sidebar__count">1</span></a></nav></section></div></dialog><div class="reading-toc-progress" aria-hidden="true"><div class="reading-toc-progress__fill"></div></div><dialog data-search="true" data-inline="false" aria-label="搜索文章" data-astro-cid-ac66eqjo="true" class="search-scope search-dialog rounded-2xl border border-(--line) p-0"><div class="search-panel p-5 sm:p-8" data-astro-cid-ac66eqjo><div class="mb-5 flex items-center justify-between gap-4" data-astro-cid-ac66eqjo><h2 class="text-xl font-semibold" data-astro-cid-ac66eqjo>搜索文章</h2><button type="button" data-close class="rounded-lg border border-(--line) px-3 py-1.5" aria-label="关闭搜索" data-astro-cid-ac66eqjo>关闭 · Esc</button></div><form role="search" class="flex gap-2" data-astro-cid-ac66eqjo><label class="min-w-0 flex-1" data-astro-cid-ac66eqjo><span class="sr-only" data-astro-cid-ac66eqjo>搜索关键词</span><input data-query type="search" name="q" autocomplete="off" placeholder="输入标题或正文关键词…" class="w-full rounded-xl border border-(--line) bg-transparent px-4 py-3" data-astro-cid-ac66eqjo></label><button type="submit" class="rounded-xl border border-(--line) px-4" data-astro-cid-ac66eqjo>搜索</button></form><p data-status role="status" aria-live="polite" class="my-4 text-sm opacity-70" data-astro-cid-ac66eqjo>输入关键词，搜索博客中的文字。</p><button data-retry type="button" hidden class="mb-4 rounded-lg border border-(--line) px-4 py-2" data-astro-cid-ac66eqjo>重新加载</button><ul data-results class="search-results divide-y divide-(--line)" aria-label="搜索结果" tabindex="0" data-astro-cid-ac66eqjo></ul><noscript><p data-astro-cid-ac66eqjo>搜索需要启用 JavaScript，也可以<a href="/archives/" data-astro-cid-ac66eqjo>浏览文章归档</a>。</p></noscript></div></dialog><script type="module">var e;function t(t){return e??=fetch(`/search.json`).then(async e=>{if(!e.ok)throw Error(`HTTP error`);let n=await e.json();if(!Array.isArray(n))throw Error(`Invalid index`);return n.filter(e=>{if(!e||typeof e.title!=`string`||typeof e.url!=`string`||typeof e.excerpt!=`string`||typeof e.text!=`string`)return!1;try{let n=new URL(e.url,t);return n.origin===t&&[`http:`,`https:`].includes(n.protocol)}catch{return!1}}).map(e=>({...e,searchableText:`${e.title} ${e.excerpt} ${e.text}`.toLocaleLowerCase()}))}).catch(t=>{throw e=void 0,t}),e}var n=[];function r(){n.forEach(e=>e()),n=[]}function i(){r(),document.querySelectorAll(`[data-search]`).forEach(e=>{let r=new AbortController,{signal:i}=r,a=e instanceof HTMLDialogElement?e:null,o=e.querySelector(`[data-query]`),s=e.querySelector(`[data-status]`),c=e.querySelector(`[data-results]`),l=e.querySelector(`[data-retry]`),u,d=!1,f=!1,p=null,m;function h(e=!0){m?.(),m=void 0,e&&p?.isConnected&&p.focus({preventScroll:!0}),p=null}function g(){a?.close(),h()}function _(){c.replaceChildren();let e=o.value.trim();if(d){s.textContent=`正在加载搜索索引…`;return}if(f){s.textContent=`搜索索引加载失败，请检查网络后重试。`;return}if(!e){s.textContent=`输入关键词，搜索标题与正文。`;return}if(!u)return;let t=e.toLocaleLowerCase().split(/\s+/),n=u.filter(e=>t.every(t=>e.searchableText.includes(t)));s.textContent=n.length?`“${e}”找到 ${n.length} 篇文章。`:`没有找到“${e}”，试试更短或不同的关键词。`;let r=document.createDocumentFragment();for(let e of n){let t=document.createElement(`li`);t.className=`py-5`;let n=document.createElement(`a`);n.href=e.url,n.className=`text-lg font-semibold underline-offset-4 hover:underline`,n.textContent=e.title;let i=document.createElement(`p`);i.className=`mt-2 text-sm leading-7 opacity-70`,i.textContent=e.excerpt||e.text.slice(0,160),t.append(n,i),r.append(t)}c.append(r)}async function v(){if(d||u)_();else{d=!0,f=!1,l.hidden=!0,e.setAttribute(`aria-busy`,`true`),_();try{let e=await t(location.origin);if(i.aborted)return;u=e}catch{if(i.aborted)return;f=!0,l.hidden=!1}finally{i.aborted||(d=!1,e.removeAttribute(`aria-busy`),_())}}}function y(){if(!a||a.open)return;p=document.activeElement instanceof HTMLElement?document.activeElement:null,a.showModal();let e=[document.documentElement,document.body].map(e=>({el:e,value:e.style.getPropertyValue(`overflow`),priority:e.style.getPropertyPriority(`overflow`)}));e.forEach(({el:e})=>e.style.setProperty(`overflow`,`hidden`)),m=()=>e.forEach(({el:e,value:t,priority:n})=>t?e.style.setProperty(`overflow`,t,n):e.style.removeProperty(`overflow`)),o.focus(),v()}o.addEventListener(`input`,()=>{!u&&!f?v():_()},{signal:i}),e.querySelector(`form`).addEventListener(`submit`,e=>{e.preventDefault(),v()},{signal:i}),l.addEventListener(`click`,()=>void v(),{signal:i}),e.querySelector(`[data-close]`)?.addEventListener(`click`,g,{signal:i}),a?(document.addEventListener(`keydown`,e=>{(e.ctrlKey||e.metaKey)&&e.key.toLowerCase()===`k`&&!e.repeat&&(e.preventDefault(),y())},{signal:i}),a.addEventListener(`cancel`,e=>{e.preventDefault(),g()},{signal:i}),a.addEventListener(`close`,()=>{a.open||h()},{signal:i}),a.addEventListener(`click`,e=>{if(e.target!==a)return;let t=a.getBoundingClientRect();(e.clientX<t.left||e.clientX>t.right||e.clientY<t.top||e.clientY>t.bottom)&&g()},{signal:i})):(o.value=new URLSearchParams(location.search).get(`q`)??``,v()),n.push(()=>{r.abort(),a?.close(),h(!1)})})}document.addEventListener(`astro:page-load`,i),document.readyState!==`loading`&&i(),document.addEventListener(`astro:before-swap`,r),window.addEventListener(`pagehide`,r),window.addEventListener(`pageshow`,e=>{e.persisted&&i()});</script><script type="module">var e;function t(){e?.();let t=new AbortController,{signal:n}=t,r=[];document.querySelectorAll(`[data-fluid-hover]`).forEach(e=>{let t=Array.from(e.querySelectorAll(`:scope > [data-fluid-hover-item]`));if(!t.length)return;let i=document.createElement(`span`);i.className=`fluid-hover-highlight`,i.setAttribute(`aria-hidden`,`true`),e.prepend(i),r.push(i);let a=null,o=null,s=null,c=!1,l=0,u=0,d=null,f=()=>t.find(e=>e.matches(`[aria-current="page"], [aria-current="location"], [aria-pressed="true"]`))??null,p=(t,r=!1)=>{if(a=t,!t){e.removeAttribute(`data-fluid-hover-active`);return}let{offsetLeft:o,offsetTop:s,offsetWidth:l,offsetHeight:d}=t;if(!l||!d)return;let f=r||!c;f&&(cancelAnimationFrame(u),i.style.transition=`none`),i.style.width=`${l}px`,i.style.height=`${d}px`,i.style.transform=`translate3d(${o}px, ${s}px, 0)`,e.setAttribute(`data-fluid-hover-active`,`true`),c=!0,f&&(i.offsetWidth,u=requestAnimationFrame(()=>{n.aborted||i.style.removeProperty(`transition`)}))},m=()=>p(o??s??f()),h=(e,n)=>t.map(e=>({item:e,rect:e.getBoundingClientRect()})).reduce((t,{item:r,rect:i})=>{let a=Math.max(i.left-e,0,e-i.right),o=Math.max(i.top-n,0,n-i.bottom),s=a*a+o*o;return!t||s<t.distance?{item:r,distance:s}:t},null)?.item??null,g=()=>{l||=requestAnimationFrame(()=>{l=0,d&&(o=h(d.x,d.y)),m()})},_=new MutationObserver(()=>{s=null,g()});_.observe(e,{subtree:!0,attributes:!0,attributeFilter:[`aria-current`,`aria-pressed`]});let v=new ResizeObserver(g);v.observe(e),t.forEach(e=>v.observe(e)),queueMicrotask(()=>{n.aborted||m()}),e.addEventListener(`pointermove`,e=>{e.pointerType!==`touch`&&(d={x:e.clientX,y:e.clientY},g())},{signal:n}),e.addEventListener(`pointerleave`,()=>{d=null,o=null,g()},{signal:n}),e.addEventListener(`focusin`,e=>{d=null,o=null,s=t.find(t=>t===e.target||t.contains(e.target))??null,m()},{signal:n}),e.addEventListener(`focusout`,e=>{s=t.find(t=>t===e.relatedTarget||t.contains(e.relatedTarget))??null,g()},{signal:n}),e.addEventListener(`fluid:remeasure`,e=>{let t=e instanceof CustomEvent&&e.detail?.instant===!0;p(t?f():o??s??a??f(),t)},{signal:n}),n.addEventListener(`abort`,()=>{cancelAnimationFrame(l),cancelAnimationFrame(u),_.disconnect(),v.disconnect()},{once:!0})}),e=()=>{t.abort(),r.forEach(e=>e.remove()),document.querySelectorAll(`[data-fluid-hover-active]`).forEach(e=>e.removeAttribute(`data-fluid-hover-active`))}}document.addEventListener(`astro:page-load`,t),document.addEventListener(`astro:before-swap`,()=>{e?.(),e=void 0}),addEventListener(`pagehide`,()=>{e?.(),e=void 0}),addEventListener(`pageshow`,e=>{e.persisted&&t()}),document.readyState!==`loading`&&t();</script><script type="module">var e;function t(){e?.(!0);let t=new AbortController,{signal:n}=t,r=[];document.querySelectorAll(`.prose img, .article-cover, .post-thumbnail img, .archive-thumbnail img`).forEach(e=>{if(!e.hasAttribute(`src`))return;let t=e.style.display,i=document.createElement(`span`);i.className=`image-load-fallback`,i.setAttribute(`role`,`status`),i.setAttribute(`aria-label`,e.alt?`图片加载失败：${e.alt}`:`图片加载失败`);let a=document.createElement(`span`);if(a.textContent=`图片暂时无法显示`,i.append(a),!e.closest(`a[href]`)){let r=document.createElement(`button`);r.type=`button`,r.textContent=`重试加载`,r.addEventListener(`click`,()=>{let n=e.src;e.removeAttribute(`src`),e.loading=`eager`,e.classList.add(`is-image-loading`),e.style.display=t,i.before(e),i.remove(),e.src=n},{signal:n}),i.append(r)}let o=()=>{if(n.aborted||!e.isConnected)return;e.classList.remove(`is-image-loading`);let a=e.matches(`.article-cover, .post-thumbnail img, .archive-thumbnail img`),o=e.getBoundingClientRect(),s=getComputedStyle(e),c=Number(e.getAttribute(`width`)),l=Number(e.getAttribute(`height`));i.style.display=s.display.includes(`inline`)?`inline-flex`:`flex`,i.style.width=a?`100%`:`${Math.max(o.width,160)}px`,i.style.aspectRatio=a?`16 / 9`:c>0&&l>0?`${c} / ${l}`:`16 / 9`,i.style.margin=s.margin,i.style.verticalAlign=s.verticalAlign,a&&(i.dataset.cover=``),e.replaceWith(i),e.style.display=`none`,i.append(e),r.push({image:e,fallback:i,display:t})};e.addEventListener(`load`,()=>e.classList.remove(`is-image-loading`),{signal:n}),e.addEventListener(`error`,o,{signal:n}),e.complete?e.naturalWidth===0?o():e.classList.remove(`is-image-loading`):e.classList.add(`is-image-loading`)}),e=(e=!1)=>{t.abort(),e&&r.forEach(({image:e,fallback:t,display:n})=>{t.isConnected&&(e.style.display=n,t.before(e),t.remove())})}}document.addEventListener(`astro:page-load`,t),document.readyState!==`loading`&&t(),document.addEventListener(`astro:before-swap`,()=>{e?.(),e=void 0}),addEventListener(`pagehide`,()=>{e?.(!0),e=void 0}),addEventListener(`pageshow`,e=>{e.persisted&&t()});</script><footer data-astro-transition-persist="site-footer" data-astro-transition-scope="astro-v4xhcqov-3" class="site-footer shell"><div><a class="footer-brand" href="/">Lufs&#39;s Blog</a><p>© 2018–2026 Lufs · <a href="/rss2.xml">RSS</a> · <a href="/atom.xml">Atom</a></p></div></footer><script type="module">`serviceWorker`in navigator&&navigator.serviceWorker.getRegistrations().then(e=>{for(let t of e)t.scope===new URL(`/`,location.origin).href&&t.active?.scriptURL===new URL(`/sw.js`,location.origin).href&&t.update().catch(()=>{})}).catch(()=>{});</script><script>(function(){const clarityId = "alejvn2b9x";
+
+      if (!window.clarity && navigator.doNotTrack !== '1') {
+        window.clarity = function () { (window.clarity.q = window.clarity.q || []).push(arguments); };
+        const script = document.createElement('script'); script.async = true;
+        script.src = 'https://www.clarity.ms/tag/' + clarityId; document.head.appendChild(script);
+      }
+    })();</script></body></html>
